@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  main-ftp:
+    build:
+      context: .
+      dockerfile: .
+    # image: krstphr/main_api:latest
+    ports:
+      - 5100:5100
+    container_name: main_ftp
+    # env_file:
+    #   - ./app/config/.env 
+    # uncomment below for development 
+    # with nodemon 
+
+    volumes:
+      - ./app:/usr/src/app:cached
