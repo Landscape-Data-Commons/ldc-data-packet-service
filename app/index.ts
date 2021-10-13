@@ -1,18 +1,15 @@
 import { FtpServerOptions, FtpSrv } from "ftp-srv";
+import express from 'express'
 
-const hostname = '0.0.0.0';
+import testRoute from './routes/testRoute'
+
+const app = express()
+
 const port = 5100
-const srvOpts:FtpServerOptions={
-  pasv_url:'ftp://' + hostname + ':' + port
-}
-const ftpServer = new FtpSrv(srvOpts);
 
-ftpServer.on('login', (data, resolve, reject) => {
-  console.log("hm")
-});
+app.use('/', testRoute)
 
 
-ftpServer.listen()
-.then(() => {
-  console.log(`running at http://${hostname}:${port}`)
-});
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
