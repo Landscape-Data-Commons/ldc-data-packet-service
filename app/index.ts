@@ -1,4 +1,5 @@
 import { FtpServerOptions, FtpSrv } from "ftp-srv";
+import { connect } from './db/database'
 import express from 'express'
 
 import testRoute from './routes/testRoute'
@@ -9,6 +10,7 @@ const port = 5100
 
 app.use('/', testRoute)
 
+connect()
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

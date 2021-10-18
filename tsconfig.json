@@ -4,5 +4,7 @@
     "target": "es6",
     "rootDir": "./",
     "esModuleInterop": true
-  }
+  },
+  "include": ["app/**/*.ts"],
+  "exclude": ["node_modules", ".vscode"]
 }

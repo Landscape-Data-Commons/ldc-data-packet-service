@@ -1,9 +1,9 @@
 import {Request, Response} from 'express'
 import axios from 'axios'
 import JSZip from 'jszip'
-import redis from 'redis'
+import * as Mongoose from "mongoose";
 
-const client = redis.createClient(6379, "redis")
+
 ////
 // on request to this api: 
 // pull data from main api 
@@ -28,5 +28,3 @@ const creatingCSVs = (myObj) =>{
 const zipCSV = (csvBlob) =>{
   //  create zip from csv
 }
-
-const store

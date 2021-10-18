@@ -4,28 +4,32 @@ services:
     build:
       context: .
       dockerfile: .
-    # image: krstphr/main_api:latest
     ports:
       - 5100:5100
     container_name: main_ftp
-    # env_file:
-    #   - ./app/config/.env 
     # uncomment below for development 
     # with nodemon 
-
     volumes:
       - ./app:/usr/src/app:cached
-  redis:
-    image: redis
-    ports:
-      - 6379:6379
-      
-  redis-commander:
-    container_name: redis-commander
-    hostname: redis-commander
-    image: rediscommander/redis-commander:latest
+    
+  mongo:
+    image: mongo
     restart: always
     environment:
-    - REDIS_HOSTS=local:redis:6379
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongodata:/data/db
+
+  mongo-express:
+    image: mongo-express
+    restart: always
     ports:
-    - "8081:8081"
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+
+volumes:
+  mongodata:
