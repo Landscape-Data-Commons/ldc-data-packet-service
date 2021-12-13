@@ -3,4 +3,4 @@ RUN apk add bash && \
     apk add vim && \
     apk add curl
     
-COPY ./server/node.conf /etc/nginx/conf.d/node.conf
+COPY ./server/default.conf /etc/nginx/conf.d/default.conf
