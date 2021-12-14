@@ -11,8 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/file-saver": "^2.0.4",
     "axios": "^0.23.0",
     "express": "^4.17.1",
+    "file-saver": "^2.0.5",
     "ftp-srv": "^4.5.0",
     "jszip": "^3.7.1",
     "mongoose": "^6.0.11",
