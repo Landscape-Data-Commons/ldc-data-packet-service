@@ -3,6 +3,9 @@ import axios from 'axios'
 import JSZip from 'jszip'
 import * as Mongoose from "mongoose";
 import saveAs from 'file-saver';
+import fs from 'fs'
+
+// import graphql from 'graphql'
 
 
 ////
@@ -15,28 +18,34 @@ export const getData = (req:Request, res:Response)=>{
   // res.sendStatus(200)
   axios.get('https://api.landscapedatacommons.org/api/geoIndicators?limit=2') // test
   .then(data=>{
-    let csvpack = creatingCSV(data.data)
-    let zippack = zipCSV(csvpack,"TEST")
-    res.send(data.data)
+    // first step creates csv and deposits it in a temp folder
+    creatingCSV(data.data)
+    // second step picks all ofthem up and zips them
+    res.sendStatus(200)
   })
+}
   
 
-
-}
+  
 
 const creatingCSV = (myObj) =>{
   // csvPAck
   const items = myObj
   const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
   const header = Object.keys(items[0])
-  const csv = [
+  const csv_file = [
     header.join(','), // header row first
     ...items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
   ].join('\r\n')
-  // let blob:Blob = new Blob([csv], {type: 'text/csv' })
-  let buffer = Buffer.from(csv);
-  let arraybuffer = Uint8Array.from(buffer).buffer;
-  return arraybuffer
+  const directoryPath = `${process.cwd()}/app/temp`
+  const directoryContents = fs.readdirSync(directoryPath, {
+    withFileTypes: true,
+  });
+
+  fs.writeFile(`${directoryPath}/test_${directoryContents.length}.csv`,csv_file,(err)=>{
+    if(err) throw err;
+    console.log(csv_file)
+  })
 }
 
 const zipCSV = (blob, zipname:string) =>{
