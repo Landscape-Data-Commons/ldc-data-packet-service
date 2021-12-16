@@ -1,14 +1,17 @@
 import Mongoose from "mongoose";
-
+let f = require('util').format
 let database: Mongoose.Connection;
 
 export const connect = () => {
-  // add your own uri below
-  const uri = 'mongodb://mongo:27017/test?connectTimeoutMS=1000';
+  // needs encodeuricomponent??
+  const uri = 'mongodb+srv://root:example@mongo/test?retryWrites=true&w=majority';
+  console.log(uri)
   if (database) {
     return;
   }
-  Mongoose.connect(uri);
+  Mongoose.connect(uri,{
+    u
+  });
   database = Mongoose.connection;
   database.once("open", async () => {
     console.log("Connected to database");

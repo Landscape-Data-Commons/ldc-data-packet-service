@@ -3,5 +3,5 @@ import * as testController from '../controllers/testController'
 
 const router = express.Router()
 
-router.get('/test', testController.getData)
+router.get('/pull', testController.getData)
 export default router
