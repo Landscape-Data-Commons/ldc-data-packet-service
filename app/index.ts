@@ -8,12 +8,16 @@ const app = express()
 
 const port = 5100
 
-app.use('/api', testRoute)
-app.get('/', (req,res)=>{
-  console.log("working")
-  res.send(__dirname)
-})
-// connect()
+
+
+connect()
+  .then(()=>{
+    app.use('/api', testRoute)
+  })
+    app.get('/', (req,res)=>{
+      console.log("working")
+      res.send(__dirname)
+    })
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

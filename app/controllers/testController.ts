@@ -1,9 +1,12 @@
 import {Request, Response} from 'express'
 import axios from 'axios'
 import JSZip from 'jszip'
-// import * as Mongoose from "mongoose";
-import {BlobModel} from '../models/blobs.model'
-import {connect, disconnect} from "../db/database"
+
+import mongoose,{Schema} from "mongoose"
+import Test, {TestText} from '../interfaces/test'
+
+import Blob from "../models/blob"
+
 import saveAs from 'file-saver';
 import fs from 'fs'
 
@@ -14,6 +17,35 @@ import fs from 'fs'
 // store zip file in mongo with a temp hash as key + time to live of 1 day
 // create an endpoint that will use the hash to pull the mongodb data: www.ldc.org/file/543gerdgd4 and download will commence
 
+const BlobSchema = new Schema({
+  name: String,
+  test: Boolean,
+  createdAt: Date
+}) 
+BlobSchema.index({ createdAt: 1 }, { expireAfterSeconds: 10 });
+const Blobs = mongoose.model('blobs', BlobSchema)
+
+export const createData = async (req:Request, res:Response) =>{
+  Blobs.find({name:req.query.name},function(err,data:any[]){
+    if(!err){
+      if(data.length!=0){
+        console.log(data)
+        res.status(200).send("data found; skipping.")
+      } else {
+        res.status(200).send("did not find that one.")
+        let blob = new Blobs({name:req.query.name, test:true, createdAt: Date.now()})
+        blob.save(function(err,blob){
+          if(err) return console.error(err)
+        })
+        // res.status(200).send(data)
+      }
+    }else{
+      throw err
+    }
+  })
+}
+
+
 export const getData = async (req:Request, res:Response)=>{
   // res.sendStatus(200)
   // axios.get('https://api.landscapedatacommons.org/api/geoIndicators?limit=2') // test
@@ -23,13 +55,15 @@ export const getData = async (req:Request, res:Response)=>{
   //   // second step picks all ofthem up and zips them
   //   res.sendStatus(200)
   // })
-  connect()
-  let testDate = new Date()
+  // connect()
+  // let testDate = new Date()
+
   try{
-    await BlobModel.create({ident:"test1",blob:"test2", creationDate:testDate})
-    disconnect()
+    Blobs.find({},function(err,data){
+      res.status(200).send(data)
+    })
   } catch(e){
-    console.error(e)
+    res.status(500).send(e.message);
   }
   
 }

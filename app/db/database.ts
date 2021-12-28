@@ -1,28 +1,16 @@
-import Mongoose from "mongoose";
-let f = require('util').format
-let database: Mongoose.Connection;
+import * as mongoDB from "mongodb"
+import mongoose from "mongoose"
 
-export const connect = () => {
-  // needs encodeuricomponent??
-  const uri = 'mongodb+srv://root:example@mongo/test?retryWrites=true&w=majority';
-  console.log(uri)
-  if (database) {
-    return;
+// export const collections: { blobs?: mongoDB.Collection} = {}
+
+export async function connect() {
+  mongoose.connect(
+    'mongodb://rootuser:example@mongo:27017',
+    {
+      // useNewUrlParser:true,
+      // useFindAndModify:false
+    }
+   )
+   .then(()=>console.log('mongodb connected'))
+   .catch(err=>console.log(err))
   }
-  Mongoose.connect(uri,{
-    u
-  });
-  database = Mongoose.connection;
-  database.once("open", async () => {
-    console.log("Connected to database");
-  });
-  database.on("error", () => {
-    console.log("Error connecting to database");
-  });
-};
-export const disconnect = () => {
-  if (!database) {
-    return;
-  }
-  Mongoose.disconnect();
-};
