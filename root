@@ -1,0 +1,2 @@
+* * * * * /bin/date --rfc-2822 >> /var/log/cron.log
+*/1 * * * * npx ts-node /usr/src/unlink.ts >> /var/log/cron.log 2>&1

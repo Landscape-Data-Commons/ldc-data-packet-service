@@ -1,16 +1,23 @@
-import * as mongoDB from "mongodb"
+require('dotenv').config();
 import mongoose from "mongoose"
 
-// export const collections: { blobs?: mongoDB.Collection} = {}
 
-export async function connect() {
+export const connect = () => {
   mongoose.connect(
-    'mongodb://rootuser:example@mongo:27017',
+    process.env.MONGOPATH,
     {
       // useNewUrlParser:true,
       // useFindAndModify:false
     }
    )
-   .then(()=>console.log('mongodb connected'))
-   .catch(err=>console.log(err))
+   const connection = mongoose.connection
+   connection.once('open', ()=>{
+     console.log('db connected')
+     connection.on('connected',()=>{
+       console.log('mongo event connected')
+     })
+     connection.on('error',(err)=>{
+       console.log(err)
+     })
+   })
   }

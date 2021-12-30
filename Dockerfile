@@ -7,6 +7,7 @@ RUN apk update && \
     apk add vim && \
     apk add bash
 
+
 #  setting workdir usr /app inside container
 WORKDIR /usr/src
 
@@ -20,5 +21,7 @@ RUN npm install
 EXPOSE 5100
 # uncomment below to run development
 # mode with nodemon inside container
+# RUN /usr/sbin/crond -f -l 0 -c /usr/src -L /var/log/cron.log
+
 CMD ["npm", "run", "dev"]
 # CMD ["npm", "start"]

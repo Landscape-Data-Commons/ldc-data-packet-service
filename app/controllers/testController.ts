@@ -2,11 +2,10 @@ import {Request, Response} from 'express'
 import axios from 'axios'
 import JSZip from 'jszip'
 
-import mongoose,{Schema} from "mongoose"
-import Test, {TestText} from '../interfaces/test'
-
-import Blob from "../models/blob"
-
+import multer from 'multer'
+import path from 'path'
+import Files from "../models/files"
+const { v4: uuidv4 } = require('uuid')
 import saveAs from 'file-saver';
 import fs from 'fs'
 
@@ -14,58 +13,58 @@ import fs from 'fs'
 // on request to this api: 
 // pull data from main api 
 // package it into zip file 
-// store zip file in mongo with a temp hash as key + time to live of 1 day
-// create an endpoint that will use the hash to pull the mongodb data: www.ldc.org/file/543gerdgd4 and download will commence
 
-const BlobSchema = new Schema({
-  name: String,
-  test: Boolean,
-  createdAt: Date
-}) 
-BlobSchema.index({ createdAt: 1 }, { expireAfterSeconds: 10 });
-const Blobs = mongoose.model('blobs', BlobSchema)
 
+// storing inside container local diskstorage 
+let storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, '/usr/src/app/temp'),
+  filename: (req, file, cb) => {
+    const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}${path.extname(file.originalname)}`
+    cb(null, uniqueName)
+  }
+})
+
+let upload = multer({storage, limits: {fileSize: 1000000 * 100 }, }).single('myfile')
+
+// find mongo referenced file in local filesystem
+export const showData = async (req, res) => {
+  try {
+      const file = await Files.findOne({ uuid: req.params.uuid });
+      if(!file) {
+          return res.render('download', { error: 'Link has expired.'});
+      } 
+      return res.render('download', { uuid: file.uuid, fileName: file.filename, fileSize: file.size, downloadLink: `${process.env.APP_BASE_URL}/api/files/download/${file.uuid}` });
+  } catch(err) {
+      return res.render('download', { error: 'Something went wrong.'});
+  }
+};
+
+// send file (and create entry on mongo) thru post query
 export const createData = async (req:Request, res:Response) =>{
-  Blobs.find({name:req.query.name},function(err,data:any[]){
-    if(!err){
-      if(data.length!=0){
-        console.log(data)
-        res.status(200).send("data found; skipping.")
-      } else {
-        res.status(200).send("did not find that one.")
-        let blob = new Blobs({name:req.query.name, test:true, createdAt: Date.now()})
-        blob.save(function(err,blob){
-          if(err) return console.error(err)
-        })
-        // res.status(200).send(data)
-      }
-    }else{
-      throw err
+  upload(req, res, async(err)=>{
+    if(err){
+      return res.status(500).send({ error: err.message })
     }
+    const file = new Files({
+      filename: req.file.filename,
+      uuid: uuidv4(),
+      path: req.file.path,
+      size: req.file.size
+    })
+    const response = await file.save()
+    res.json({ file: `${process.env.APP_BASE_URL}/api/files/${response.uuid}` })
   })
 }
 
 
 export const getData = async (req:Request, res:Response)=>{
-  // res.sendStatus(200)
-  // axios.get('https://api.landscapedatacommons.org/api/geoIndicators?limit=2') // test
-  // .then(data=>{
-  //   // first step creates csv and deposits it in a temp folder
-  //   creatingCSV(data.data)
-  //   // second step picks all ofthem up and zips them
-  //   res.sendStatus(200)
-  // })
-  // connect()
-  // let testDate = new Date()
-
-  try{
-    Blobs.find({},function(err,data){
-      res.status(200).send(data)
-    })
-  } catch(e){
-    res.status(500).send(e.message);
+  const file = await Files.findOne({uuid: req.params.uuid})
+  if (!file){
+    return res.status(200).send("no existe")
   }
-  
+  const response = await file.save();
+  const filePath = `${__dirname}/../${file.path}`;
+  res.download(filePath)
 }
   
 

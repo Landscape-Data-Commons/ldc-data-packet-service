@@ -1,24 +1,25 @@
-// import { FtpServerOptions, FtpSrv } from "ftp-srv";
+
+require('dotenv').config();
 import { connect } from './db/database'
 import express from 'express'
-
+import path from 'path'
 import testRoute from './routes/testRoute'
 
+const PORT = process.env.PORT || 5100;
 const app = express()
-
-const port = 5100
-
-
+app.use(express.static('public'))
+app.use(express.json())
+app.set('views', path.join(__dirname,'/views'))
+app.set('view engine', 'ejs')
 
 connect()
-  .then(()=>{
-    app.use('/api', testRoute)
-  })
-    app.get('/', (req,res)=>{
-      console.log("working")
-      res.send(__dirname)
-    })
+app.use('/api', testRoute)
+app.get('/', (req,res)=>{
+  console.log("working")
+  res.send(__dirname)
+})
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+
+app.listen(PORT, () => {
+  console.log(`Example app listening at http://localhost:${PORT}`)
 })

@@ -10,7 +10,7 @@ services:
     # uncomment below for development 
     # with nodemon 
     volumes:
-      - ./app:/usr/src/app:cached
+      - ./app:/usr/src/app
     
   nginx:
     build:
