@@ -3,14 +3,20 @@ services:
   node:
     build:
       context: .
-      dockerfile: ./Dockerfile
-    # ports:
-    #   - 5100:5100
+      dockerfile: ./node.Dockerfile
     container_name: node
-    # uncomment below for development 
-    # with nodemon 
     volumes:
-      - ./app:/usr/src/app
+      - shared:/usr/src/app
+
+  cron:
+    build:
+      context: .
+      dockerfile: ./cron.Dockerfile
+    container_name: cron
+    volumes:
+      - shared:/usr/src/app
+    env_file:
+      - .env
     
   nginx:
     build:
@@ -51,3 +57,4 @@ services:
 volumes:
   mongodata:
   mongodb_config:
+  shared:

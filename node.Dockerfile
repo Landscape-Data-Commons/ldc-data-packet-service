@@ -16,6 +16,7 @@ COPY ./ /usr/src
 
 #  installing app dependencies/packages
 RUN npm install
+# RUN npm i ts-node typescript -g
 
 
 EXPOSE 5100

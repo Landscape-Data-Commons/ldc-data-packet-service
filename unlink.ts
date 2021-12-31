@@ -1,9 +1,6 @@
 import {connect} from './app/db/database'
 import Files from './app/models/files'
 import fs from 'fs'
-// const connect = require('./app/db/database.ts');
-// const Files = require('./app/models/files');
-// const fs = require('fs');
 
 connect();
 
@@ -21,7 +18,7 @@ async function fetchData() {
         }
     }
     console.log('Job done!');
+    process.exit(1)
 }
 
 fetchData()
-.then( process.exit)
