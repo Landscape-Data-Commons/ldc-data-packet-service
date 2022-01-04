@@ -15,7 +15,7 @@ import fs from 'fs'
 // package it into zip file 
 
 
-// storing inside container local diskstorage 
+// storing inside container local diskstorage (only through post/multipart file)
 let storage = multer.diskStorage({
   destination: (req, file, cb) => cb(null, '/usr/src/app/temp'),
   filename: (req, file, cb) => {
@@ -40,7 +40,9 @@ export const showData = async (req, res) => {
 };
 
 // send file (and create entry on mongo) thru post query
+// only for dev
 export const createData = async (req:Request, res:Response) =>{
+
   upload(req, res, async(err)=>{
     if(err){
       return res.status(500).send({ error: err.message })
@@ -56,14 +58,53 @@ export const createData = async (req:Request, res:Response) =>{
   })
 }
 
+export const createData2 = async (req:Request, res:Response) =>{
+  const directoryPath = `/usr/src/app/temp`
+
+  axios.get('https://api.landscapedatacommons.org/api/geoIndicators?limit=2') // test
+  .then(data=>{
+    // first step creates csv and deposits it in a temp folder
+    let csv_file = creatingCSV(data.data) 
+    // filenames and destinations
+    const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}.csv`
+    const dest = `${directoryPath}/${uniqueName}`
+    let filesize
+    //  once file is written to disk (temp), also create a db entry
+    fs.writeFile(dest,csv_file,(err)=>{
+      if(err) throw err;
+      fs.stat(dest, (err, stats) => {
+        if (err) {
+            console.log(`File doesn't exist.`);
+        } else {
+            filesize = stats.size
+            if(filesize){
+              const file = new Files({
+                filename: uniqueName,
+                uuid: uuidv4(),
+                path: dest,
+                size: filesize
+              })
+              const response = file.save()
+              response.then((success)=>{
+                res.json({ file: `${process.env.APP_BASE_URL}/api/files/${success.uuid}` })
+              })
+            } else {
+              console.log("filesize has not arrived")
+            }
+          }
+      });
+    })
+  })  
+}
+
 
 export const getData = async (req:Request, res:Response)=>{
   const file = await Files.findOne({uuid: req.params.uuid})
   if (!file){
-    return res.status(200).send("no existe")
+    return res.status(200).send("file no longer exists!")
   }
   const response = await file.save();
-  const filePath = `${__dirname}/../${file.path}`;
+  const filePath = `${file.path}`;
   res.download(filePath)
 }
   
@@ -79,15 +120,8 @@ const creatingCSV = (myObj) =>{
     header.join(','), // header row first
     ...items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
   ].join('\r\n')
-  const directoryPath = `${process.cwd()}/app/temp`
-  const directoryContents = fs.readdirSync(directoryPath, {
-    withFileTypes: true,
-  });
-
-  fs.writeFile(`${directoryPath}/test_${directoryContents.length}.csv`,csv_file,(err)=>{
-    if(err) throw err;
-    console.log(csv_file)
-  })
+ 
+  return csv_file
 }
 
 

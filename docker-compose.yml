@@ -6,6 +6,7 @@ services:
       dockerfile: ./node.Dockerfile
     container_name: node
     volumes:
+      - ./app:/usr/src/app:cached
       - shared:/usr/src/app
 
   cron:
