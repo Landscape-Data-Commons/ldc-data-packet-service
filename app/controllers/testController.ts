@@ -59,16 +59,20 @@ export const createData = async (req:Request, res:Response) =>{
 }
 
 export const createData2 = async (req:Request, res:Response) =>{
+  console.log(req)
   const directoryPath = `/usr/src/app/temp`
 
-  axios.get('https://api.landscapedatacommons.org/api/geoIndicators?limit=2') // test
+  axios.get(`https://api.landscapedatacommons.org/api/geoIndicators?limit=${req.params.records}`) // test
+
   .then(data=>{
+
     // first step creates csv and deposits it in a temp folder
     let csv_file = creatingCSV(data.data) 
     // filenames and destinations
     const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}.csv`
     const dest = `${directoryPath}/${uniqueName}`
     let filesize
+
     //  once file is written to disk (temp), also create a db entry
     fs.writeFile(dest,csv_file,(err)=>{
       if(err) throw err;
@@ -79,12 +83,15 @@ export const createData2 = async (req:Request, res:Response) =>{
             filesize = stats.size
             if(filesize){
               const file = new Files({
+
                 filename: uniqueName,
                 uuid: uuidv4(),
                 path: dest,
                 size: filesize
               })
-              const response = file.save()
+              let response = file.save()
+              console.log(response)
+              
               response.then((success)=>{
                 res.json({ file: `${process.env.APP_BASE_URL}/api/files/${success.uuid}` })
               })
@@ -157,12 +164,12 @@ const zipCSV = (blob, zipname:string) =>{
     //   }
     // }
 
-    zip.generateAsync({type:'arraybuffer'}).then((content)=>{
-      if(content){
-        // can only be served on a front end component, will look for node alternative
-        // store it in mongo
-        saveAs(content.toString(),zipName)
-      }
-    })
+    // zip.generateAsync({type:'arraybuffer'}).then((content)=>{
+    //   if(content){
+    //     // can only be served on a front end component, will look for node alternative
+    //     // store it in mongo
+    //     saveAs(content.toString(),zipName)
+    //   }
+    // })
 }
 

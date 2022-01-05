@@ -10,7 +10,7 @@ async function fetchData() {
         for (const file of files) {
             try {
                 fs.unlinkSync(file.path);
-                await file.remove();
+                // await file.remove();
                 console.log(`successfully deleted ${file.filename}`);
             } catch(err) {
                 console.log(`error while deleting file ${err} `);

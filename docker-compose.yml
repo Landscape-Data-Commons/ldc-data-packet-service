@@ -7,7 +7,7 @@ services:
     container_name: node
     volumes:
       - ./app:/usr/src/app:cached
-      - shared:/usr/src/app
+      - shared:/usr/src/app/temp
 
   cron:
     build:
@@ -15,7 +15,7 @@ services:
       dockerfile: ./cron.Dockerfile
     container_name: cron
     volumes:
-      - shared:/usr/src/app
+      - shared:/usr/src/app/temp
     env_file:
       - .env
     
