@@ -5,3 +5,4 @@ node_modules/
 **/config.ts
 **/*.csv
 **/*.png
+**/auth_config.json

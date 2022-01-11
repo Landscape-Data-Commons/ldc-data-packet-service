@@ -8,12 +8,19 @@ import Files from "../models/files"
 const { v4: uuidv4 } = require('uuid')
 import saveAs from 'file-saver';
 import fs from 'fs'
+import auth from 'auth0'
 
+const AuthClient = require('auth0').AuthenticationClient
+// import * as authConfig from './auth_config.json'
+const authConfig = require('./auth_config.json')
+const auth0 = new AuthClient({
+  domain: process.env.AUTH0_DOMAIN,
+  clientId: process.env.AUTH0_CLIENT_ID,
+})
 ////
 // on request to this api: 
 // pull data from main api 
 // package it into zip file 
-
 
 // storing inside container local diskstorage (only through post/multipart file)
 let storage = multer.diskStorage({
@@ -48,10 +55,10 @@ export const createData = async (req:Request, res:Response) =>{
       return res.status(500).send({ error: err.message })
     }
     const file = new Files({
-      filename: req.file.filename,
-      uuid: uuidv4(),
-      path: req.file.path,
-      size: req.file.size
+      // filename: req.file.filename,
+      // uuid: uuidv4(),
+      // path: req.file.path,
+      // size: req.file.size
     })
     const response = await file.save()
     res.json({ file: `${process.env.APP_BASE_URL}/api/files/${response.uuid}` })
@@ -61,6 +68,9 @@ export const createData = async (req:Request, res:Response) =>{
 export const createData2 = async (req:Request, res:Response) =>{
   console.log(req)
   const directoryPath = `/usr/src/app/temp`
+
+  const access_token = req.headers.authorization.split(' ')[1]
+  const user_profile = await auth0.getProfile(access_token)
 
   axios.get(`https://api.landscapedatacommons.org/api/geoIndicators?limit=${req.params.records}`) // test
 
@@ -83,7 +93,7 @@ export const createData2 = async (req:Request, res:Response) =>{
             filesize = stats.size
             if(filesize){
               const file = new Files({
-
+                user_email: user_profile.email,
                 filename: uniqueName,
                 uuid: uuidv4(),
                 path: dest,
