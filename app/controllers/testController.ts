@@ -10,6 +10,8 @@ import saveAs from 'file-saver';
 import fs from 'fs'
 import auth from 'auth0'
 
+const nodemailer = require('nodemailer')
+
 const AuthClient = require('auth0').AuthenticationClient
 // import * as authConfig from './auth_config.json'
 const authConfig = require('./auth_config.json')
@@ -64,7 +66,7 @@ export const createData = async (req:Request, res:Response) =>{
     res.json({ file: `${process.env.APP_BASE_URL}/api/files/${response.uuid}` })
   })
 }
-
+let ldc_official_email
 export const createData2 = async (req:Request, res:Response) =>{
   console.log(req)
   const directoryPath = `/usr/src/app/temp`
@@ -103,7 +105,15 @@ export const createData2 = async (req:Request, res:Response) =>{
               console.log(response)
               
               response.then((success)=>{
-                res.json({ file: `${process.env.APP_BASE_URL}/api/files/${success.uuid}` })
+                let filelink = `${process.env.APP_BASE_URL}/api/files/${success.uuid}`
+                // sendMail({
+                //   mailFrom: ldc_official_email,
+                //   mailTo: user_profile.email,
+                //   mailSubject: 'LDC datapacket download is ready',
+                //   mailText: `Download link will expire in 24 hours. ${filelink}`,
+                //   mailHtml: 'insert html template here'
+                // })
+                res.json({ file: filelink })
               })
             } else {
               console.log("filesize has not arrived")
@@ -124,8 +134,27 @@ export const getData = async (req:Request, res:Response)=>{
   const filePath = `${file.path}`;
   res.download(filePath)
 }
-  
 
+
+const sendMail = async ({mailFrom,mailTo, mailSubject, mailText, mailHtml })=>{
+  // smtp settings
+  let transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    secure: false,
+    auth:{
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS
+    }
+  })
+  let info = await transporter.sendMail({
+    from: `LDC data provider <${mailFrom}>`,
+    to:mailTo,
+    subject: mailSubject,
+    text: mailText,
+    html: mailHtml
+  })
+}
   
 
 const creatingCSV = (myObj) =>{
