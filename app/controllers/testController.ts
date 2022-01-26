@@ -10,6 +10,8 @@ import saveAs from 'file-saver';
 import fs from 'fs'
 import auth from 'auth0'
 
+import {packager} from './packager'
+
 const nodemailer = require('nodemailer')
 
 const AuthClient = require('auth0').AuthenticationClient
@@ -66,62 +68,21 @@ export const createData = async (req:Request, res:Response) =>{
     res.json({ file: `${process.env.APP_BASE_URL}/api/files/${response.uuid}` })
   })
 }
-let ldc_official_email
-export const createData2 = async (req:Request, res:Response) =>{
-  console.log(req)
-  const directoryPath = `/usr/src/app/temp`
 
+
+export const createData2 = async (req:Request, res:Response) =>{
+  // accessing auth0 token and using it to pull authenticated email
+  // from the token 
   const access_token = req.headers.authorization.split(' ')[1]
   const user_profile = await auth0.getProfile(access_token)
 
-  axios.get(`https://api.landscapedatacommons.org/api/geoIndicators?limit=${req.params.records}`) // test
+  // test array to create multiple csv files and pack them
+  let test_array = ["geoIndicators","geoSpecies"]
 
-  .then(data=>{
+  let test_return = packager(test_array, user_profile)
 
-    // first step creates csv and deposits it in a temp folder
-    let csv_file = creatingCSV(data.data) 
-    // filenames and destinations
-    const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}.csv`
-    const dest = `${directoryPath}/${uniqueName}`
-    let filesize
-
-    //  once file is written to disk (temp), also create a db entry
-    fs.writeFile(dest,csv_file,(err)=>{
-      if(err) throw err;
-      fs.stat(dest, (err, stats) => {
-        if (err) {
-            console.log(`File doesn't exist.`);
-        } else {
-            filesize = stats.size
-            if(filesize){
-              const file = new Files({
-                user_email: user_profile.email,
-                filename: uniqueName,
-                uuid: uuidv4(),
-                path: dest,
-                size: filesize
-              })
-              let response = file.save()
-              console.log(response)
-              
-              response.then((success)=>{
-                let filelink = `${process.env.APP_BASE_URL}/api/files/${success.uuid}`
-                // sendMail({
-                //   mailFrom: ldc_official_email,
-                //   mailTo: user_profile.email,
-                //   mailSubject: 'LDC datapacket download is ready',
-                //   mailText: `Download link will expire in 24 hours. ${filelink}`,
-                //   mailHtml: 'insert html template here'
-                // })
-                res.json({ file: filelink })
-              })
-            } else {
-              console.log("filesize has not arrived")
-            }
-          }
-      });
-    })
-  })  
+  // finish the request
+  res.status(200).send({"request":"successful."})
 }
 
 
@@ -135,80 +96,4 @@ export const getData = async (req:Request, res:Response)=>{
   res.download(filePath)
 }
 
-
-const sendMail = async ({mailFrom,mailTo, mailSubject, mailText, mailHtml })=>{
-  // smtp settings
-  let transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    secure: false,
-    auth:{
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS
-    }
-  })
-  let info = await transporter.sendMail({
-    from: `LDC data provider <${mailFrom}>`,
-    to:mailTo,
-    subject: mailSubject,
-    text: mailText,
-    html: mailHtml
-  })
-}
-  
-
-const creatingCSV = (myObj) =>{
-  // csvPAck
-  const items = myObj
-  const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
-  const header = Object.keys(items[0])
-  const csv_file = [
-    header.join(','), // header row first
-    ...items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
-  ].join('\r\n')
- 
-  return csv_file
-}
-
-
-const addFilesFromDirectoryToZip = (directoryPath = "", zip) => {
-  const directoryContents = fs.readdirSync(directoryPath, {
-    withFileTypes: true,
-  });
- 
-  directoryContents.forEach(({ name }) => {
-    const path = `${directoryPath}/${name}`;
-
-    if (fs.statSync(path).isFile()) {
-      zip.file(path, fs.readFileSync(path, "utf-8"));
-    }
-
-    if (fs.statSync(path).isDirectory()) {
-      addFilesFromDirectoryToZip(path, zip);
-    }
-  });
-};
-
-
-const zipCSV = (blob, zipname:string) =>{
-  //  create zip from csv
-  let zip: JSZip = new JSZip();
-    let now = new Date()
-    let iso = now.toISOString()
-    let zipName = zipname+`_${iso}`+'.zip'
-    // for(let [blobName,csvBlob] of Object.entries(blob)){
-    //   if(csvBlob!==null){
-        
-    zip.file("blob.csv", blob)
-    //   }
-    // }
-
-    // zip.generateAsync({type:'arraybuffer'}).then((content)=>{
-    //   if(content){
-    //     // can only be served on a front end component, will look for node alternative
-    //     // store it in mongo
-    //     saveAs(content.toString(),zipName)
-    //   }
-    // })
-}
 
