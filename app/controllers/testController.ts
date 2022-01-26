@@ -1,22 +1,9 @@
 import {Request, Response} from 'express'
-import axios from 'axios'
-import JSZip from 'jszip'
-
-import multer from 'multer'
-import path from 'path'
 import Files from "../models/files"
-const { v4: uuidv4 } = require('uuid')
-import saveAs from 'file-saver';
-import fs from 'fs'
-import auth from 'auth0'
-
 import {packager} from './packager'
 
-const nodemailer = require('nodemailer')
-
 const AuthClient = require('auth0').AuthenticationClient
-// import * as authConfig from './auth_config.json'
-const authConfig = require('./auth_config.json')
+
 const auth0 = new AuthClient({
   domain: process.env.AUTH0_DOMAIN,
   clientId: process.env.AUTH0_CLIENT_ID,
@@ -26,19 +13,9 @@ const auth0 = new AuthClient({
 // pull data from main api 
 // package it into zip file 
 
-// storing inside container local diskstorage (only through post/multipart file)
-let storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, '/usr/src/app/temp'),
-  filename: (req, file, cb) => {
-    const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}${path.extname(file.originalname)}`
-    cb(null, uniqueName)
-  }
-})
-
-let upload = multer({storage, limits: {fileSize: 1000000 * 100 }, }).single('myfile')
-
-// find mongo referenced file in local filesystem
+// download link page route
 export const showData = async (req, res) => {
+  // 
   try {
       const file = await Files.findOne({ uuid: req.params.uuid });
       if(!file) {
@@ -50,27 +27,8 @@ export const showData = async (req, res) => {
   }
 };
 
-// send file (and create entry on mongo) thru post query
-// only for dev
+// datapacket creation
 export const createData = async (req:Request, res:Response) =>{
-
-  upload(req, res, async(err)=>{
-    if(err){
-      return res.status(500).send({ error: err.message })
-    }
-    const file = new Files({
-      // filename: req.file.filename,
-      // uuid: uuidv4(),
-      // path: req.file.path,
-      // size: req.file.size
-    })
-    const response = await file.save()
-    res.json({ file: `${process.env.APP_BASE_URL}/api/files/${response.uuid}` })
-  })
-}
-
-
-export const createData2 = async (req:Request, res:Response) =>{
   // accessing auth0 token and using it to pull authenticated email
   // from the token 
   const access_token = req.headers.authorization.split(' ')[1]
@@ -85,7 +43,7 @@ export const createData2 = async (req:Request, res:Response) =>{
   res.status(200).send({"request":"successful."})
 }
 
-
+//  actual download provider
 export const getData = async (req:Request, res:Response)=>{
   const file = await Files.findOne({uuid: req.params.uuid})
   if (!file){

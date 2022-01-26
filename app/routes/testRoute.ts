@@ -7,7 +7,7 @@ const router = express.Router()
 //  direct download link 
 router.get('/files/download/:uuid', testController.getData)
 //  development post route
-router.post('/files', testController.createData)
+// router.post('/files', testController.createData)
 
 
 
@@ -16,5 +16,5 @@ router.get('/files/:uuid', testController.showData)
 
 router.use(verifyJwt)
 // axios route
-router.get('/test/:records', testController.createData2)
+router.get('/test/:records', testController.createData)
 export default router
