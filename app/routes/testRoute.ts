@@ -14,7 +14,17 @@ router.get('/files/download/:uuid', testController.getData)
 // download page route (returned from created db entry)
 router.get('/files/:uuid', testController.showData)
 
+
+
+
 router.use(verifyJwt)
 // axios route
-router.get('/test/:records', testController.createData)
+router.get('/test', testController.createData)
+
+// mini api routes
+// http://localhost:5432/api/download-data?primaryKeys=17101012114127892017-09-01
+
+
+
+
 export default router
