@@ -26,6 +26,4 @@ Docker compose will orchestrate the start-up of all containers
 - *localhost/5001/api/download-data* to create a pg db request, parse to csv, create mongo entry. (requires auth0 authentication)
 
 # to do 
-- replace current request to postgres db with mini-api request parser 
-- compress the group of csv files 
-- smtp server set up
+- change get route to post route
