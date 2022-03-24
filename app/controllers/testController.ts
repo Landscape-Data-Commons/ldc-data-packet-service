@@ -1,6 +1,7 @@
-import {Request, Response} from 'express'
+import {NextFunction, Request, Response} from 'express'
 import Files from "../models/files"
 import {packager} from './packager'
+import {setHeaderFields} from '../request-handler/get-routes'
 
 const AuthClient = require('auth0').AuthenticationClient
 
@@ -28,19 +29,24 @@ export const showData = async (req, res) => {
 };
 
 // datapacket creation
-export const createData = async (req:Request, res:Response) =>{
+export const createData = async (req:Request, res:Response, next: NextFunction) =>{
   // accessing auth0 token and using it to pull authenticated email
   // from the token 
   const access_token = req.headers.authorization.split(' ')[1]
   const user_profile = await auth0.getProfile(access_token)
 
   // test array to create multiple csv files and pack them
-  let test_array = ["geoIndicators","geoSpecies"]
-
-  let test_return = packager(test_array, user_profile)
-
-  // finish the request
-  res.status(200).send({"request":"successful."})
+  try{
+    setHeaderFields(res);
+    res.status(200).json('Request received: processing');
+    packager(user_profile, req);
+    // finish the request
+    res.status(200).send({"request":"successful."})
+  }
+  catch(err: any){
+    console.log(err)
+    next()
+  }
 }
 
 //  actual download provider
