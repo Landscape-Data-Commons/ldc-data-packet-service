@@ -23,7 +23,7 @@ Docker compose will orchestrate the start-up of all containers
 # Current endpoints 
 
 - *localhost/5001/mongo* for mongo-express dashboard 
-- *localhost/5001/api/test/1* to create a pg db request, parse to csv, create mongo entry. (requires auth0 authentication)
+- *localhost/5001/api/download-data* to create a pg db request, parse to csv, create mongo entry. (requires auth0 authentication)
 
 # to do 
 - replace current request to postgres db with mini-api request parser 
