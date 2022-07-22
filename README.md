@@ -1,6 +1,6 @@
 # Backend for datapacket provider service
 
-![service diagram](https://github.com/Landscape-Data-Commons/data-packet-service/blob/master/data.png)
+![service diagram](https://github.com/Landscape-Data-Commons/data-packet-service/blob/master/data.svg)
 
 Data requested through the LDC portal is extracted from the LDC postgres database, parsed into csv format, and compressed into a zip file. An persistent entry for each request is stored on a standalone mongo DB. Users need to be logged in the LDC client portal and each request must bear a JSON web token from Auth0. A SMTP server will send a link to the requested datapacket to the requester's email.
 
