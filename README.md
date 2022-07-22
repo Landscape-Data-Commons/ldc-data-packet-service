@@ -1,6 +1,6 @@
 # Backend for datapacket provider service
 
-![service_diagram](https://github.com/Landscape-Data-Commons/data-packet-service/data.png)
+![service diagram](https://github.com/Landscape-Data-Commons/data-packet-service/blob/master/data.png)
 
 Data requested through the LDC portal is extracted from the LDC postgres database, parsed into csv format, and compressed into a zip file. An persistent entry for each request is stored on a standalone mongo DB. Users need to be logged in the LDC client portal and each request must bear a JSON web token from Auth0. A SMTP server will send a link to the requested datapacket to the requester's email.
 
@@ -18,9 +18,12 @@ The backend consists of 5 concurrent containers:
 
 ## To run 
 
-Docker compose will orchestrate the start-up of all containers
+Docker compose will orchestrate the start-up of all containers. 
 
-``` docker-compose up -d ```
+```sh
+docker-compose build  
+docker-compose up -d 
+```
 
 # Current endpoints 
 
@@ -28,4 +31,4 @@ Docker compose will orchestrate the start-up of all containers
 - *localhost/5001/api/download-data* to create a pg db request, parse to csv, create mongo entry. (requires auth0 authentication)
 
 # to do 
-- change get route to post route
+- tidy up
