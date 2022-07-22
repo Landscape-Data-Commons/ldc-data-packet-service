@@ -6,3 +6,5 @@ node_modules/
 **/*.csv
 **/*.png
 **/auth_config.json
+**/*.zip
+**/*.drawio
