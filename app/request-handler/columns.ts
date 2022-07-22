@@ -20,7 +20,7 @@ export const filterQueryParametersToColumns: { [key: string]: string } = {
   'mlraName': 'mlra_name',
   'usState': 'State',
   'date':'DateVisited',
-  'projectName':'ProjectName',
+  'projectKey':'ProjectKey',
   // 2022-02-15-CMF: Indicators and corresponding database columns
   'percentBareGround':'BareSoilCover',
   'percentFoliarCover':'TotalFoliarCover',

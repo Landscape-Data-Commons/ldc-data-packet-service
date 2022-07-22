@@ -1,6 +1,7 @@
 import * as columns from './columns';
 
 export interface QueryParameters { [key: string]: string[] };
+export interface PostParameters { [key: string]: string[] };
  
 // 2022-02-16-CMF: Used for processing requests and submitting database queries
 export class QueryGenerator {
@@ -17,7 +18,7 @@ export class QueryGenerator {
     this.gi = 'gi';
     this.gidb = this.gi + '.';
     this.primaryKey = this.gidb + `"${columns.filterQueryParametersToColumns['primaryKey']}"`
-    this.fromGeoIndicators = 'FROM public."geoIndicators" ' + this.gi;
+    this.fromGeoIndicators = 'FROM public_dev."geoIndicators" ' + this.gi;
     this.delimiter = ',';
     this.and = " AND ";
   }
@@ -31,6 +32,7 @@ export class QueryGenerator {
   
   // 2022-02-16-CMF: Returns a comma-delimited query condition
   private getQueryList(values: string[]) {
+    console.log(values)
     return '(\'' + values.join('\', \'') + '\')'
   }
 
@@ -70,13 +72,13 @@ export class QueryGenerator {
   
   // 2022-02-16-CMF: Return latitude/longitude selection --- for showing all plots on initial map load
   private getRoundedLatLonSubClause(): string {
-    return `\n ROUND(${this.gidb}"Latitude_NAD83", 8) as "Latitude_NAD83",` +
-           `\n ROUND(${this.gidb}"Longitude_NAD83", 8) as "Longitude_NAD83"`
+    return `\n ROUND(CAST(${this.gidb}"Latitude_NAD83" as numeric), 8) as "Latitude_NAD83",` +
+           `\n ROUND(CAST(${this.gidb}"Longitude_NAD83" as numeric), 8) as "Longitude_NAD83"`
   }
 
   // 2022-02-16-CMF: Return full query for retrieving latitude/longitude values on initial map load
   // 2022-02-10-CMF: Added query parameters for Postman testing
-  selectLatLonRounded(limitQueryParameter: QueryParameters): string {
+  selectLatLonRounded(limitQueryParameter: PostParameters): string {
     let limit = Object.keys(limitQueryParameter).length ? 
                   'LIMIT ' + limitQueryParameter['limit'][0] : ''
     const query = `SELECT ${this.primaryKey},
@@ -87,7 +89,7 @@ export class QueryGenerator {
   }
   
   // 2022-02-16-CMF: Return all filter-column values from geoIndicators corresponding to PrimaryKey values specified as query-parameter values
-  selectAllFilterColumns(primaryKeyQueryParameter: QueryParameters): string {
+  selectAllFilterColumns(primaryKeyQueryParameter: PostParameters): string {
     const query =  `SELECT ${this.getFilterColumnString()}, ${this.getRoundedLatLonSubClause()}
                     ${this.fromGeoIndicators.trim()}
                     WHERE ${this.primaryKey} IN ${this.getQueryList(primaryKeyQueryParameter.primaryKeys)}
@@ -96,9 +98,9 @@ export class QueryGenerator {
   }
  
   // 2022-02-16-CMF: Return all records from specified database table having PrimaryKey values specified as query-parameter values
-  selectAllTableColumns(queryParameters: QueryParameters, dbTableName: string) {
+  selectAllTableColumns(queryParameters: PostParameters, dbTableName: string) {
     const query =  `SELECT *
-                    FROM "${dbTableName}" AS ${dbTableName}
+                    FROM public_dev."${dbTableName}" AS ${dbTableName}
                     WHERE ${dbTableName}."PrimaryKey" IN ${this.getQueryList(queryParameters.primaryKeys)}
                     ORDER BY ${dbTableName}."PrimaryKey";`
     return query;

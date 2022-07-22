@@ -19,7 +19,7 @@ router.get('/files/:uuid', testController.showData)
 
 router.use(verifyJwt)
 // axios route
-router.get('/download-data', testController.createData)
+router.put('/download-data', testController.createData)
 
 // mini api routes
 // http://localhost:5432/api/download-data?primaryKeys=17101012114127892017-09-01

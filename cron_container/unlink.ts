@@ -1,5 +1,5 @@
-import {connect} from './app/db/database'
-import Files from './app/models/files'
+import {connect} from '../app/db/database'
+import Files from '../app/models/files'
 import fs from 'fs'
 
 connect();

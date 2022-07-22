@@ -1,11 +1,11 @@
 // https://node-postgres.com/features/pooling
 
-import {pool} from '../db/pg';
+import {pool, printEnv} from '../db/pg';
 
 import path from 'path'
 import fs from 'fs';
 
-import { QueryGenerator, QueryParameters } from '../request-handler/queries';
+import { QueryGenerator, QueryParameters, PostParameters } from '../request-handler/queries';
 import { gisDbTableNames } from '../request-handler/columns'; 
 
 
@@ -29,18 +29,28 @@ function setHeaderFields(res: any): void {
 // FROM MINI-API
 // 2022-02-17-CMF: Parse and extract query parameters from request
 // 2022-03-17-CMF: TO DO --- ADAPT TO POST-REQUEST PROCESSING
-function extractQueryParameters(request: any): QueryParameters {
-  const queryParameters: QueryParameters = {};
-  for (let property in request.query) {
-    queryParameters[property] = request.query[property].split(delimiter)
+// function extractQueryParameters(request: any): QueryParameters {
+//   const queryParameters: QueryParameters = {};
+//   for (let property in request.query) {
+//     queryParameters[property] = request.query[property].split(delimiter)
+//   }
+//   console.log(queryParameters)
+//   return queryParameters;
+// }
+
+function extractPostParameters(request: any): PostParameters {
+  const postParameters: PostParameters = {};
+  for (let property of Object.keys(request.body.data)) {
+    postParameters[property] = request.body.data[property]
   }
-  //console.log(queryParameters)
-  return queryParameters;
+  console.log(postParameters)
+  return postParameters;
 }
 
 // 2022-03-17-CMF: Send SQL query to database and return result 
 async function getResult(selectStatement: string): Promise<any> {
   let result;
+  printEnv
   const client = await pool.connect(); 
   try { result = (await client.query(selectStatement)).rows; } 
   finally { client.release() };
@@ -56,7 +66,7 @@ function outputTableData(tableName: string, tableData: string) {
 }
 
 // 2022-03-17-CMF: Retrieve and print data for single database table
-async function retrieveAndOutputTableData(tableName: string, primaryKeys: QueryParameters) {
+async function retrieveAndOutputTableData(tableName: string, primaryKeys: PostParameters) {
   let tableQuery = ''
   if (tableName === 'filterTable') {
     tableQuery = queryGenerator.selectAllFilterColumns(primaryKeys)
@@ -72,7 +82,7 @@ async function retrieveAndOutputTableData(tableName: string, primaryKeys: QueryP
 }
 
 // 2022-03-17-CMF: Retrieve and print data for all database tables
-function retrieveAndPrintAllTableData(primaryKeys: QueryParameters) {
+function retrieveAndPrintAllTableData(primaryKeys: PostParameters) {
   // each returned table is stored in an object
   let obj = {}
   obj['filterTable'] = retrieveAndOutputTableData('filterTable', primaryKeys)
@@ -98,5 +108,6 @@ function retrieveAndPrintAllTableData(primaryKeys: QueryParameters) {
 // })
 
 export { setHeaderFields,
-         extractQueryParameters, 
+        //  extractQueryParameters, 
+         extractPostParameters,
          retrieveAndPrintAllTableData };

@@ -30,15 +30,19 @@ export const showData = async (req, res) => {
 
 // datapacket creation
 export const createData = async (req:Request, res:Response, next: NextFunction) =>{
+  
+  // console.log(res)1
+  // console.log("REQ DATA: ", req.data)
   // accessing auth0 token and using it to pull authenticated email
   // from the token 
   const access_token = req.headers.authorization.split(' ')[1]
+  
   const user_profile = await auth0.getProfile(access_token)
 
   // test array to create multiple csv files and pack them
   try{
     setHeaderFields(res);
-    res.status(200).json('Request received: processing');
+    // res.status(200).json('Request received: processing');
     packager(user_profile, req);
     // finish the request
     res.status(200).send({"request":"successful."})

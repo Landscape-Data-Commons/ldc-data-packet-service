@@ -9,7 +9,9 @@ import { Client } from "@sendgrid/client";
 import sgMail from "@sendgrid/mail";
 
 
-import {extractQueryParameters,
+import {
+        // extractQueryParameters,
+        extractPostParameters,
         retrieveAndPrintAllTableData} from '../request-handler/get-routes'
 
 
@@ -29,7 +31,7 @@ export const packager = async (user_profile, request) =>{
   ////////////////////////////////////////
   // parsing request with mini-api handler
 
-  let fullTables = await retrieveAndPrintAllTableData(extractQueryParameters(request))
+  let fullTables = await retrieveAndPrintAllTableData(extractPostParameters(request))
   
   // adding all the promises inside the object into Promise.all
   let allPromises = Promise.all(Object.values(fullTables))
@@ -47,7 +49,7 @@ export const packager = async (user_profile, request) =>{
   allPromises.then(finished=>{
     zip.generateAsync({type:'nodebuffer'}, )
     .then(buff=>{
-      console.log(`buff: ${buff}`)
+      
       fs.writeFile(dest,buff,(err)=>{
         if(err) throw err;
         fs.stat(dest, (err, stats) => {
@@ -65,7 +67,7 @@ export const packager = async (user_profile, request) =>{
                   size: filesize
                 })
                 let response = file.save()
-                console.log(response)
+                // console.log(response)
   // ADD MONGODB ENTRY after writing file to local filesystem
   // SEND MAIL
                 response.then((success)=>{
@@ -86,7 +88,10 @@ export const packager = async (user_profile, request) =>{
                     console.error(error)
                   })
   //  SEND LINK BACK to client
-                  response.json({ file: filelink })
+                  // response.json({ file: filelink })
+                  console.log("este es response: ", response)
+                  console.log("este es success: ", success)
+                  // response.json({ file: filelink })
                 })
               } else {
                 console.log("filesize has not arrived")

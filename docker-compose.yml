@@ -3,40 +3,43 @@ services:
   node:
     build:
       context: .
-      dockerfile: ./node.Dockerfile
+      dockerfile: ./app/node.Dockerfile
     container_name: node
     volumes:
-      # - ./app:/usr/src/app:cached
+      - ./app:/usr/src/app:cached
       # comment out the shared if debugging
       # the creation of live files
-      - shared:/usr/src/app/temp
+      # - shared:/usr/src/app/temp
+    env_file:
+      - ./app/db/.env
 
   cron:
     build:
       context: .
-      dockerfile: ./cron.Dockerfile
+      dockerfile: ./cron_container/cron.Dockerfile
     container_name: cron
     volumes:
-      - shared:/usr/src/app/temp
+      # uncomment to have packet production happen in shared docker volume
+      # - shared:/usr/src/app/temp
+      # uncomment to have packet production happen locally
+      - ./app/temp:/usr/src/app/temp
     env_file:
       - .env
     
   nginx:
     build:
       context: .
-      dockerfile: ./server/Dockerfile
+      dockerfile: ./server/nginx.Dockerfile
     container_name: nginx
     ports:
       - $WEB_PORT:8081
-    # volumes:
-    #   - ./server/default.conf:/etc/nginx/conf.d/default.conf
 
   mongo:
     image: mongo:5.0.5
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: $MONGOINIT
-      MONGO_INITDB_ROOT_PASSWORD: $MONGOINITPASS
+      MONGO_INITDB_ROOT_USERNAME: ${MONGOINIT}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGOINITPASS}
     container_name: mongo
     ports:
       - $MONGO_PORT:27017
