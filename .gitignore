@@ -4,7 +4,7 @@ node_modules/
 **/*.env
 **/config.ts
 **/*.csv
-**/*.png
+**/ldc_circularlogo.png
 **/auth_config.json
 **/*.zip
 **/*.drawio
