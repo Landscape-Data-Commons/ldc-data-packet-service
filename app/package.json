@@ -1,12 +1,12 @@
 {
-  "name": "main_ftp",
+  "name": "ldc_download_service",
   "version": "1.0.0",
-  "description": "",
-  "main": "app/index.js",
+  "description": "Node backend to handle data requested by the ldc web portal.",
+  "main": "/urs/src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon -L ./app/index.ts",
-    "start": "ts-node ./app/index.ts"
+    "dev": "nodemon -L /usr/src/index.ts",
+    "start": "ts-node /usr/src/index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -15,24 +15,22 @@
     "@types/express-jwt": "^6.0.4",
     "@types/file-saver": "^2.0.4",
     "auth0": "^2.37.0",
-    "axios": "^0.23.0",
     "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-jwt": "^6.1.0",
+    "express-jwt": "^7.7.5",
+    "express-jwt-authz": "^2.4.1",
     "express-session": "^1.17.2",
     "ftp-srv": "^4.5.0",
     "jszip": "^3.7.1",
     "jwks-rsa": "^2.0.5",
     "mongoose": "^6.0.11",
-    "passport": "^0.5.2",
     "passport-auth0": "^1.4.1",
     "pg": "^8.7.3",
-    "redis": "^3.1.2",
-    "ts-node": "^10.4.0",
+    "ts-node": "^10.9.1",
     "typescript": "^4.5.4",
-    "uuid": "^3.4.0"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.13"

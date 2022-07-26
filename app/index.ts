@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 import { connect } from './db/database'
 import express from 'express'

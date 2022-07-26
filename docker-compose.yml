@@ -6,10 +6,10 @@ services:
       dockerfile: ./app/node.Dockerfile
     container_name: node
     volumes:
-      - ./app:/usr/src/app:cached
+      - ./app:/usr/src
       # comment out the shared if debugging
       # the creation of live files
-      # - shared:/usr/src/app/temp
+      - shared:/usr/src/temp
     env_file:
       - ./app/db/.env
 
@@ -20,16 +20,16 @@ services:
     container_name: cron
     volumes:
       # uncomment to have packet production happen in shared docker volume
-      # - shared:/usr/src/app/temp
+      - shared:/usr/src/temp
       # uncomment to have packet production happen locally
-      - ./app/temp:/usr/src/app/temp
+      # - ./app/temp:/usr/src/app/temp
     env_file:
       - .env
     
   nginx:
     build:
       context: .
-      dockerfile: ./server/nginx.Dockerfile
+      dockerfile: ./nginx_container/nginx.Dockerfile
     container_name: nginx
     ports:
       - $WEB_PORT:8081

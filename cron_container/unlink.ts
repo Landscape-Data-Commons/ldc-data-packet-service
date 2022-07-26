@@ -1,11 +1,13 @@
-import {connect} from '../app/db/database'
-import Files from '../app/models/files'
+import {connect} from '/usr/src/mongo-dependencies/database'
+import Files from '/usr/src/mongo-dependencies/files'
 import fs from 'fs'
 
 connect();
 
 async function fetchData() {
-    const files = await Files.find({ createdAt : { $lt: new Date(Date.now() - 1000)} })
+    const files = await Files.find({ 
+        createdAt : { $lt: new Date(Date.now() - 1000)} 
+    })
     if(files.length) {
         for (const file of files) {
             try {

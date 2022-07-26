@@ -1,3 +1,4 @@
+require('dotenv').config();
 import {NextFunction, Request, Response} from 'express'
 import Files from "../models/files"
 import {packager} from './packager'

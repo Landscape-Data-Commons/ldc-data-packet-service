@@ -13,7 +13,10 @@ RUN apk update && \
 WORKDIR /usr/src
 
 #  copying local directory into /usr/app
-COPY ./ /usr/src
+COPY ./cron_container /usr/src
+
+COPY ./app/db/ /usr/src/mongo-dependencies
+COPY ./app/models/ /usr/src/mongo-dependencies
 
 #  installing app dependencies/packages
 # needs the mongoose infrastructure to run the script

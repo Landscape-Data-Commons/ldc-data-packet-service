@@ -1,5 +1,5 @@
 
-
+require('dotenv').config();
 import fs from 'fs'
 import JSZip from "jszip"
 import Files from "../models/files"
