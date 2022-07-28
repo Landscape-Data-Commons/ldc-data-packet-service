@@ -1,0 +1,51 @@
+.main-card {
+  
+  background: rgba(255,255,255,0.7);
+  width: auto;
+  height: 150px;
+
+}
+.thebutton{
+  background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+  height: 50px;
+  min-width:50px;
+
+
+}
+
+mat-icon{
+  min-width: 1%;
+}
+
+.main-accordion{
+  display: block;
+  transform-origin: top left;
+  transform: rotate(-90deg) translateX(-600px);
+  background: rgba(255,255,255, 0.7);
+  width: 600px;
+  justify-content: right;
+}
+.panel-content{
+  transform-origin: top left;
+  transform: rotate(90deg);
+  margin-left: 80%;
+  height: 100px;
+  width: auto;
+}
+
+.main-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.main-full-width {
+  width: 100%;
+}
+
+.main-tr{
+  background: rgba(255,255,255, 0.7);
+}
+/* mat-typography{
+  font-family: 'Times New Roman', serif;
+} */

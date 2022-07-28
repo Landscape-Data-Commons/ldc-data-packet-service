@@ -1,0 +1,1086 @@
+{
+  "dataHeight":{
+    "idinfo":{
+      "citation":{
+        "citeinfo":{
+          "origin":"Nicholas Webb, Jornada Experimental Range(JER)",
+          "pubupdate":"20190610",
+          "title":"Canopy Height Data",
+          "geoform":"tabular digital data",
+          "onlink":"http://winderosionnetwork.org"
+        }
+      },
+      "descript":{
+        "abstract":"Vegetation and non-erodible roughness (e.g., rocks) protect the soil surface. The cover, distribution and height of vegetation and other non-erodible roughness elements determine their effectiveness in reducing wind erosion. The transect design enables detailed directional estimates of the fractional vegetation cover, vegetation canopy gap-size distribution and canopy height to be acquired in an efficient way that can be related to the meteorological tower measurements of aerodynamic roughness height (z0) and horizontal sediment mass flux from the MWAC samplers. References: a)Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8.)",
+        "purpose":"Measurements of the vegetation canopy height should be made with the LPI measurements to describe the height of the plant community or crop. The aim of this approach is to be able to describe in detail the roughness characteristics of the site, providing a basis for the model to account for multiple roughness layers (i.e., trees, shrubs, grasses and oriented soil ridges).",
+        "supplinf":"Transects should be used to measure the cover, distribution and height of vegetation and non-erodible roughness. The transect design should be based on the following methods: -Vegetation sampling should be conducted on three (3) 100 m transects at both cropland and rangeland sites. -The transects should follow bearings of 0°, 60° and 120°, intersecting at the center of the site (cropland sites; Figure 9) or at the meteorological tower (rangeland sites; Figure 10). -It is acceptable and not an issue if a whole transect falls in a row interspace at cropland sites. This will provide information required for model development. -Measurements along the transects will be treated as repeated measures. Where practical (e.g., rangeland sites), transect start and end points should be marked with rebar stakes to ensure that transect lines are in exactly the same place during each measurement. Markers on field boundaries may be used at cropland sites. -Canopy height should be recorded as the maximum height of any vegetation element (leaf or stem) located within a 15 cm radius every 2 m along the transects. -If no vegetation is present then height is recorded as zero. Data recording and collection: -A detailed description of data recording are available on the Documents page at http://winderosionnetwork.org. Quick guide for documents: -Height data: stored in DIMA available on Data Portal page at http://winderosionnetwork.org. -Height Recording Sheet: Documents page at http://winderosionnetwork.org. -Height Protocol: Documents page at http://winderosionnetwork.org. References: a)N. Webb, Herrick, J., Van Zee, J., Courtright, E., Hugenholtz, C., Zobeck, T. M., Okin, G. S., Barchyn, T. E., Billings, B. J., Boyd, R., Clingan, S., Cooper, B., Duniway, M. C., Derner, J. D., Fox, F. A., Havstad, K. M., Heilman, P., LaPlante, V., Ludwig, N. A., Metz, L. J., Nearing, M. A., M. Norfleet, L., Pierson, F. B., Sanderson, M. A., Sharratt, B. S., Steiner, J. L., Tatarko, J., Tedela, N. H., Toledo, D., Unnasch, R. S., R. Van Pelt, S., and Wagner, L., The National Wind Erosion Research Network: Building a standardized long-term data resource for aeolian research, modeling and land management, Aeolian Research, vol. 22, pp. 23-36, 2016. b)Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8."
+      },
+      "timeperd":{
+        "timeinfo":{
+          "sngdate":{
+            "caldate":"20150814"
+          }
+        },
+        "current":"ground condition"
+      },
+      "status":{
+        "progress":"In work",
+        "update":"Continually"
+      },
+      "spdom":{},
+      "keywords":{
+        "theme1":{
+          "themekt":"ISO 19115 Topic Category",
+          "themekey1":"geoscientificInformation",
+          "themekey2":"climatologyMeteorologyAtmosphere",
+          "themekey3":"environment"
+        },
+        "theme2":{
+          "themekt":"DDT data",
+          "themekey1":"dust deposition flux"
+        },
+        "theme3":{
+          "themekt":"Height data",
+          "themekey1":"Height"
+        }
+      },
+      "accconst":"The National Wind Erosion Research Network is committed to providing access to data collected as part of Network activities to all stakeholders, collaborators and the general public. Anyone who wishes to access Network data should contact the Information Manager or relevant Site Contacts prior to doing so. Access to the National Wind Erosion Research Network resources is controlled by resource type to protect collaborator research and publishing requirements and sensitive material regarding the location of some Network sites.",
+      "useconst":"Use of National Wind Erosion Research Network data is subject to acceptance of the following terms: 1. User Affiliation: Network users including any person directly affiliated with the Network, either as a stakeholder (associated with running a Network site) or collaborator (person working with one or more Network sites on a related project). 2. Access Level: Data accessible following registration and login (Project Web). The user registers their name and contact details prior to accessing Network data. This information will be used to notify data users of any changes to content of the website, data, or protocols and for reporting purposes. 3. The user agrees to acknowledge the data source in any reports, presentation, publications, etc. arising from the data use and analyses by citing the following publication: a) N. Webb, Herrick, J., Van Zee, J., Courtright, E., Hugenholtz, C., Zobeck, T. M., Okin, G. S., Barchyn, T. E., Billings, B. J., Boyd, R., Clingan, S., Cooper, B., Duniway, M. C., Derner, J. D., Fox, F. A., Havstad, K. M., Heilman, P., LaPlante, V., Ludwig, N. A., Metz, L. J., Nearing, M. A., M. Norfleet, L., Pierson, F. B., Sanderson, M. A., Sharratt, B. S., Steiner, J. L., Tatarko, J., Tedela, N. H., Toledo, D., Unnasch, R. S., R. Van Pelt, S., and Wagner, L., The National Wind Erosion Research Network: Building a standardized long-term data resource for aeolian research, modeling and land management, Aeolian Research, vol. 22, pp. 23-36, 2016. b) Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8. 4. The user agrees to contact individual Network sites to discuss the nature of intended data use and collaboration before using the data. 5. The user agrees to include the following statement in any form of publication or presentation using Network data: “Datasets were provided by the USDA’s National Wind Erosion Research Network”. 6. The user agrees to send a copy of any publication or report based on Network data to the Information Manager prior to submitting it for publication. 7. The user agrees that publications, reports, presentations or links to those materials using Network data may be published on the Network website for access by stakeholders, collaborators and the general public. 8. All efforts are made for quality assurance and quality control of the online Network data, and that the data is up to date, but the National Wind Erosion Research Network program cannot take responsibility for any errors in the online data or in analysis or judgment resulting from the data use.",
+      "ptcontact":{
+         "cntinfo":{
+           "cntperp":{
+             "cntper":"Ericha Courtright",
+             "cntorg":"Jornada Experimental Range"
+           },
+           "cntpos": "Information Manager &amp; Website Developer",
+           "cntaddr":{
+             "addrtype": "mailing and physical",
+             "address": "P.O.Box 30003, MSC 3 JER, NMSU",
+             "city":"Las Cruces",
+             "state": "NM",
+             "postal":"88003",
+             "country":"US"
+           },
+           "cntvoice":"5756464147",
+           "cntemail":"ericha@nmsu.edu"
+         }
+      },
+      "datacred":"US Department of Agriculture’s Agricultural Research Service (ARS) and Natural Resources Conservation Service (NRCS), the Department of the Interior’s Bureau of Land Management (BLM) and US Geological Survey (USGS), the Department of Defense (DoD), and The Nature Conservancy (TNC).",
+      "native":"Height data are stored in Database for Inventory, Monitoring and Assessment (DIMA) and uploaded to wind erosion network website (http://winderosionnetwork.org) using the Data Submission Portal. DIMA is a free customizable software tool for data collection, management, and interpretation, which can easily be used without extensive knowledge of Access."
+    },
+    "dataqual":{
+      "attracc":{
+        "attraccr":"Height data files have been error checked and are error free."
+      },
+      "logic":"Height data files have been error checked and are error free.",
+      "complete":{},
+      "lineage":{
+        "procstep":{
+          "procdesc":"",
+          "procdate":"20190610"
+        }
+      }
+    },
+    "spdoinfo":{
+      "direct":"Vector",
+      "ptvctinf":{
+        "sdtsterm":{
+          "sdtstype":"Entity point",
+          "ptvctcnt":"3"
+        }
+        
+      }
+    },
+    "spref":{
+      "horizsys":{
+        "geograph":{
+          "latres":"",
+          "longres":"",
+          "geogunit":"Decimal degrees"
+        },
+        "geodetic":{
+          "horizdn":"North American Datum of 1983 (NAD 83)",
+          "ellips":"Geodetic Reference System 1980",
+          "semiaxis":"6378137.0",
+          "denflat":"298.257223563"
+        }
+      }
+    },
+    "eainfo":{
+      "detailed":{
+        "enttyp":{
+          "enttypl":"Height Recording Sheet",
+          "enttypd":"",
+          "enttypds":"Producer defined"
+        }
+      }
+    },
+    "distinfo":{
+      "distrib":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Nicholas Webb",
+            "cntorg":"Jornada Experimental Range"
+          },
+          "cntpos":"Principal Investigator",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O. Box 30003, MSC 3JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"US"
+          },
+          "cntvoice":"575 646 2263",
+          "cntemail":"nwebb@nmsu.edu"
+        }
+      },
+      "distliab":"Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected.",
+      "stdorder":{
+        "digform":{
+          "digtinfo":{
+            "formname":"Digital Data"
+          },
+          "digtopt":{
+            "onlinopt":{
+              "computer":{
+                "networka":{
+                  "networkr":"http://winderosionnetwork.org"
+                }
+              }
+            }
+          }
+        },
+        "fees":"None"
+      }
+    },
+    "metainfo":{
+      "metd":"20190610",
+      "metc":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Ericha Courtright",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Information Manager",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"2995 Knox St",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"5756464147",
+          "cntemail":"ericha@nmsu.edu"
+        }
+      },
+      "metstdn":"FGDC Content Standard for Digital Geospatial Metadata",
+      "metstdv":"FGDC-STD-001-1998"
+    }
+      
+  },
+  "dataGap":{
+    "idinfo":{
+      "citation":{
+        "citeinfo":{
+          "origin":"Nicholas Webb, Jornada Experimental Range(JER)",
+          "pubupdate":"20190610",
+          "title":"Canopy Gap Intercept Data",
+          "geoform":"tabular digital data",
+          "onlink":"http://winderosionnetwork.org"
+        }
+      },
+      "descript":{
+        "abstract":"The Canopy Gap intercept method does not measure spatial pattern directly, but does provide an indication of the extent to which plant cover is aggregated (forming a few large gaps) or dispersed (forming many small gaps). The distance between plant bases (basal gaps) increases when plants become more aggregated and when basal cover declines (e.g., when shrubs replace grasses). While the canopy gap method was developed for rangelands, it provides a suitable estimate of the distribution of plants in croplands. Measuring canopy gap distribution along intersecting transects will ensure that along- and across-row canopy distributions are measured. References: a)Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8.). For more information on specifics please reference the NWERN manual at: https://winderosionnetwork.org/documents",
+        "purpose":"Canopy gap measurements should be taken to determine the horizontal structure of the plant community, and therefore its distribution.",
+        "supplinf":"Transects should be used to measure the cover, distribution and height of vegetation and non-erodible roughness. The transect design should be based on the following methods: -Vegetation sampling should be conducted on three (3) 100 m transects at both cropland and rangeland sites. -The transects should follow bearings of 0°, 60° and 120°, intersecting at the center of the site (cropland sites; Figure 9) or at the meteorological tower (rangeland sites; Figure 10). -It is acceptable and not an issue if a whole transect falls in a row interspace at cropland sites. This will provide information required for model development. -Measurements along the transects will be treated as repeated measures. Where practical (e.g., rangeland sites), transect start and end points should be marked with rebar stakes to ensure that transect lines are in exactly the same place during each measurement. Markers on field boundaries may be used at cropland sites. -Canopy height should be recorded as the maximum height of any vegetation element (leaf or stem) located within a 15 cm radius every 2 m along the transects. -If no vegetation is present then height is recorded as zero. Data recording and collection: -A detailed description of data recording are available on the Documents page at http://winderosionnetwork.org. Quick guide for documents: -Height data: stored in DIMA available on Data Portal page at http://winderosionnetwork.org. -Height Recording Sheet: Documents page at http://winderosionnetwork.org. -Height Protocol: Documents page at http://winderosionnetwork.org. References: a)N. Webb, Herrick, J., Van Zee, J., Courtright, E., Hugenholtz, C., Zobeck, T. M., Okin, G. S., Barchyn, T. E., Billings, B. J., Boyd, R., Clingan, S., Cooper, B., Duniway, M. C., Derner, J. D., Fox, F. A., Havstad, K. M., Heilman, P., LaPlante, V., Ludwig, N. A., Metz, L. J., Nearing, M. A., M. Norfleet, L., Pierson, F. B., Sanderson, M. A., Sharratt, B. S., Steiner, J. L., Tatarko, J., Tedela, N. H., Toledo, D., Unnasch, R. S., R. Van Pelt, S., and Wagner, L., The National Wind Erosion Research Network: Building a standardized long-term data resource for aeolian research, modeling and land management, Aeolian Research, vol. 22, pp. 23-36, 2016. b)Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8."
+      },
+      "timeperd":{
+        "timeinfo":{
+          "sngdate":{
+            "caldate":"20150814"
+          }
+        },
+        "current":"ground condition"
+      },
+      "status":{
+        "progress":"In work",
+        "update":"Continually"
+      },
+      "spdom":{},
+      "keywords":{
+        "theme1":{
+          "themekt":"ISO 19115 Topic Category",
+          "themekey1":"geoscientificInformation",
+          "themekey2":"climatologyMeteorologyAtmosphere",
+          "themekey3":"environment"
+        },
+        "theme2":{
+          "themekt":"Gap intercept data",
+          "themekey1":"gap",
+          "themekey2":"canopy",
+          "themekey3":"basal",
+          "themekey4":"intercept"
+        }
+      },
+      "accconst":"The National Wind Erosion Research Network is committed to providing access to data collected as part of Network activities to all stakeholders, collaborators and the general public. Anyone who wishes to access Network data should contact the Information Manager or relevant Site Contacts prior to doing so. Access to the National Wind Erosion Research Network resources is controlled by resource type to protect collaborator research and publishing requirements and sensitive material regarding the location of some Network sites.",
+      "useconst":"Use of National Wind Erosion Research Network data is subject to acceptance of the following terms: 1. User Affiliation: Network users including any person directly affiliated with the Network, either as a stakeholder (associated with running a Network site) or collaborator (person working with one or more Network sites on a related project). 2. Access Level: Data accessible following registration and login (Project Web). The user registers their name and contact details prior to accessing Network data. This information will be used to notify data users of any changes to content of the website, data, or protocols and for reporting purposes. 3. The user agrees to acknowledge the data source in any reports, presentation, publications, etc. arising from the data use and analyses by citing the following publication: a) N. Webb, Herrick, J., Van Zee, J., Courtright, E., Hugenholtz, C., Zobeck, T. M., Okin, G. S., Barchyn, T. E., Billings, B. J., Boyd, R., Clingan, S., Cooper, B., Duniway, M. C., Derner, J. D., Fox, F. A., Havstad, K. M., Heilman, P., LaPlante, V., Ludwig, N. A., Metz, L. J., Nearing, M. A., M. Norfleet, L., Pierson, F. B., Sanderson, M. A., Sharratt, B. S., Steiner, J. L., Tatarko, J., Tedela, N. H., Toledo, D., Unnasch, R. S., R. Van Pelt, S., and Wagner, L., The National Wind Erosion Research Network: Building a standardized long-term data resource for aeolian research, modeling and land management, Aeolian Research, vol. 22, pp. 23-36, 2016. b) Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8. 4. The user agrees to contact individual Network sites to discuss the nature of intended data use and collaboration before using the data. 5. The user agrees to include the following statement in any form of publication or presentation using Network data: “Datasets were provided by the USDA’s National Wind Erosion Research Network”. 6. The user agrees to send a copy of any publication or report based on Network data to the Information Manager prior to submitting it for publication. 7. The user agrees that publications, reports, presentations or links to those materials using Network data may be published on the Network website for access by stakeholders, collaborators and the general public. 8. All efforts are made for quality assurance and quality control of the online Network data, and that the data is up to date, but the National Wind Erosion Research Network program cannot take responsibility for any errors in the online data or in analysis or judgment resulting from the data use.",
+      "ptcontact":{
+         "cntinfo":{
+           "cntperp":{
+             "cntper":"Ericha Courtright",
+             "cntorg":"Jornada Experimental Range"
+           },
+           "cntpos": "Information Manager &amp; Website Developer",
+           "cntaddr":{
+             "addrtype": "mailing and physical",
+             "address": "P.O.Box 30003, MSC 3 JER, NMSU",
+             "city":"Las Cruces",
+             "state": "NM",
+             "postal":"88003",
+             "country":"US"
+           },
+           "cntvoice":"5756464147",
+           "cntemail":"ericha@nmsu.edu"
+         }
+      },
+      "datacred":"US Department of Agriculture’s Agricultural Research Service (ARS) and Natural Resources Conservation Service (NRCS), the Department of the Interior’s Bureau of Land Management (BLM) and US Geological Survey (USGS), the Department of Defense (DoD), and The Nature Conservancy (TNC).",
+      "native":"Canopy gap intercept data are stored in Database for Inventory, Monitoring and Assessment (DIMA) and uploaded to wind erosion network website (http://winderosionnetwork.org) using the Data Submission Portal. DIMA is a free customizable software tool for data collection, management, and interpretation, which can easily be used without extensive knowledge of Access."
+    },
+    "dataqual":{
+      "attracc":{
+        "attraccr":"Gap intercept data files have been error checked and are error free."
+      },
+      "logic":"Gap intercept data files have been error checked and are error free.",
+      "complete":{},
+      "lineage":{
+        "procstep":{
+          "procdesc":"",
+          "procdate":"20190610"
+        }
+      }
+    },
+    "spdoinfo":{
+      "direct":"",
+      "ptvctinf":{
+        "sdtsterm":{
+          "sdtstype":"Entity point",
+          "ptvctcnt":"3"
+        }
+        
+      }
+    },
+    "spref":{
+      "horizsys":{
+        "geograph":{
+          "latres":"",
+          "longres":"",
+          "geogunit":"Decimal degrees"
+        },
+        "geodetic":{
+          "horizdn":"North American Datum of 1983 (NAD 83)",
+          "ellips":"Geodetic Reference System 1980",
+          "semiaxis":"6378137.000000",
+          "denflat":"298.257222"
+        }
+      }
+    },
+    "eainfo":{
+      "detailed":{
+        "enttyp":{
+          "enttypl":"Gap Metadata",
+          "enttypd":"",
+          "enttypds":""
+        }
+      }
+    },
+    "distinfo":{
+      "distrib":{
+        "cntinfo":{
+          "cntperp":{},
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O. Box 30003, MSC 3JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "distliab": "Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. ",
+      "stdorder":{
+        "digform":{
+          "digtinfo":{
+            "formname":"Digital Data"
+          },
+          "digtopt":{
+            "onlinopt":{
+              "computer":{
+                "networka":{
+                  "networkr":"www.landscapedatacommons.org"
+                }
+              }
+            }
+          }
+        },
+        "fees":""
+      }
+    },
+    "metainfo":{
+      "metd":"",
+      "metc":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O. Box 30003, MSC 3JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "metstdn":"FGDC Content Standard for Digital Geospatial Metadata",
+      "metstdv":"FGDC-STD-001-1998"
+    }
+  },
+  "dataLPI":{
+    "idinfo":{
+      "citation":{
+        "citeinfo":{
+          "origin":"Nicholas Webb, Jornada Experimental Range(JER)",
+          "pubupdate":"20190610",
+          "title":"Line Point Intercept (LPI) Data",
+          "geoform":"tabular digital data",
+          "onlink":"http://winderosionnetwork.org"
+        }
+      },
+      "descript":{
+        "abstract":"Measurements of soil biological crust cover and rock cover are captured in the Line Point Intercept (LPI) method. The Line-point intercept method can be used to quantify invasive species cover changes where the species is a significant component of the plant community (generally greater than five percent cover). Line-point intercept cover and composition indicators also often reflect the resistance of a site to invasive species establishment. The transect design enables detailed directional estimates of the fractional vegetation cover, vegetation canopy gap-size distribution and canopy height to be acquired in an efficient way that can be related to the meteorological tower measurements of aerodynamic roughness height (z0) and horizontal sediment mass flux from the MWAC samplers. References: a)Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8.)",
+        "purpose":"Line-point intercept (LPI) provides data that can be used to calculate plant cover and composition indicators, including the percentage bare ground, foliar and basal cover by species and plant functional or structural groups.",
+        "supplinf":"LPI measurements should be made at a sampling interval of 25 cm. This will ensure consistency in the measurements and ability to detect cover types at both cropland and rangeland sites. -Vegetation types should be recorded using the USDA plant codes, which can be found at: https://plants.sc.egov.usda.gov/java/ -Specimens of unknown plants should be kept for later identification. -The following soil surface codes should be used: rock fragment sizes: FG: 2-5mm, GR:&gt;5-76mm, CB:76-250mm, ST:250-600mm; BR (bedrock), LC (lichen crust), CY (cyanobacteria crust), D (duff), AG (soil aggregates/clods, &gt;2mm), LM (loose erodible soil, &lt;2mm), PC (physically crusted soil), EL (embedded litter), M (moss). -Note that AG, LM, and PC soil surface codes and DN/S (dung), AM (animal material, unattached) and HT (human trash) in the mid-layer codes are not specified in the Monitoring Manual, but should be used here. -Vegetation sampling should be conducted on three (3) 100 m transects at both cropland and rangeland sites. -The transects should follow bearings of 0°, 60° and 120°, intersecting at the center of the site (cropland sites; Figure 9) or at the meteorological tower (rangeland sites; Figure 10). -Data points for LPI falling on the concrete tower base should be recorded as “PADD” on the data recording sheets in the Top, Soil Surface, and Height columns. The concrete start and end distances should be recorded as PADD start and PADD end on top of the Gap recording sheet. -It is acceptable and not an issue if a whole transect falls in a row interspace at cropland sites. This will provide information required for model development. -Measurements along the transects will be treated as repeated measures. Where practical (e.g., rangeland sites), transect start and end points should be marked with rebar stakes to ensure that transect lines are in exactly the same place during each measurement. Markers on field boundaries may be used at cropland sites. Data recording and collection: -A detailed descriptions of both sample collection methods and data recording are available on the Documents page at http://winderosionnetwork.org. Quick guide for documents: -LPI data : stored in DIMA available on Data Portal page at http://winderosionnetwork.org. -LPI Recording Sheet: Documents page at http://winderosionnetwork.org. -LPI Protocol: Documents page at http://winderosionnetwork.org. References: a)N. Webb, Herrick, J., Van Zee, J., Courtright, E., Hugenholtz, C., Zobeck, T. M., Okin, G. S., Barchyn, T. E., Billings, B. J., Boyd, R., Clingan, S., Cooper, B., Duniway, M. C., Derner, J. D., Fox, F. A., Havstad, K. M., Heilman, P., LaPlante, V., Ludwig, N. A., Metz, L. J., Nearing, M. A., M. Norfleet, L., Pierson, F. B., Sanderson, M. A., Sharratt, B. S., Steiner, J. L., Tatarko, J., Tedela, N. H., Toledo, D., Unnasch, R. S., R. Van Pelt, S., and Wagner, L., The National Wind Erosion Research Network: Building a standardized long-term data resource for aeolian research, modeling and land management, Aeolian Research, vol. 22, pp. 23-36, 2016. b)Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8."
+      },
+      "timeperd":{
+        "timeinfo":{
+          "sngdate":{
+            "caldate":"20150814"
+          }
+        },
+        "current":"ground condition"
+      },
+      "status":{
+        "progress":"In work",
+        "update":"Continually"
+      },
+      "spdom":{},
+      "keywords":{
+        "theme1":{
+          "themekt":"ISO 19115 Topic Category",
+          "themekey1":"geoscientificInformation",
+          "themekey2":"climatologyMeteorologyAtmosphere",
+          "themekey3":"environment"
+        },
+        "theme2":{
+          "themekt":"LPI data",
+          "themekey1":"LPI",
+          "themekey2":"line point",
+          "themekey3":"intercept"
+        }
+      },
+      "accconst":"The National Wind Erosion Research Network is committed to providing access to data collected as part of Network activities to all stakeholders, collaborators and the general public. Anyone who wishes to access Network data should contact the Information Manager or relevant Site Contacts prior to doing so. Access to the National Wind Erosion Research Network resources is controlled by resource type to protect collaborator research and publishing requirements and sensitive material regarding the location of some Network sites.",
+      "useconst":"Use of National Wind Erosion Research Network data is subject to acceptance of the following terms: 1. User Affiliation: Network users including any person directly affiliated with the Network, either as a stakeholder (associated with running a Network site) or collaborator (person working with one or more Network sites on a related project). 2. Access Level: Data accessible following registration and login (Project Web). The user registers their name and contact details prior to accessing Network data. This information will be used to notify data users of any changes to content of the website, data, or protocols and for reporting purposes. 3. The user agrees to acknowledge the data source in any reports, presentation, publications, etc. arising from the data use and analyses by citing the following publication: a) N. Webb, Herrick, J., Van Zee, J., Courtright, E., Hugenholtz, C., Zobeck, T. M., Okin, G. S., Barchyn, T. E., Billings, B. J., Boyd, R., Clingan, S., Cooper, B., Duniway, M. C., Derner, J. D., Fox, F. A., Havstad, K. M., Heilman, P., LaPlante, V., Ludwig, N. A., Metz, L. J., Nearing, M. A., M. Norfleet, L., Pierson, F. B., Sanderson, M. A., Sharratt, B. S., Steiner, J. L., Tatarko, J., Tedela, N. H., Toledo, D., Unnasch, R. S., R. Van Pelt, S., and Wagner, L., The National Wind Erosion Research Network: Building a standardized long-term data resource for aeolian research, modeling and land management, Aeolian Research, vol. 22, pp. 23-36, 2016. b) Webb NP, Herrick JE, Van Zee, JW, Hugenholtz CH, Zobeck TM, Okin GS, 2015. Standard Methods for Wind Erosion Research and Model Development: Protocol for the National Wind Erosion Research Network. USDA ARS Jornada Experimental Range. Las Cruces, NM, USA. ISBN 978-0-9755552-4-8. 4. The user agrees to contact individual Network sites to discuss the nature of intended data use and collaboration before using the data. 5. The user agrees to include the following statement in any form of publication or presentation using Network data: “Datasets were provided by the USDA’s National Wind Erosion Research Network”. 6. The user agrees to send a copy of any publication or report based on Network data to the Information Manager prior to submitting it for publication. 7. The user agrees that publications, reports, presentations or links to those materials using Network data may be published on the Network website for access by stakeholders, collaborators and the general public. 8. All efforts are made for quality assurance and quality control of the online Network data, and that the data is up to date, but the National Wind Erosion Research Network program cannot take responsibility for any errors in the online data or in analysis or judgment resulting from the data use.",
+      "ptcontact":{
+         "cntinfo":{
+           "cntperp":{
+             "cntper":"Ericha Courtright",
+             "cntorg":"Jornada Experimental Range"
+           },
+           "cntpos": "Information Manager &amp; Website Developer",
+           "cntaddr":{
+             "addrtype": "mailing and physical",
+             "address": "P.O.Box 30003, MSC 3 JER, NMSU",
+             "city":"Las Cruces",
+             "state": "NM",
+             "postal":"88003",
+             "country":"US"
+           },
+           "cntvoice":"5756464147",
+           "cntemail":"ericha@nmsu.edu"
+         }
+      },
+      "datacred":"US Department of Agriculture’s Agricultural Research Service (ARS) and Natural Resources Conservation Service (NRCS), the Department of the Interior’s Bureau of Land Management (BLM) and US Geological Survey (USGS), the Department of Defense (DoD), and The Nature Conservancy (TNC).",
+      "native":"LPI data are stored in Database for Inventory, Monitoring and Assessment (DIMA) and uploaded to wind erosion network website (http://winderosionnetwork.org) using the Data Submission Portal. DIMA is a free customizable software tool for data collection, management, and interpretation, which can easily be used without extensive knowledge of Access."
+    },
+    "dataqual":{
+      "attracc":{
+        "attraccr":"LPI data files have been error checked and are error free."
+      },
+      "logic":"LPI data files have been error checked and are error free.",
+      "complete":{},
+      "lineage":{
+        "procstep":{
+          "procdesc":"",
+          "procdate":"20190610"
+        }
+      }
+    },
+    "spdoinfo":{
+      "direct":"Vector",
+      "ptvctinf":{
+        "sdtsterm":{
+          "sdtstype":"Entity point",
+          "ptvctcnt":"3"
+        }
+        
+      }
+    },
+    "spref":{
+      "horizsys":{
+        "geograph":{
+          "latres":"",
+          "longres":"",
+          "geogunit":"Decimal degrees"
+        },
+        "geodetic":{
+          "horizdn":"North American Datum of 1983 (NAD 83)",
+          "ellips":"Geodetic Reference System 1980",
+          "semiaxis":"6378137.0",
+          "denflat":"298.257223563"
+        }
+      }
+    },
+    "eainfo":{
+      "detailed":{
+        "enttyp":{
+          "enttypl":"Line-point Intercept Metadata",
+          "enttypd":"",
+          "enttypds":""
+        }
+      }
+    },
+    "distinfo":{
+      "distrib":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O. Box 30003, MSC 3JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "distliab":"",
+      "stdorder":{
+        "digform":{
+          "digtinfo":{
+            "formname":"Digital Data"
+          },
+          "digtopt":{
+            "onlinopt":{
+              "computer":{
+                "networka":{
+                  "networkr":"www.landscapedatacommons.org"
+                }
+              }
+            }
+          }
+        },
+        "fees":""
+      }
+    },
+    "metainfo":{
+      "metd":"",
+      "metc":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O. Box 30003, MSC 3JER",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "metstdn":"FGDC Content Standard for Digital Geospatial Metadata",
+      "metstdv":"FGDC-STD-001-1998"
+    }
+  },
+  "geoIndicators":{
+    "idinfo":{
+      "citation":{
+        "citeinfo":{
+          "origin":"Please refer to Dataset Point of Contact.",
+          "pubdate":"",
+          "title":"Geoindicators Data",
+          "geoform":"tabular digital data",
+          "onlink":"www.landscapedatacommons.org",
+          "lworkcit":{
+            "citeinfo":{
+              "origin":"Please refer to Dataset Point of Contact.",
+              "pubdate":"",
+              "title":"Please refer to the Projects table in Landscape Data Commons database.",
+              "geoform":"tabular digital data"
+            }
+          }
+        }
+      },
+      "descript":{
+        "abstract":"'Ecological processes functioning within a normal range of variation support specific plant and animal communities. Direct measures of site integrity and status of ecological processes are difficult or expensive to measure due to the complexity of the processes and their interrelationships. Therefore, biological and physical components are often used as indicators of the functional status of ecological processes and site integrity.' Reference(s): a) Herrick, J.E., J. Van Zee, S.E. McCord, J.W. Karl, E. Courtright, and L. Burkett. 2018. The Monitoring Manual for Grassland, Shrubland, and Savanna Ecosystems. USDA-ARS. b) Pellant, M., P. Shaver, D. Pyke, and J. E. Herrick. 2005. Interpreting Indicators of Rangeland Health, Version 4.0. Interagency Technical Reference. U.S. Department of Interior, Bureau of Land Management, Denver, CO.",
+        "purpose":"This dataset can and should be used as a communication tool across interest groups (i.e. scientists and land managers can translate the concept of rangeland health with the public) to identify any potential risks in degradation or where current resource problems may exist. This approach can also be implemented as a means to assist in choosing monitoring sites for various monitoring programs."
+      },
+      "timeperd":{
+        "timeinfo":{
+          "rngdates":{
+            "begdate":"",
+            "enddate":""
+          }
+        },
+        "current":"observed"
+      },
+      "status":{
+        "progress":"In work",
+        "update":"Continually"
+      },
+      "spdom":{
+        "bounding":{
+          "westbc":"",
+          "eastbc":"",
+          "northbc":"",
+          "southbc":""
+        }
+      },
+      "keywords":{
+        "theme1":{
+          "themekt":"ISO 19115 Topic Category",
+          "themekey":"geoscientificInformation",
+          "themekey2":"environment"
+        },
+        "theme2":{
+          "themekt":"GeoIndicators",
+          "themekey1":"gap intercept",
+          "themekey2":"height",
+          "themekey3":"Line-point intercept"
+        }
+      },
+      "accconst":"Please refer to the Projects table in the Landscape Data Commons database.",
+      "useconst":"Please refer to the Projects table in the Landscape Data Commons database.",
+      "ptcontact":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O.Box 30003, MSC 3 JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"US"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "datacred":"Please reference \"Data Use Agreements\" located in the Projects table."
+    },
+    "dataqual":{
+      "attracc":{
+        "attraccr":"Please refer to Dataset Point of Contact."
+      },
+      "logic":"Please refer to Dataset Point of Contact.",
+      "complete":"",
+      "lineage":{
+        "procstep":{
+          "procdesc":"",
+          "procdate":""
+        }
+      }
+    },
+    "spdoinfo":{
+      "direct":"Vector",
+      "ptvctinf":{
+        "sdtsterm":{
+          "sdtstype":"Entity point",
+          "ptvctcnt":"3"
+        }
+      }
+    },
+    "spref":{
+      "horizsys":{
+        "geograph":{
+          "latres":"",
+          "longres":"",
+          "geogunit":"Decimal degrees"
+        },
+        "geodetic":{
+          "horizdn":"North American Datum of 1983 (NAD 83)",
+          "ellips":"Geodetic Reference System 1980",
+          "semiaxis":"6378137.000000",
+          "denflat":"298.257222"
+        }
+      }
+    },
+    "eainfo":{
+      "detailed":{
+        "enttyp":{
+          "enttypl":"GeoIndicators Metadata",
+          "enttypd":"",
+          "enttypds":""
+        }
+      }
+    },
+    "distinfo":{
+      "distrib":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O.Box 30003, MSC 3 JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "distliab":"Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected.",
+      "stdorder":{
+        "digform":{
+          "digtinfo":{
+            "formname":"Digital Data"
+          },
+          "digtopt":{
+            "onlinopt":{
+              "computer":{
+                "networka":{
+                  "networkr":"www.landscapedatacommons.org"
+                }
+              }
+            }
+          }
+        },
+        "fees":"None"
+      }
+    },
+    "metainfo":{
+      "metd":"",
+      "metc":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O.Box 30003, MSC 3 JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "metstdn":"FGDC Content Standard for Digital Geospatial Metadata",
+      "metstdv":"FGDC-STD-001-1998"
+    }
+  },
+  "dataSoilStability":{
+    "idinfo":{
+      "citation":{
+        "citeinfo":{
+          "origin":"Please refer to Dataset Point of Contact.",
+          "pubdate":"",
+          "title":"Soil Stability Data",
+          "geoform":"tabular digital data",
+          "onlink":"www.landscapedatacommons.org",
+          "lworkcit":{
+            "citeinfo":{
+              "origin":"Please refer to Dataset Point of Contact.",
+              "pubdate":"",
+              "title":"Please refer to the Projects table in Landscape Data Commons database.",
+              "geoform":"tabular digital data"
+            }
+          }
+        }
+      },
+      "descript":{
+        "abstract":"Two core indicators are calculated from this test: the average surface stability value and the average sub-surface stability value. The percentage of the surface samples tested that are equal to 6 (very stable) is another useful indicator that is easy to calculate. Both are correlated with all three ecosystem attributes. Higher stability has been directly correlated with reductions in erosion. Reference(s): Herrick, J.E., J. Van Zee, S.E. McCord, J.W. Karl, E. Courtright, and L. Burkett. 2018. The Monitoring Manual for Grassland, Shrubland, and Savanna Ecosystems. USDA-ARS.",
+        "purpose":"The soil stability test is a relatively simple test that is sensitive to complex changes in physical, chemical and biological processes. These are the processes that glue soil particles together. Soil stability at different depths and under different types of vegetation can be used to reflect changes in organic matter cycling."
+      },
+      "timeperd":{
+        "timeinfo":{
+          "rngdates":{
+            "begdate":"",
+            "enddate":""
+          }
+        },
+        "current":"observed"
+      },
+      "status":{
+        "progress":"In work",
+        "update":"Continually"
+      },
+      "spdom":{
+        "bounding":{
+          "westbc":"",
+          "eastbc":"",
+          "northbc":"",
+          "southbc":""
+        }
+      },
+      "keywords":{
+        "theme1":{
+          "themekt":"ISO 19115 Topic Category",
+          "themekey1":"geoscientificInformation",
+          "themekey2":"environment"
+        },
+        "theme2":{
+          "themekt":"Soil Stability",
+          "themekey1":"surface stability",
+          "themekey2":"soil"
+        }
+      },
+      "accconst":"Please refer to the Projects table in the Landscape Data Commons database.",
+      "useconst":"Please refer to the Projects table in the Landscape Data Commons database.",
+      "ptcontact":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O.Box 30003, MSC 3 JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"US"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "datacred":"Please reference \"Data Use Agreements\" located in the Projects table."
+    },
+    "dataqual":{
+      "attracc":{
+        "attraccr":"Please refer to Dataset Point of Contact."
+      },
+      "logic":"Please refer to Dataset Point of Contact.",
+      "complete":"",
+      "lineage":{
+        "procstep":{
+          "procdesc":"",
+          "procdate":""
+        }
+      }
+    },
+    "spdoinfo":{
+      "direct":"Vector",
+      "ptvctinf":{
+        "sdtsterm":{
+          "sdtstype":"Entity point",
+          "ptvctcnt":"3"
+        }
+      }
+    },
+    "spref":{
+      "horizsys":{
+        "geograph":{
+          "latres":"",
+          "longres":"",
+          "geogunit":"Decimal degrees"
+        },
+        "geodetic":{
+          "horizdn":"North American Datum of 1983 (NAD 83)",
+          "ellips":"Geodetic Reference System 1980",
+          "semiaxis":"6378137.000000",
+          "denflat":"298.257222"
+        }
+      }
+    },
+    "eainfo":{
+      "detailed":{
+        "enttyp":{
+          "enttypl":"Soil Stability Metadata",
+          "enttypd":"",
+          "enttypds":""
+        }
+      }
+    },
+    "distinfo":{
+      "distrib":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O.Box 30003, MSC 3 JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "distliab":"Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. ",
+      "stdorder":{
+        "digform":{
+          "digtinfo":{
+            "formname":"Digital Data"
+          },
+          "digtopt":{
+            "onlinopt":{
+              "computer":{
+                "networka":{
+                  "networkr":"www.landscapedatacommons.org"
+                }
+              }
+            }
+          }
+        },
+        "fees":"None"
+      }
+    },
+    "metainfo":{
+      "metd":"",
+      "metc":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O.Box 30003, MSC 3 JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "metstdn":"FGDC Content Standard for Digital Geospatial Metadata",
+      "metstdv":"FGDC-STD-001-1998"
+    }
+  },
+  "dataSpeciesInventory":{
+    "idinfo":{
+      "citation":{
+        "citeinfo":{
+          "origin":"Please refer to Dataset Point of Contact.",
+          "pubdate":{},
+          "title":"Species Inventory Data",
+          "geoform":"tabular digital data",
+          "onlink":"www.landscapedatacommons.org",
+          "lworkcit":{
+            "citeinfo":{
+              "origin":"Please refer to Dataset Point of Contact.",
+              "pubdate":"",
+              "title":"Please refer to the Projects table in Landscape Data Commons database.",
+              "geoform":"tabular digital data"
+            }
+          }
+        }
+      },
+      "descript":{
+        "abstract":"This dataset includes observations of plant species found within the monitoring plot during a systematic survey of the plot. Reference(s): Herrick, J.E., J. Van Zee, S.E. McCord, J.W. Karl, E. Courtright, and L. Burkett. 2018. The Monitoring Manual for Grassland, Shrubland, and Savanna Ecosystems. USDA-ARS.",
+        "purpose": "This dataset should be used to determine plant species presence and species richness."
+      },
+      "timeperd":{
+        "timeinfo":{
+          "rngdates":{
+            "begdate":"",
+            "enddate":""
+          }
+        },
+        "current":"observed"
+      },
+      "status":{
+        "progress":"In work",
+        "update":"Continually"
+      },
+      "spdom":{
+        "bounding":{
+          "westbc":"",
+          "eastbc":"",
+          "northbc":"",
+          "southbc":""
+        }
+      },
+      "keywords":{
+        "theme1":{
+          "themekt":"ISO 19115 Topic Category",
+          "themekey1":"geoscientificInformation",
+          "themekey2":"environment"
+        },
+        "theme2":{
+          "themekt":"Species Inventory",
+          "themekey1":""
+        }
+      },
+      "accconst":"Please refer to the Projects table in the Landscape Data Commons database.",
+      "useconst":"Please refer to the Projects table in the Landscape Data Commons database.",
+      "ptcontact":{},
+      "datacred":"Please reference \"Data Use Agreements\" located in the Projects table."
+    },
+    "dataqual":{
+      "attracc":{
+        "attraccr":"Please refer to Dataset Point of Contact."
+      },
+      "logic":"Please refer to Dataset Point of Contact.",
+      "complete":"",
+      "lineage":{
+        "procstep":{
+          "procdesc":"",
+          "procdate":""
+        }
+      }
+    },
+    "spdoinfo":{
+      "direct":"Vector",
+      "ptvctinf":{
+        "sdtsterm":{
+          "sdtstype":"Entity point",
+          "ptvctcnt":"3"
+        }
+      }
+    },
+    "spref":{
+      "horizsys":{
+        "geograph":{
+          "latres":"",
+          "longres":"",
+          "geogunit":"Decimal degrees"
+        },
+        "geodetic":{
+          "horizdn":"North American Datum of 1983 (NAD 83)",
+          "ellips":"Geodetic Reference System 1980",
+          "semiaxis":"6378137.000000",
+          "denflat":"298.257222"
+        }
+      }
+    },
+    "eainfo":{
+      "detailed":{
+        "enttyp":{
+          "enttypl":"Species Inventory Metadata",
+          "enttypd":"",
+          "enttypds":""
+        }
+      }
+    },
+    "distinfo":{
+      "distrib":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O. Box 30003, MSC 3JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "distliab":"Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected. ",
+      "stdorder":{
+        "digform":{
+          "digtinfo":{
+            "formname":"Digital Data"
+          },
+          "digtopt":{
+            "onlinopt":{
+              "computer":{
+                "networka":{
+                  "networkr":"www.landscapedatacommons.org"
+                }
+              }
+            }
+          }
+        },
+        "fees":"None"
+      }
+    },
+    "metainfo":{
+      "metd":"",
+      "metc":{
+        "cntinfo":{
+          "cntperp":{
+            "cntper":"Sarah McCord",
+            "cntorg":"USDA-ARS Jornada Experimental Range"
+          },
+          "cntpos":"Computational Biologist",
+          "cntaddr":{
+            "addrtype":"mailing and physical",
+            "address":"P.O. Box 30003, MSC 3JER, NMSU",
+            "city":"Las Cruces",
+            "state":"NM",
+            "postal":"88003",
+            "country":"United States"
+          },
+          "cntvoice":"575 636 7527",
+          "cntemail":"sarah.mccord@usda.gov"
+        }
+      },
+      "metstdn":"FGDC Content Standard for Digital Geospatial Metadata",
+      "metstdv":"FGDC-STD-001-1998"
+    }
+  }
+}

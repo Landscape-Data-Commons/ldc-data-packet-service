@@ -1,0 +1,45 @@
+
+<mat-toolbar style="height: 100px;">
+  <!-- hide hamburger button on screens greater than xs -->
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+</div>
+
+  <div >
+    <a routerLink="/" (click)="onSelect('map')">
+      <img src="/assets/exports/1x/dc-logo-color.png" 
+      alt=""
+      style="min-width:90px;min-height: auto;display: block; max-width: 330px;max-height: auto;">
+    </a>
+  </div>
+
+  <div fxFlex  fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="10px" class="navigation-items" fxLayoutAlign="center center">
+      <li fxFlexAlign="center">
+        <a [matMenuTriggerFor]="menu">About</a>
+        <mat-menu #menu="matMenu" xPosition="after">
+          <a mat-menu-item routerLink="/about" (click)="onSelect('about')" >About</a>
+          <a mat-menu-item routerLink="/about/partners" (click)="onSelect('partners')">Partners</a>
+          <a mat-menu-item routerLink="/about/development" (click)="onSelect('development')">Developer Resources</a>
+
+        </mat-menu>
+      </li>
+
+      <li fxFlexAlign="center">
+        <a routerLink="/" (click)="onSelect('folder')" class="nav-link">
+          <img src="/assets/folder-logo.png" alt="" class="img-responsive" style="max-height:20px">
+        </a>
+      </li>
+
+      <li fxFlexAlign="center"> 
+        <app-login-component *ngIf="!(auth.isAuthenticated$ | async)"></app-login-component>
+        <app-logout-component *ngIf="(auth.isAuthenticated$ | async)"></app-logout-component>
+      </li>
+      
+    </ul>
+    
+  </div>
+</mat-toolbar>
+

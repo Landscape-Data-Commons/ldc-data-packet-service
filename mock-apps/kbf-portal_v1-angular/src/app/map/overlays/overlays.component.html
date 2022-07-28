@@ -1,0 +1,16 @@
+<mat-form-field>
+  <mat-label>Available Overlays</mat-label>
+  <mat-select
+  placeholder="select"
+  
+  name="itemSelect" 
+  (selectionChange)="sendOverlay($event)"
+  disableRipple
+  multiple>
+    <mat-option 
+    *ngFor="let layer of layers"
+    [value]="layer">
+      {{layer}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

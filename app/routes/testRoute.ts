@@ -1,117 +1,161 @@
 import express from 'express'
 import * as testController from '../controllers/testController'
-import { checkJwt } from "../auth.middleware";
-const jwtAuthz = require('express-jwt-authz');
+import { authCheck } from "../middleware/auth"
+
+import {
+  claimCheck,
+  JWTPayload
+} from 'express-oauth2-jwt-bearer';
+
+interface Claim extends JWTPayload {
+  permissions: string[]
+}
+
 
 const router = express.Router()
 
 //  direct download link 
 router.get('/files/download/:uuid', testController.getData)
-//  development post route
-// router.post('/files', testController.createData)
-
-
 
 // download page route (returned from created db entry)
 router.get('/files/:uuid', testController.showData)
 
-
-
-
-// router.use(verifyJwt)
-// axios route
+// development route that downloads with authentication.
+// authorization is not implemented.
 router.put('/download-data', testController.createData)
 
 ////////////////////////////////////////////////////////
-// new routes with scope restriction
+// START of routes with authentication + authorization
 
-router.put('/unrestricted', function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+router.put('/unrestricted', 
+        // authCheck = auth function of the express-oauth2-jwt-bearer package
+        // docs = https://auth0.github.io/node-oauth2-jwt-bearer/index.html#auth
+        authCheck, 
+        // claimCheck: function of the express-oauth2-jwt-bearer package that 
+        //             checks claims(properties inside of the JWTPayload object) on a token
+        // docs = https://auth0.github.io/node-oauth2-jwt-bearer/index.html#claimcheck
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            !claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          ) // returns true if all the permissions are absent
+        }),
+          async function (req, res, next) {
+            // console.log(req.auth) // prints debug information from auth0
+            console.log(req.body) // prints put payload 
+    res.status(200).send();
+  });
 
-  // CMF: Add query-processing and email processing
-
+router.put('/ndow', 
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          )
+        }),
+        async function (req, res, next) {
+  
+          console.log(req.auth)
+          console.log(req.body)
   res.status(200).send();
 });
 
-router.put('/nri', 
-        checkJwt, 
-        jwtAuthz(['read:NRI'], { checkAllScopes: true }), 
-        function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
-
-  // CMF: Add query-processing and email processing
-
-  res.status(200).send();
-});
 
 router.put('/nwern', 
-        checkJwt, 
-        jwtAuthz(['read:NWERN'], { checkAllScopes: true }), 
-        function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
-
-  // CMF: Add query-processing and email processing
-
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          )
+        }),
+        async function (req, res, next) {
+  
+          console.log(req.auth)
+          console.log(req.body)
   res.status(200).send();
 });
 
 router.put('/rhem', 
-        checkJwt, 
-        jwtAuthz(['read:RHEM'], { checkAllScopes: true }), 
-        function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
-        
-  // CMF: Add query-processing and email processing
-        
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            !claim.permissions.includes('read:NDOW') &&
+            claim.permissions.includes('read:RHEM')
+          )
+        }),
+        async function (req, res, next) {
+  
+          console.log(req.auth)
+          console.log(req.body)
   res.status(200).send();
 });
 
-router.put('/nri-nwern', checkJwt, 
-        jwtAuthz(['read:NRI', 'read:NWERN'], { checkAllScopes: true }), 
-        function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
-                
-  // CMF: Add query-processing and email processing
-                
+router.put('/ndow-nwern', 
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          )
+        }),
+        async function (req, res, next) {
+  
+          console.log(req.auth)
+          console.log(req.body)
   res.status(200).send();
 });
  
-router.put('/nri-rhem', checkJwt, 
-        jwtAuthz(['read:NRI', 'read:RHEM'], { checkAllScopes: true }), 
-        function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
-                
-  // CMF: Add query-processing and email processing
-                
+router.put('/ndow-rhem', 
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            claim.permissions.includes('read:RHEM')
+          )
+        }),
+        async function (req, res, next) {
+  
+          console.log(req.auth)
+          console.log(req.body)
   res.status(200).send();
 });
 
-router.put('/nwern-rhem', checkJwt, 
-        jwtAuthz(['read:NWERN', 'read:RHEM'], { checkAllScopes: true }), 
-        function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
-                
-  // CMF: Add query-processing and email processing
-                
+router.put('/nwern-rhem', 
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            claim.permissions.includes('read:RHEM')
+          )
+        }),
+        async function (req, res, next) {
+  
+          console.log(req.auth)
+          console.log(req.body)
   res.status(200).send();
 });
 
-router.put('/nri-nwern-rhem', 
-        checkJwt, 
-        jwtAuthz(['read:NRI', 'read:NWERN', 'read:RHEM'], { checkAllScopes: true }), 
-        function (req, res) {
-  const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
-                
-  // CMF: Add query-processing and email processing
-                
+router.put('/ndow-nwern-rhem', 
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            claim.permissions.includes('read:RHEM')
+          )
+        }),
+        async function (req, res, next) {
+  
+          console.log(req.auth)
   res.status(200).send();
 });
 
