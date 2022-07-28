@@ -21,6 +21,7 @@
     "express": "^4.17.1",
     "express-jwt": "^7.7.5",
     "express-jwt-authz": "^2.4.1",
+    "express-oauth2-jwt-bearer": "^1.1.0",
     "express-session": "^1.17.2",
     "ftp-srv": "^4.5.0",
     "jszip": "^3.7.1",
