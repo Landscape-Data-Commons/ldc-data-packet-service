@@ -1,0 +1,25 @@
+/* app-header {
+  background:white;
+  height: 50px;
+  top:90px;
+} */
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+	height: 100% 
+}
+
+mat-sidenav {
+	width: 250px
+}
+.container{
+  height: 100%;
+  max-height: 90%;
+  min-width: 100%;
+  padding: 0;
+  position:fixed;
+  overflow: auto;
+}
+
+/* .overlayList{
+  top:400px
+} */

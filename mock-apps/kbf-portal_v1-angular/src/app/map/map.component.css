@@ -1,0 +1,52 @@
+
+ #map {
+  position: relative;
+  height: 100%;
+} 
+#mapcontainer{
+
+  top: 100px;
+  height: 100%;
+
+}
+#output_container{
+  position:absolute;
+  top:50%;
+  width:80%;
+}
+
+
+.example-box { 
+  max-width: 430px;
+  max-height: 500px;
+ /* border: solid 0px #ccc;  */
+  /* color: rgba(0, 0, 0, 0.87); */
+  /* cursor: move; */
+  /* display: flex; */
+  justify-content: center;
+  /* align-items: center; */
+  /* text-align: center; */
+  /* background: #fff; */
+  /* border-radius: 4px; */
+  /* position: relative; */
+  /* z-index: 1; */
+  /* transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1); */
+  box-shadow:none;
+}
+
+.example-box:active {
+  box-shadow:none;
+} 
+
+.table-popup{
+  max-width:auto;
+  max-height:auto;
+  justify-content: center;
+  box-shadow: none;
+
+  position:absolute;
+  top:0;
+  left:50%;
+  z-index: 3000;
+
+}

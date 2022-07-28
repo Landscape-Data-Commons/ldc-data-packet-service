@@ -1,0 +1,45 @@
+table {
+  width: 100%;
+}
+
+
+.size-container{
+  max-width:1000px;
+  height:400px;
+  width:auto;
+  overflow: auto;
+  z-index: 10000;
+}
+.flexible-container{
+  max-height: 400px;
+  overflow: auto;
+}
+.th,.mat-header-cell{
+  min-width: 150px;
+  text-align: center !important;
+}
+
+.mat-column {
+  padding: 0 8px;
+  font-size: 10px;
+  text-align: center;
+}
+
+.truncate-cell { 
+  align-items: center;
+  max-width: 150px; 
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.contents{
+  max-height: auto;
+  max-width: auto;
+  justify-content: center;
+}
+
+.spinner{
+  width: auto;
+  height: auto;
+
+}

@@ -2,6 +2,12 @@ import express from 'express'
 import * as testController from '../controllers/testController'
 import { checkJwt } from "../auth.middleware";
 const jwtAuthz = require('express-jwt-authz');
+const AuthClient = require('auth0').AuthenticationClient
+
+const auth0 = new AuthClient({
+  domain: process.env.AUTH0_DOMAIN,
+  clientId: process.env.AUTH0_CLIENT_ID,
+})
 
 const router = express.Router()
 
@@ -27,19 +33,25 @@ router.put('/download-data', testController.createData)
 
 router.put('/unrestricted', function (req, res) {
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
+  console.log(primaryKeys)
 
   // CMF: Add query-processing and email processing
 
   res.status(200).send();
 });
 
-router.put('/nri', 
+router.put('/ndow', 
         checkJwt, 
-        jwtAuthz(['read:NRI'], { checkAllScopes: true }), 
-        function (req, res) {
+        // jwtAuthz(['read:NDOW']), 
+        async function (req, res) {
+  const access_token = req.headers.authorization.split(' ')[1]
+  
+  const user_profile = await auth0.getProfile(access_token)
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
+  console.log(req.body)
+  console.log(user_profile)
 
   // CMF: Add query-processing and email processing
 
@@ -51,7 +63,8 @@ router.put('/nwern',
         jwtAuthz(['read:NWERN'], { checkAllScopes: true }), 
         function (req, res) {
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
+  console.log(primaryKeys)
 
   // CMF: Add query-processing and email processing
 
@@ -63,29 +76,31 @@ router.put('/rhem',
         jwtAuthz(['read:RHEM'], { checkAllScopes: true }), 
         function (req, res) {
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
         
   // CMF: Add query-processing and email processing
         
   res.status(200).send();
 });
 
-router.put('/nri-nwern', checkJwt, 
-        jwtAuthz(['read:NRI', 'read:NWERN'], { checkAllScopes: true }), 
+router.put('/ndow-nwern', checkJwt, 
+        jwtAuthz(['read:NDOW', 'read:NWERN'], { checkAllScopes: true }), 
         function (req, res) {
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
+  console.log(primaryKeys)
                 
   // CMF: Add query-processing and email processing
                 
   res.status(200).send();
 });
  
-router.put('/nri-rhem', checkJwt, 
-        jwtAuthz(['read:NRI', 'read:RHEM'], { checkAllScopes: true }), 
+router.put('/ndow-rhem', checkJwt, 
+        jwtAuthz(['read:NDOW', 'read:RHEM'], { checkAllScopes: true }), 
         function (req, res) {
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
+  console.log(primaryKeys)
                 
   // CMF: Add query-processing and email processing
                 
@@ -96,19 +111,21 @@ router.put('/nwern-rhem', checkJwt,
         jwtAuthz(['read:NWERN', 'read:RHEM'], { checkAllScopes: true }), 
         function (req, res) {
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
+  console.log(primaryKeys)
                 
   // CMF: Add query-processing and email processing
                 
   res.status(200).send();
 });
 
-router.put('/nri-nwern-rhem', 
+router.put('/ndow-nwern-rhem', 
         checkJwt, 
-        jwtAuthz(['read:NRI', 'read:NWERN', 'read:RHEM'], { checkAllScopes: true }), 
+        jwtAuthz(['read:NDOW', 'read:NWERN', 'read:RHEM'], { checkAllScopes: true }), 
         function (req, res) {
   const primaryKeys = req.body;
-  const userId = req.user['http://localhost:3002/email'];
+  // const userId = req.user['http://localhost:3002/email'];
+  console.log(primaryKeys)
                 
   // CMF: Add query-processing and email processing
                 

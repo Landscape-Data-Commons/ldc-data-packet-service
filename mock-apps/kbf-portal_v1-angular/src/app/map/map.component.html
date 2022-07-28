@@ -1,0 +1,131 @@
+
+<div id="sidebar" class="leaflet-sidebar collapsed">
+  <div class="leaflet-sidebar-tabs">
+    <ul role="tablist">
+        <li><a href="#home" role="tab"><i class="fas fa-bars"></i></a></li>
+        <li><a href="#profile" role="tab"><i class="fas fa-user"></i></a></li>
+       
+    </ul>
+
+    <ul role="tablist">
+        <li><a href="#settings" role="tab"><i class="fas fa-gear"></i></a></li>
+    </ul>
+</div>
+
+<div class="leaflet-sidebar-content">
+  <div class="leaflet-sidebar-pane" id="home">
+
+      <h1 class="leaflet-sidebar-header" style="background-color: white;color: black;">
+          Tools
+          <span class="sidebar-close"><i class="fa fa-caret-right"></i></span>
+      </h1>
+      <div class="row">
+      <div id="pane_container" #pane_container>
+        <!-- <div class="col-1"> -->
+          <app-baselayers ></app-baselayers>
+        <!-- </div> -->
+        <!-- <div class="col-1"> -->
+          <app-overlays></app-overlays>
+        <!-- </div> -->
+        
+        
+      </div>
+      <br>
+    </div>
+      <form>
+        <div class="row" style="padding-top:10%">
+          
+            <div class="col-sm">
+              <mat-slide-toggle
+              
+              [checked]="checked"
+              (change)="toggle($event)"
+              ngModel 
+              name="publicfilter">
+              Public
+              </mat-slide-toggle>
+            </div>
+            <div class="col-sm">
+              
+              <mat-checkbox [checked]="checked" (change)="lockExtent($event)">Lock extent</mat-checkbox>
+            </div>
+            <div class='col-sm' >
+              <button  mat-stroked-button color="primary" (click)="popupTable2()">
+                test table
+              </button>
+            </div>
+        </div>
+      </form>
+        
+
+ 
+      <div id="output_container">
+        <div class="row">
+          <div class='col-sm' >
+            <p style="padding-top:15px" *ngIf="resultOutput;else elseBlock">Showing {{ resultOutput }} results...</p>
+          </div>
+          <div class='col-sm' >
+            <button  *ngIf="resultOutput"  mat-stroked-button color="primary" (click)="popupTable()">
+              popup
+            </button>
+          </div>
+        </div>
+      
+      
+
+      <app-summary-table *ngIf="resultOutput;">
+
+      </app-summary-table>
+      <!-- <mat-select>
+        <mat-option 
+        *ngFor="let proj of projects"
+        [value]="proj.project">
+        {{proj.length}}
+        </mat-option>
+      </mat-select> -->
+      </div>
+      <ng-template #elseBlock id="output_container">
+        <p>No results to show..</p>
+      </ng-template>
+      
+        
+      
+
+      
+  </div>
+</div>
+
+
+</div>
+<div id="mapcontainer" #mapcontainer >
+  <div id="map"
+  
+  >
+    <app-popup-for-table
+    *ngIf="tablepopup && tableData"
+    class="table-popup"
+    
+    (mousedown)="onFocus()"
+    (mouseup)="offFocus()"
+    cdkDrag
+      cdkDragBoundary="#mapcontainer">
+      
+
+    </app-popup-for-table>
+</div>
+
+
+
+    
+
+</div>
+  <!-- <app-panel style="z-index: 2000; position: absolute; top:20px; left: 10px;" [childMap]="map"> -->
+    
+    
+    <!-- (addMark)="showMarkers()" -->
+    <!-- [childMessage]="Public"> -->
+ <!-- </app-panel> -->
+
+
+
+<!-- (addMark)="mrkr===false ? addMarks() : removeMarks()" -->
