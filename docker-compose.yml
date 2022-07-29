@@ -6,7 +6,7 @@ services:
       dockerfile: ./app/node.Dockerfile
     container_name: node
     volumes:
-      - ./app:/usr/src
+      # - ./app:/usr/src
       # comment out the shared if debugging
       # the creation of live files
       - shared:/usr/src/temp
@@ -35,7 +35,7 @@ services:
       - $WEB_PORT:8081
 
   mongo:
-    image: mongo:5.0.5
+    image: mongo:4.4.15
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGOINIT}
@@ -47,7 +47,7 @@ services:
       - mongodata:/data/db
 
   mongo-express:
-    image: mongo-express
+    image: mongo-express:1.0.0-alpha.4
     restart: always
     container_name: mongo-express
     # ports:
