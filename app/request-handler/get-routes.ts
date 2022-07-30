@@ -21,37 +21,47 @@ import { gisDbTableNames } from '../request-handler/columns';
 const queryGenerator = new QueryGenerator();
 const delimiter = queryGenerator.delimiter
 
-function poolSelector(res){
-  const permissions = res.auth.permissions
+function poolSelector(request:any){
+  const permissions = request.auth.payload.permissions
   if(
     !permissions.includes('read:NDOW') &&
     !permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
+    console.log(`Returnin unrestricted`)
+    console.log(pool)
     return pool
   }else if(
     permissions.includes('read:NDOW') &&
     !permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
+    console.log(`Returnin NDOW`)
+    console.log(pool2)
     return pool2
   }else if(
     !permissions.includes('read:NDOW') &&
     permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
+    console.log(`Returnin rhem`)
+    console.log(pool3)
     return pool3
   }else if(
     !permissions.includes('read:NDOW') &&
     !permissions.includes('read:RHEM') &&
     permissions.includes('read:NWERN')
   ){
+    console.log(`Returnin nwern`)
+    console.log(pool4)
     return pool4
   } else if(
     permissions.includes('read:NDOW') &&
     permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
+    console.log(`Returnin ndow + rhem`)
+    console.log(pool5)
     return pool5
   }else if(
     permissions.includes('read:NDOW') &&
@@ -98,9 +108,9 @@ function extractPostParameters(request: any): PostParameters {
 }
 
 // 2022-03-17-CMF: Send SQL query to database and return result 
-async function getResult(selectStatement: string, req:any): Promise<any> {
+async function getResult(selectStatement: string, request:any): Promise<any> {
   let result;
-  let selPool = poolSelector(req)
+  let selPool = poolSelector(request)
   const client = await selPool.connect(); 
   try { result = (await client.query(selectStatement)).rows; } 
   finally { client.release() };
@@ -119,7 +129,7 @@ function outputTableData(tableName: string, tableData: string) {
 async function retrieveAndOutputTableData(
   tableName: string, 
   primaryKeys: PostParameters,
-  res:any
+  request:any
   ) {
   let tableQuery = ''
   if (tableName === 'filterTable') {
@@ -131,17 +141,17 @@ async function retrieveAndOutputTableData(
   // outputTableData(tableName, await getResult(tableQuery))
 
   // KBF instead of creating jsons, just returns the data
-  let returnData = await getResult(tableQuery,res)
+  let returnData = await getResult(tableQuery,request)
   return returnData
 }
 
 // 2022-03-17-CMF: Retrieve and print data for all database tables
-function retrieveAndPrintAllTableData(primaryKeys: PostParameters, req:any) {
+function retrieveAndPrintAllTableData(primaryKeys: PostParameters, request:any) {
   // each returned table is stored in an object
   let obj = {}
-  obj['filterTable'] = retrieveAndOutputTableData('filterTable', primaryKeys, req)
+  obj['filterTable'] = retrieveAndOutputTableData('filterTable', primaryKeys, request)
   for (let tableName of gisDbTableNames) {
-    obj[tableName] = retrieveAndOutputTableData(tableName, primaryKeys, req)
+    obj[tableName] = retrieveAndOutputTableData(tableName, primaryKeys, request)
   }
   // KBF the object full of tables is returned
   return obj

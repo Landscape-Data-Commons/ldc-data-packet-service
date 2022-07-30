@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   node:
-    image: landscapedatacommons/dl_node:1.0
+    image: landscapedatacommons/dl_node:1.1
     build:
       context: .
       dockerfile: ./app/node.Dockerfile

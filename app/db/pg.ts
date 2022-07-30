@@ -1,3 +1,4 @@
+require('dotenv').config();
 import { Pool } from "pg"
 
 const unrestricted = process.env.DBSTR
@@ -14,34 +15,42 @@ const ndowrhemnwernConn = process.env.NDOWRHEMNWERN
 
 const pool = new Pool({
   unrestricted,
+  max: 20
 })
 
 const pool2 = new Pool({
   ndowConn,
+  max: 20
 })
 
 const pool3 = new Pool({
   rhemConn,
+  max: 20
 })
 
 const pool4 = new Pool({
   nwernConn,
+  max: 20
 })
 
 const pool5 = new Pool({
   ndowrhemConn,
+  max: 20
 })
 
 const pool6 = new Pool({
   ndownwernConn,
+  max: 20
 })
 
 const pool7 = new Pool({
   rhemnwernConn,
+  max: 20
 })
 
 const pool8 = new Pool({
   ndowrhemnwernConn,
+  max: 20
 })
 
 
