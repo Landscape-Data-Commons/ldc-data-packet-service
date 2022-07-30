@@ -1,6 +1,7 @@
 version: "3.3"
 services:
   node:
+    image: landscapedatacommons/dl_node:1.0
     build:
       context: .
       dockerfile: ./app/node.Dockerfile
@@ -36,6 +37,7 @@ services:
     
 
   cron:
+    image: landscapedatacommons/dl_cron:1.0
     build:
       context: .
       dockerfile: ./cron_container/cron.Dockerfile
@@ -49,6 +51,7 @@ services:
       - .env
     
   nginx:
+    image: landscapedatacommons/dl_nginx:1.0
     build:
       context: .
       dockerfile: ./nginx_container/nginx.Dockerfile
