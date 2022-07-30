@@ -1,6 +1,15 @@
 // https://node-postgres.com/features/pooling
 
-import {pool, printEnv} from '../db/pg';
+import {
+        pool,
+        pool2,
+        pool3,
+        pool4,
+        pool5,
+        pool6,
+        pool7,
+        pool8
+      } from '../db/pg';
 
 import path from 'path'
 import fs from 'fs';
@@ -11,6 +20,59 @@ import { gisDbTableNames } from '../request-handler/columns';
 
 const queryGenerator = new QueryGenerator();
 const delimiter = queryGenerator.delimiter
+
+function poolSelector(res){
+  const permissions = res.auth.permissions
+  if(
+    !permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    return pool
+  }else if(
+    permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    return pool2
+  }else if(
+    !permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    return pool3
+  }else if(
+    !permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    return pool4
+  } else if(
+    permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    return pool5
+  }else if(
+    permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    return pool6
+  } else if(
+    !permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    return pool7
+  } else if(
+    permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    return pool8
+  }
+}
 
 // 2022-02-15-CMF: Handle errors from database connection pool
 pool.on('error', (err) => {  
@@ -26,18 +88,6 @@ function setHeaderFields(res: any): void {
   res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 }
 
-// FROM MINI-API
-// 2022-02-17-CMF: Parse and extract query parameters from request
-// 2022-03-17-CMF: TO DO --- ADAPT TO POST-REQUEST PROCESSING
-// function extractQueryParameters(request: any): QueryParameters {
-//   const queryParameters: QueryParameters = {};
-//   for (let property in request.query) {
-//     queryParameters[property] = request.query[property].split(delimiter)
-//   }
-//   console.log(queryParameters)
-//   return queryParameters;
-// }
-
 function extractPostParameters(request: any): PostParameters {
   const postParameters: PostParameters = {};
   for (let property of Object.keys(request.body.data)) {
@@ -48,10 +98,10 @@ function extractPostParameters(request: any): PostParameters {
 }
 
 // 2022-03-17-CMF: Send SQL query to database and return result 
-async function getResult(selectStatement: string): Promise<any> {
+async function getResult(selectStatement: string, req:any): Promise<any> {
   let result;
-  printEnv
-  const client = await pool.connect(); 
+  let selPool = poolSelector(req)
+  const client = await selPool.connect(); 
   try { result = (await client.query(selectStatement)).rows; } 
   finally { client.release() };
   return result;
@@ -66,7 +116,11 @@ function outputTableData(tableName: string, tableData: string) {
 }
 
 // 2022-03-17-CMF: Retrieve and print data for single database table
-async function retrieveAndOutputTableData(tableName: string, primaryKeys: PostParameters) {
+async function retrieveAndOutputTableData(
+  tableName: string, 
+  primaryKeys: PostParameters,
+  res:any
+  ) {
   let tableQuery = ''
   if (tableName === 'filterTable') {
     tableQuery = queryGenerator.selectAllFilterColumns(primaryKeys)
@@ -77,17 +131,17 @@ async function retrieveAndOutputTableData(tableName: string, primaryKeys: PostPa
   // outputTableData(tableName, await getResult(tableQuery))
 
   // KBF instead of creating jsons, just returns the data
-  let returnData = await getResult(tableQuery)
+  let returnData = await getResult(tableQuery,res)
   return returnData
 }
 
 // 2022-03-17-CMF: Retrieve and print data for all database tables
-function retrieveAndPrintAllTableData(primaryKeys: PostParameters) {
+function retrieveAndPrintAllTableData(primaryKeys: PostParameters, req:any) {
   // each returned table is stored in an object
   let obj = {}
-  obj['filterTable'] = retrieveAndOutputTableData('filterTable', primaryKeys)
+  obj['filterTable'] = retrieveAndOutputTableData('filterTable', primaryKeys, req)
   for (let tableName of gisDbTableNames) {
-    obj[tableName] = retrieveAndOutputTableData(tableName, primaryKeys)
+    obj[tableName] = retrieveAndOutputTableData(tableName, primaryKeys, req)
   }
   // KBF the object full of tables is returned
   return obj

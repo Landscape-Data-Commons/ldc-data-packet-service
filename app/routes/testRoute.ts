@@ -41,11 +41,8 @@ router.put('/unrestricted',
             !claim.permissions.includes('read:RHEM')
           ) // returns true if all the permissions are absent
         }),
-          async function (req, res, next) {
-            // console.log(req.auth) // prints debug information from auth0
-            console.log(req.body) // prints put payload 
-    res.status(200).send();
-  });
+        testController.createData
+        );
 
 router.put('/ndow', 
         authCheck, 
@@ -60,9 +57,8 @@ router.put('/ndow',
   
           console.log(req.auth)
           console.log(req.body)
-  res.status(200).send();
+          testController.createData
 });
-
 
 router.put('/nwern', 
         authCheck, 
@@ -73,12 +69,8 @@ router.put('/nwern',
             !claim.permissions.includes('read:RHEM')
           )
         }),
-        async function (req, res, next) {
-  
-          console.log(req.auth)
-          console.log(req.body)
-  res.status(200).send();
-});
+        testController.createData
+);
 
 router.put('/rhem', 
         authCheck, 
@@ -89,12 +81,8 @@ router.put('/rhem',
             claim.permissions.includes('read:RHEM')
           )
         }),
-        async function (req, res, next) {
-  
-          console.log(req.auth)
-          console.log(req.body)
-  res.status(200).send();
-});
+        testController.createData
+);
 
 router.put('/ndow-nwern', 
         authCheck, 
@@ -105,12 +93,8 @@ router.put('/ndow-nwern',
             !claim.permissions.includes('read:RHEM')
           )
         }),
-        async function (req, res, next) {
-  
-          console.log(req.auth)
-          console.log(req.body)
-  res.status(200).send();
-});
+        testController.createData
+);
  
 router.put('/ndow-rhem', 
         authCheck, 

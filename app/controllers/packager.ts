@@ -31,7 +31,7 @@ export const packager = async (user_profile, request) =>{
   ////////////////////////////////////////
   // parsing request with mini-api handler
 
-  let fullTables = await retrieveAndPrintAllTableData(extractPostParameters(request))
+  let fullTables = await retrieveAndPrintAllTableData(extractPostParameters(request), request)
   
   // adding all the promises inside the object into Promise.all
   let allPromises = Promise.all(Object.values(fullTables))
