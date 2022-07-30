@@ -68,7 +68,7 @@ services:
     volumes:
       - mongodata:/data/db
     # config for docker stack setup
-    config:
+    configs:
      - env_mongoinit
      - env_mongopass
     
@@ -81,7 +81,7 @@ services:
       - mongodb_config:/data/configdb
 
     # config for docker stack setup
-    config:
+    configs:
      - env_mongoeexp_url
      - env_mongoexp_base
      - env_mongo_adm
