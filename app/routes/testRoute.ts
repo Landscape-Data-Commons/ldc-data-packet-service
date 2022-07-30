@@ -68,8 +68,8 @@ router.put('/nwern',
         authCheck, 
         claimCheck((claim:Claim)=>{
           return (
-            !claim.permissions.includes('read:NWERN') && 
-            claim.permissions.includes('read:NDOW') &&
+            claim.permissions.includes('read:NWERN') && 
+            !claim.permissions.includes('read:NDOW') &&
             !claim.permissions.includes('read:RHEM')
           )
         }),
