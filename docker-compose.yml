@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.3"
 services:
   node:
     build:
@@ -10,8 +10,30 @@ services:
       # comment out the shared if debugging
       # the creation of live files
       - shared:/usr/src/temp
+    # env file for docker compose debug
     env_file:
       - ./app/db/.env
+    # config for docker stack setup
+    configs:
+      - env_auth_audience
+      - env_auth_domain
+      - env_auth_id 
+      - env_base
+      - env_dbstr
+      - env_mongopath
+      - env_sendgrid
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        failure_action: rollback
+        delay: 20s
+      
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 120s
+    
 
   cron:
     build:
@@ -32,34 +54,79 @@ services:
       dockerfile: ./nginx_container/nginx.Dockerfile
     container_name: nginx
     ports:
-      - $WEB_PORT:8081
+      - 5001:8081
 
   mongo:
     image: mongo:4.4.15
     restart: always
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: ${MONGOINIT}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGOINITPASS}
     container_name: mongo
     ports:
-      - $MONGO_PORT:27017
+      - 27017:27017
+    # env file for docker compose debug
+    env_file:
+      - .env
     volumes:
       - mongodata:/data/db
+    # config for docker stack setup
+    config:
+     - env_mongoinit
+     - env_mongopass
+    
 
   mongo-express:
     image: mongo-express:1.0.0-alpha.4
     restart: always
     container_name: mongo-express
-    # ports:
-    #   - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_URL: "mongodb://${MONGOINIT}:${MONGOINITPASS}@mongo:27017/"
-      ME_CONFIG_SITE_BASEURL: '/mongo'
-      ME_CONFIG_MONGODB_ENABLE_ADMIN: "true"
     volumes:
       - mongodb_config:/data/configdb
+
+    # config for docker stack setup
+    config:
+     - env_mongoeexp_url
+     - env_mongoexp_base
+     - env_mongo_adm
+    # env file for docker compose debug
+    env_file:
+      - .env
     
 volumes:
   mongodata:
   mongodb_config:
   shared:
+
+configs:
+  env_auth_audience:
+    external: true
+
+  env_auth_domain:
+    external: true
+ 
+  env_auth_id:
+    external: true
+ 
+  env_base:
+    external: true
+  
+  env_dbstr:
+    external: true
+ 
+  env_mongopath:
+    external: true
+ 
+  env_sendgrid:
+    external: true
+
+  env_mongoinit:
+    external: true
+
+  env_mongopass:
+    external: true
+
+  env_mongoeexp_url:
+    external: true
+
+  env_mongoexp_base:
+    external: true
+
+  env_mongo_adm:
+    external: true
