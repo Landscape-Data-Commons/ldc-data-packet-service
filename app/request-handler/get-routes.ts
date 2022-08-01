@@ -41,11 +41,6 @@ function poolSelector(request:any){
     // console.log(pool2)
     return new Pool({
       ndowConn
-      // host: 'jornada-ldc2.jrn.nmsu.edu',
-      // user: 'ndow_get',
-      // password: 'ndow@1912!',
-      // database: "gisdb",
-      // port: 5435
     })
   }else if(
     !permissions.includes('read:NDOW') &&
