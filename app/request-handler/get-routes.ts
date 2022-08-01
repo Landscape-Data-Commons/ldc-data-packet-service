@@ -1,15 +1,19 @@
 // https://node-postgres.com/features/pooling
 
-import {
-        pool,
-        pool2,
-        pool3,
-        pool4,
-        pool5,
-        pool6,
-        pool7,
-        pool8
-      } from '../db/pg';
+require('dotenv').config();
+import { Pool } from "pg"
+
+const unrestricted = process.env.DBSTR
+
+const ndowConn = process.env.NDOW 
+const rhemConn = process.env.RHEM
+const nwernConn = process.env.NWERN
+
+const ndowrhemConn = process.env.NDOWRHEM
+const ndownwernConn = process.env.NDOWNWERN
+const rhemnwernConn = process.env.RHEMNWERN
+
+const ndowrhemnwernConn = process.env.NDOWRHEMNWERN 
 
 import path from 'path'
 import fs from 'fs';
@@ -17,9 +21,6 @@ import fs from 'fs';
 import { QueryGenerator, QueryParameters, PostParameters } from '../request-handler/queries';
 import { gisDbTableNames } from '../request-handler/columns'; 
 
-
-const queryGenerator = new QueryGenerator();
-const delimiter = queryGenerator.delimiter
 
 function poolSelector(request:any){
   const permissions = request.auth.payload.permissions
@@ -29,66 +30,80 @@ function poolSelector(request:any){
     !permissions.includes('read:NWERN')
   ){
     console.log(`Returnin unrestricted`)
-    console.log(pool)
-    return pool
+    // console.log(pool)
+    return new Pool({unrestricted})
   }else if(
     permissions.includes('read:NDOW') &&
     !permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
     console.log(`Returnin NDOW`)
-    console.log(pool2)
-    return pool2
+    // console.log(pool2)
+    return new Pool({
+      ndowConn
+      // host: 'jornada-ldc2.jrn.nmsu.edu',
+      // user: 'ndow_get',
+      // password: 'ndow@1912!',
+      // database: "gisdb",
+      // port: 5435
+    })
   }else if(
     !permissions.includes('read:NDOW') &&
     permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
     console.log(`Returnin rhem`)
-    console.log(pool3)
-    return pool3
+    // console.log(pool3)
+    return new Pool({rhemConn})
   }else if(
     !permissions.includes('read:NDOW') &&
     !permissions.includes('read:RHEM') &&
     permissions.includes('read:NWERN')
   ){
     console.log(`Returnin nwern`)
-    console.log(pool4)
-    return pool4
+    // console.log(pool4)
+    return new Pool({nwernConn})
   } else if(
     permissions.includes('read:NDOW') &&
     permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
     console.log(`Returnin ndow + rhem`)
-    console.log(pool5)
-    return pool5
+    // console.log(pool5)
+    return new Pool({ndowrhemConn})
   }else if(
     permissions.includes('read:NDOW') &&
     !permissions.includes('read:RHEM') &&
     permissions.includes('read:NWERN')
   ){
-    return pool6
+    return new Pool({ndownwernConn})
   } else if(
     !permissions.includes('read:NDOW') &&
     permissions.includes('read:RHEM') &&
     permissions.includes('read:NWERN')
   ){
-    return pool7
+    return new Pool({rhemnwernConn})
   } else if(
     permissions.includes('read:NDOW') &&
     permissions.includes('read:RHEM') &&
     permissions.includes('read:NWERN')
   ){
-    return pool8
+    return new Pool({ndowrhemnwernConn})
+  } else {
+    console.log("NOT HANDLED")
   }
 }
 
+
+
+const queryGenerator = new QueryGenerator();
+const delimiter = queryGenerator.delimiter
+
 // 2022-02-15-CMF: Handle errors from database connection pool
-pool.on('error', (err) => {  
-  console.error('Unexpected error on idle client', err)
-  process.exit(-1)
-})
+// pool.on('error', (err) => {  
+//   console.error('Unexpected error on idle client', err)
+//   process.exit(-1)
+// })
 
 // 2022-02-15-CMF: Set headers for all GET responses
 // 2022-03-17-CMF: TO DO --- ADAPT TO POST-REQUEST PROCESSING
@@ -103,18 +118,26 @@ function extractPostParameters(request: any): PostParameters {
   for (let property of Object.keys(request.body.data)) {
     postParameters[property] = request.body.data[property]
   }
-  console.log(postParameters)
+  // console.log(postParameters)
   return postParameters;
 }
 
 // 2022-03-17-CMF: Send SQL query to database and return result 
 async function getResult(selectStatement: string, request:any): Promise<any> {
   let result;
-  let selPool = poolSelector(request)
-  const client = await selPool.connect(); 
-  try { result = (await client.query(selectStatement)).rows; } 
-  finally { client.release() };
-  return result;
+  let pool = await poolSelector(request)
+  const client = await pool.connect((err, client, release) => {
+    if (err){
+      return console.error('error acquiring client', err.stack)
+    }
+    client.query(selectStatement, (err, result)=>{
+      release()
+      if (err) {
+        return result.rows
+      }
+    })
+  }); 
+  
 }
 
 // 2022-03-17-CMF: Write retrieved database table data to JSON file

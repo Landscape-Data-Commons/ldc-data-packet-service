@@ -32,14 +32,14 @@ export const packager = async (user_profile, request) =>{
   // parsing request with mini-api handler
 
   let fullTables = await retrieveAndPrintAllTableData(extractPostParameters(request), request)
-  
+  console.log(fullTables)
   // adding all the promises inside the object into Promise.all
   let allPromises = Promise.all(Object.values(fullTables))
 
   // iterating over each promise, turning resulting jsons into csv's
   for(let table of Object.keys(fullTables)){
     fullTables[table].then(data=>{
-
+      console.log(data)
       let csv = creatingCSV(data)
   // adding created CSV into zip file (takes a while)
       zip.file(`${table}.csv`,csv)
@@ -112,6 +112,7 @@ export const packager = async (user_profile, request) =>{
 const creatingCSV = (myObj) => {
     // csv
     console.log("LLEGUE A CREATING CSV")
+    console.log()
     const items = myObj
     const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
     const header = Object.keys(items[0])

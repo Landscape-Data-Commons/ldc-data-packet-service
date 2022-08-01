@@ -72,8 +72,8 @@ export class QueryGenerator {
   
   // 2022-02-16-CMF: Return latitude/longitude selection --- for showing all plots on initial map load
   private getRoundedLatLonSubClause(): string {
-    return `\n ROUND(CAST(${this.gidb}"Latitude_NAD83" as numeric), 8) as "Latitude_NAD83",` +
-           `\n ROUND(CAST(${this.gidb}"Longitude_NAD83" as numeric), 8) as "Longitude_NAD83"`
+    return `\n ROUND(${this.gidb}"Latitude_NAD83", 8) as "Latitude_NAD83",` +
+           `\n ROUND(${this.gidb}"Longitude_NAD83", 8) as "Longitude_NAD83"`
   }
 
   // 2022-02-16-CMF: Return full query for retrieving latitude/longitude values on initial map load
