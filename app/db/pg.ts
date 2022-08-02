@@ -26,20 +26,13 @@ function poolSelector(request:any){
     console.log("ndow")
     loginObj[ul]=process.env.NDOW
     loginObj[up]=process.env.NDOWP
-    console.log(loginObj)
-    return new Pool({
-      user:process.env.NDOW,
-      password:process.env.NDOWP,
-      host:process.env.DBHOST,
-      port:process.env.DBPORT,
-      database:process.env.DB,
-    })
+    return new Pool(loginObj)
   }else if(
     !permissions.includes('read:NDOW') &&
     permissions.includes('read:RHEM') &&
     !permissions.includes('read:NWERN')
   ){
-    console.log("ndow")
+    console.log("rhem")
     loginObj[ul]=process.env.RHEM
     loginObj[up]=process.env.RHEMP
     console.log(loginObj)
