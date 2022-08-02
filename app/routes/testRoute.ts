@@ -87,7 +87,7 @@ router.put('/rhem',
 
 router.put('/ndow-nwern', 
         authCheck, 
-        requiredScopes('read:NWERN', 'read:NDOW'),
+        requiredScopes('read:NWERN read:NDOW'),
         claimCheck((claim:Claim)=>{
           return (
             claim.permissions.includes('read:NWERN') && 
@@ -100,7 +100,7 @@ router.put('/ndow-nwern',
  
 router.put('/ndow-rhem', 
         authCheck, 
-        requiredScopes('read:NDOW','read:RHEM'),
+        requiredScopes('read:NDOW read:RHEM'),
         claimCheck((claim:Claim)=>{
           return (
             !claim.permissions.includes('read:NWERN') && 
@@ -117,7 +117,7 @@ router.put('/ndow-rhem',
 
 router.put('/nwern-rhem', 
         authCheck, 
-        requiredScopes('read:NWERN','read:RHEM'),
+        requiredScopes('read:NWERN read:RHEM'),
         claimCheck((claim:Claim)=>{
           return (
             !claim.permissions.includes('read:NWERN') && 
@@ -134,7 +134,7 @@ router.put('/nwern-rhem',
 
 router.put('/ndow-nwern-rhem', 
         authCheck, 
-        requiredScopes('read:NWERN', 'read:NDOW','read:RHEM'),
+        requiredScopes('read:NWERN read:NDOW read:RHEM'),
         claimCheck((claim:Claim)=>{
           return (
             claim.permissions.includes('read:NWERN') && 
