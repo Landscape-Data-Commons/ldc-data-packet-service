@@ -1,14 +1,7 @@
 // https://node-postgres.com/features/pooling
-
+import {Pool} from 'pg'
 import {
-        pool,
-        pool2,
-        pool3,
-        pool4,
-        pool5,
-        pool6,
-        pool7,
-        pool8
+        poolSelector
       } from '../db/pg';
 
 import path from 'path'
@@ -21,74 +14,9 @@ import { gisDbTableNames } from '../request-handler/columns';
 const queryGenerator = new QueryGenerator();
 const delimiter = queryGenerator.delimiter
 
-function poolSelector(request:any){
-  const permissions = request.auth.payload.permissions
-  if(
-    !permissions.includes('read:NDOW') &&
-    !permissions.includes('read:RHEM') &&
-    !permissions.includes('read:NWERN')
-  ){
-    console.log(`Returnin unrestricted`)
-    console.log(pool)
-    return pool
-  }else if(
-    permissions.includes('read:NDOW') &&
-    !permissions.includes('read:RHEM') &&
-    !permissions.includes('read:NWERN')
-  ){
-    console.log(`Returnin NDOW`)
-    console.log(pool2)
-    return pool2
-  }else if(
-    !permissions.includes('read:NDOW') &&
-    permissions.includes('read:RHEM') &&
-    !permissions.includes('read:NWERN')
-  ){
-    console.log(`Returnin rhem`)
-    console.log(pool3)
-    return pool3
-  }else if(
-    !permissions.includes('read:NDOW') &&
-    !permissions.includes('read:RHEM') &&
-    permissions.includes('read:NWERN')
-  ){
-    console.log(`Returnin nwern`)
-    console.log(pool4)
-    return pool4
-  } else if(
-    permissions.includes('read:NDOW') &&
-    permissions.includes('read:RHEM') &&
-    !permissions.includes('read:NWERN')
-  ){
-    console.log(`Returnin ndow + rhem`)
-    console.log(pool5)
-    return pool5
-  }else if(
-    permissions.includes('read:NDOW') &&
-    !permissions.includes('read:RHEM') &&
-    permissions.includes('read:NWERN')
-  ){
-    return pool6
-  } else if(
-    !permissions.includes('read:NDOW') &&
-    permissions.includes('read:RHEM') &&
-    permissions.includes('read:NWERN')
-  ){
-    return pool7
-  } else if(
-    permissions.includes('read:NDOW') &&
-    permissions.includes('read:RHEM') &&
-    permissions.includes('read:NWERN')
-  ){
-    return pool8
-  }
-}
 
 // 2022-02-15-CMF: Handle errors from database connection pool
-pool.on('error', (err) => {  
-  console.error('Unexpected error on idle client', err)
-  process.exit(-1)
-})
+
 
 // 2022-02-15-CMF: Set headers for all GET responses
 // 2022-03-17-CMF: TO DO --- ADAPT TO POST-REQUEST PROCESSING
@@ -108,10 +36,10 @@ function extractPostParameters(request: any): PostParameters {
 }
 
 // 2022-03-17-CMF: Send SQL query to database and return result 
-async function getResult(selectStatement: string, request:any): Promise<any> {
+async function getResult(selectStatement: string, pool: Pool): Promise<any> {
   let result;
-  let selPool = poolSelector(request)
-  const client = await selPool.connect(); 
+  console.log(pool)
+  const client = await pool.connect(); 
   try { result = (await client.query(selectStatement)).rows; } 
   finally { client.release() };
   return result;
@@ -141,7 +69,9 @@ async function retrieveAndOutputTableData(
   // outputTableData(tableName, await getResult(tableQuery))
 
   // KBF instead of creating jsons, just returns the data
-  let returnData = await getResult(tableQuery,request)
+  let pool = await poolSelector(request)
+  
+  let returnData = await getResult(tableQuery,pool)
   return returnData
 }
 

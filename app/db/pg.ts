@@ -1,67 +1,94 @@
 require('dotenv').config();
 import { Pool } from "pg"
 
-const unrestricted = process.env.DBSTR
+let loginObj = {
+  host:process.env.DBHOST,
+  port:process.env.DBPORT,
+  database:process.env.DB,
+}
+const ul = 'user'
+const up = 'password'
+function poolSelector(request:any){
+  const permissions = request.auth.payload.permissions
+  if(
+    !permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    loginObj[ul]=process.env.RESTRICTED
+    loginObj[up]=process.env.RESTRICTEDP
+    return new Pool(loginObj)
+  }else if(
+    permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    console.log("ndow")
+    loginObj[ul]=process.env.NDOW
+    loginObj[up]=process.env.NDOWP
+    console.log(loginObj)
+    return new Pool({
+      user:process.env.NDOW,
+      password:process.env.NDOWP,
+      host:process.env.DBHOST,
+      port:process.env.DBPORT,
+      database:process.env.DB,
+    })
+  }else if(
+    !permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    console.log("ndow")
+    loginObj[ul]=process.env.RHEM
+    loginObj[up]=process.env.RHEMP
+    console.log(loginObj)
+    return new Pool(loginObj)
+  }else if(
+    !permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    loginObj[ul]=process.env.NWERN
+    loginObj[up]=process.env.NWERNP
+    return new Pool(loginObj)
+  } else if(
+    permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    !permissions.includes('read:NWERN')
+  ){
+    loginObj[ul]=process.env.NDOWRHEM
+    loginObj[up]=process.env.NDOWRHEMP
+    return new Pool(loginObj)
+  }else if(
+    permissions.includes('read:NDOW') &&
+    !permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    loginObj[ul]=process.env.NDOWNWERN
+    loginObj[up]=process.env.NDOWNWERNP
+    return new Pool(loginObj)
+  } else if(
+    !permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    loginObj[ul]=process.env.RHEMNWERN
+    loginObj[up]=process.env.RHEMNWERNP
+    return new Pool(loginObj)
+  } else if(
+    permissions.includes('read:NDOW') &&
+    permissions.includes('read:RHEM') &&
+    permissions.includes('read:NWERN')
+  ){
+    loginObj[ul]=process.env.NDOWRHEMNWERN
+    loginObj[up]=process.env.NDOWRHEMNWERNP
+    return new Pool(loginObj)
+  }
+}
 
-const ndowConn = process.env.NDOW 
-const rhemConn = process.env.RHEM
-const nwernConn = process.env.NWERN
-
-const ndowrhemConn = process.env.NDOWRHEM
-const ndownwernConn = process.env.NDOWNWERN
-const rhemnwernConn = process.env.RHEMNWERN
-
-const ndowrhemnwernConn = process.env.NDOWRHEMNWERN 
-
-const pool = new Pool({
-  unrestricted,
-  max: 20
-})
-
-const pool2 = new Pool({
-  ndowConn,
-  max: 20
-})
-
-const pool3 = new Pool({
-  rhemConn,
-  max: 20
-})
-
-const pool4 = new Pool({
-  nwernConn,
-  max: 20
-})
-
-const pool5 = new Pool({
-  ndowrhemConn,
-  max: 20
-})
-
-const pool6 = new Pool({
-  ndownwernConn,
-  max: 20
-})
-
-const pool7 = new Pool({
-  rhemnwernConn,
-  max: 20
-})
-
-const pool8 = new Pool({
-  ndowrhemnwernConn,
-  max: 20
-})
-
-
+  
 
 export {
-        pool,
-        pool2,
-        pool3,
-        pool4,
-        pool5,
-        pool6,
-        pool7,
-        pool8
+        poolSelector
       }

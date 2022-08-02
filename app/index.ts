@@ -8,10 +8,15 @@ import cors from 'cors'
 // import { authCheck } from "./middleware/auth"
 // const { auth } = require('express-oauth2-jwt-bearer');
 
-const PORT = process.env.PORT || 5100;
+const PORT = 5100;
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  "origin": "*",
+  "methods": "GET,PUT,OPTIONS",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}))
 
 app.use(express.static('public'))
 app.use(express.json())

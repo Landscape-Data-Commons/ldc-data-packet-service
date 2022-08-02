@@ -53,12 +53,8 @@ router.put('/ndow',
             !claim.permissions.includes('read:RHEM')
           )
         }),
-        async function (req, res, next) {
-  
-          console.log(req.auth)
-          console.log(req.body)
           testController.createData
-});
+          );
 
 router.put('/nwern', 
         authCheck, 

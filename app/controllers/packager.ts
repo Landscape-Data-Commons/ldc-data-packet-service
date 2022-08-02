@@ -23,7 +23,7 @@ export const packager = async (user_profile, request) =>{
   // new zip per request
   let zip: JSZip = new JSZip()
   
-  const directoryPath = `/usr/src/app/temp`
+  const directoryPath = `/usr/src/temp`
   const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}.zip`
   const dest = `${directoryPath}/${uniqueName}`
   let filesize
@@ -39,7 +39,7 @@ export const packager = async (user_profile, request) =>{
   // iterating over each promise, turning resulting jsons into csv's
   for(let table of Object.keys(fullTables)){
     fullTables[table].then(data=>{
-
+      console.log(data,"en promises")
       let csv = creatingCSV(data)
   // adding created CSV into zip file (takes a while)
       zip.file(`${table}.csv`,csv)
@@ -91,7 +91,7 @@ export const packager = async (user_profile, request) =>{
                   // response.json({ file: filelink })
                   console.log("este es response: ", response)
                   console.log("este es success: ", success)
-                  // response.json({ file: filelink })
+                  
                 })
               } else {
                 console.log("filesize has not arrived")
