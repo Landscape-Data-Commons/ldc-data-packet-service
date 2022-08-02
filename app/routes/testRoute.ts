@@ -4,7 +4,8 @@ import { authCheck } from "../middleware/auth"
 
 import {
   claimCheck,
-  JWTPayload
+  JWTPayload,
+  requiredScopes
 } from 'express-oauth2-jwt-bearer';
 
 interface Claim extends JWTPayload {
@@ -31,6 +32,7 @@ router.put('/unrestricted',
         // authCheck = auth function of the express-oauth2-jwt-bearer package
         // docs = https://auth0.github.io/node-oauth2-jwt-bearer/index.html#auth
         authCheck, 
+        
         // claimCheck: function of the express-oauth2-jwt-bearer package that 
         //             checks claims(properties inside of the JWTPayload object) on a token
         // docs = https://auth0.github.io/node-oauth2-jwt-bearer/index.html#claimcheck
@@ -46,6 +48,7 @@ router.put('/unrestricted',
 
 router.put('/ndow', 
         authCheck, 
+        requiredScopes('read:NDOW'),
         claimCheck((claim:Claim)=>{
           return (
             !claim.permissions.includes('read:NWERN') && 
@@ -58,6 +61,7 @@ router.put('/ndow',
 
 router.put('/nwern', 
         authCheck, 
+        requiredScopes('read:NWERN'),
         claimCheck((claim:Claim)=>{
           return (
             claim.permissions.includes('read:NWERN') && 
@@ -70,6 +74,7 @@ router.put('/nwern',
 
 router.put('/rhem', 
         authCheck, 
+        requiredScopes('read:RHEM'),
         claimCheck((claim:Claim)=>{
           return (
             !claim.permissions.includes('read:NWERN') && 
@@ -82,6 +87,7 @@ router.put('/rhem',
 
 router.put('/ndow-nwern', 
         authCheck, 
+        requiredScopes('read:NWERN', 'read:NDOW'),
         claimCheck((claim:Claim)=>{
           return (
             claim.permissions.includes('read:NWERN') && 
@@ -94,6 +100,7 @@ router.put('/ndow-nwern',
  
 router.put('/ndow-rhem', 
         authCheck, 
+        requiredScopes('read:NDOW','read:RHEM'),
         claimCheck((claim:Claim)=>{
           return (
             !claim.permissions.includes('read:NWERN') && 
@@ -110,6 +117,7 @@ router.put('/ndow-rhem',
 
 router.put('/nwern-rhem', 
         authCheck, 
+        requiredScopes('read:NWERN','read:RHEM'),
         claimCheck((claim:Claim)=>{
           return (
             !claim.permissions.includes('read:NWERN') && 
@@ -126,6 +134,7 @@ router.put('/nwern-rhem',
 
 router.put('/ndow-nwern-rhem', 
         authCheck, 
+        requiredScopes('read:NWERN', 'read:NDOW','read:RHEM'),
         claimCheck((claim:Claim)=>{
           return (
             claim.permissions.includes('read:NWERN') && 
