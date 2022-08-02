@@ -10,13 +10,10 @@ import fs from 'fs';
 import { QueryGenerator, QueryParameters, PostParameters } from '../request-handler/queries';
 import { gisDbTableNames } from '../request-handler/columns'; 
 
-
 const queryGenerator = new QueryGenerator();
 const delimiter = queryGenerator.delimiter
 
-
 // 2022-02-15-CMF: Handle errors from database connection pool
-
 
 // 2022-02-15-CMF: Set headers for all GET responses
 // 2022-03-17-CMF: TO DO --- ADAPT TO POST-REQUEST PROCESSING
@@ -31,7 +28,7 @@ function extractPostParameters(request: any): PostParameters {
   for (let property of Object.keys(request.body.data)) {
     postParameters[property] = request.body.data[property]
   }
-  console.log(postParameters)
+  // console.log(postParameters)
   return postParameters;
 }
 
