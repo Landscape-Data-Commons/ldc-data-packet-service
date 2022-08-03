@@ -43,6 +43,7 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
+          file: "./app/node.Dockerfile"
           tags: landscapedatacommons/dl_node:${{ steps.package-version.outputs.version }}
   
       - uses: appleboy/ssh-action@master
