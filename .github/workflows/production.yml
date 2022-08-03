@@ -26,6 +26,8 @@ jobs:
     #  reading package json for version
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
+        with: 
+          path: "./app/package.json"
         id: package-version
 
     ##########################################
