@@ -6,7 +6,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   # skipping cicd until environment variables are figured out (sudo -E )
   push:
-    branches: [ skip actions ]
+    branches: [ Cron-dev ]
   pull_request:
     branches: [ Production ]
 
@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v2 
         with:
           push: true
-          file: "./cron_container/cron.Dockerfile"
+          file: "cron_container/cron.Dockerfile"
           tags: landscapedatacommons/dl_cron:${{ steps.package-version.outputs.version }}
   
       - uses: appleboy/ssh-action@master
