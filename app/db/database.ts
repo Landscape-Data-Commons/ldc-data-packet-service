@@ -1,10 +1,9 @@
-require('dotenv').config();
 import mongoose from "mongoose"
-
+import secrets from './secrets'
 
 export const connect = () => {
   mongoose.connect(
-    process.env.MONGOPATH,
+    secrets.read('cron_mongopath')||process.env.MONGOPATH,
     {
       // useNewUrlParser:true,
       // useFindAndModify:false

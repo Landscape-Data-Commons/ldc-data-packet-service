@@ -1,6 +1,6 @@
 {
   "name": "cron_container",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npm dependencies for the file-deleter script to run on cron schedule/",
   "main": "index.js",
   "scripts": {
