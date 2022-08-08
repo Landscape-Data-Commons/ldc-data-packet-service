@@ -8,8 +8,8 @@ import secrets from '../db/secrets'
 const AuthClient = require('auth0').AuthenticationClient
 
 const auth0 = new AuthClient({
-  domain: secrets.read('node_auth0domain')||process.env.AUTH0_DOMAIN,
-  clientId: secrets.read('node_auth0clientid')||process.env.AUTH0_CLIENT_ID,
+  domain: process.env.AUTH0_DOMAIN,
+  clientId: process.env.AUTH0_CLIENT_ID,
 })
 ////
 // on request to this api: 
@@ -19,7 +19,7 @@ const auth0 = new AuthClient({
 // download link page route
 export const showData = async (req, res) => {
   // 
-  let dl_link = secrets.read('node_appbaseurl')||process.env.APP_BASE_URL
+  let dl_link = process.env.APP_BASE_URL
   try {
       const file = await Files.findOne({ uuid: req.params.uuid });
       if(!file) {

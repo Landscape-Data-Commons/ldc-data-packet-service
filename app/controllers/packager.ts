@@ -17,7 +17,7 @@ import {
 
 
 sgMail.setClient(new Client());
-sgMail.setApiKey(secrets.read('node_sendgrid')||process.env.SENDGRID_API_KEY)
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 // storing results in zip, storing zip in local fs
 export const packager = async (user_profile, request) =>{
@@ -70,7 +70,7 @@ export const packager = async (user_profile, request) =>{
                 // console.log(response)
   // ADD MONGODB ENTRY after writing file to local filesystem
   // SEND MAIL
-                let dl_link =secrets.read('node_appbaseurl')||process.env.APP_BASE_URL
+                let dl_link =process.env.APP_BASE_URL
                 response.then((success)=>{
                   let filelink = `${dl_link}/api/files/${success.uuid}`
                   const msg = {

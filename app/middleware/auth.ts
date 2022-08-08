@@ -7,10 +7,8 @@ import {
 } from 'express-oauth2-jwt-bearer';
 import secrets from '../db/secrets'
 
-let aud = secrets.read('node_auth0audience')||process.env.AUTH0_AUDIENCE
-let domain = secrets.read('node_auth0domain')||process.env.AUTH0_DOMAIN
 export const authCheck = auth({
-  issuerBaseURL: `https://${domain}`,
+  issuerBaseURL: `https://${process.env.AUTH0_DOMAIN}`,
   // jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`,
-  audience: aud
+  audience: process.env.AUTH0_AUDIENCE
 })
