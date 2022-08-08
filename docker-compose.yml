@@ -12,8 +12,8 @@ services:
       # the creation of live files
       - shared:/usr/src/temp
     # env file for docker compose debug
-    env_file:
-      - ./app/db/.env
+    # env_file:
+    #   - ./app/db/.env
     secrets:
       - node_ndow
       - node_ndowp
