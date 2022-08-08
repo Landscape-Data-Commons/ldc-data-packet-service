@@ -1,6 +1,6 @@
 {
   "name": "ldc_download_service",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Node backend to handle data requested by the ldc web portal.",
   "main": "/urs/src/index.ts",
   "scripts": {

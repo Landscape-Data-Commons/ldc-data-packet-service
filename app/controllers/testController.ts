@@ -3,12 +3,13 @@ import {NextFunction, Request, Response} from 'express'
 import Files from "../models/files"
 import {packager} from './packager'
 import {setHeaderFields} from '../request-handler/get-routes'
+import secrets from '../db/secrets'
 
 const AuthClient = require('auth0').AuthenticationClient
 
 const auth0 = new AuthClient({
-  domain: process.env.AUTH0_DOMAIN,
-  clientId: process.env.AUTH0_CLIENT_ID,
+  domain: secrets.read('node_auth0domain')||process.env.AUTH0_DOMAIN,
+  clientId: secrets.read('node_auth0clientid')||process.env.AUTH0_CLIENT_ID,
 })
 ////
 // on request to this api: 
@@ -18,12 +19,13 @@ const auth0 = new AuthClient({
 // download link page route
 export const showData = async (req, res) => {
   // 
+  let dl_link = secrets.read('node_appbaseurl')||process.env.APP_BASE_URL
   try {
       const file = await Files.findOne({ uuid: req.params.uuid });
       if(!file) {
           return res.render('download', { error: 'Link has expired.'});
       } 
-      return res.render('download', { uuid: file.uuid, fileName: file.filename, fileSize: file.size, downloadLink: `${process.env.APP_BASE_URL}/api/files/download/${file.uuid}` });
+      return res.render('download', { uuid: file.uuid, fileName: file.filename, fileSize: file.size, downloadLink: `${dl_link}/api/files/download/${file.uuid}` });
   } catch(err) {
       return res.render('download', { error: 'Something went wrong.'});
   }

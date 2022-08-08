@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid')
 
 import { Client } from "@sendgrid/client";
 import sgMail from "@sendgrid/mail";
+import secrets from '../db/secrets'
 
 
 import {
@@ -16,7 +17,7 @@ import {
 
 
 sgMail.setClient(new Client());
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+sgMail.setApiKey(secrets.read('node_sendgrid')||process.env.SENDGRID_API_KEY)
 
 // storing results in zip, storing zip in local fs
 export const packager = async (user_profile, request) =>{
@@ -69,8 +70,9 @@ export const packager = async (user_profile, request) =>{
                 // console.log(response)
   // ADD MONGODB ENTRY after writing file to local filesystem
   // SEND MAIL
+                let dl_link =secrets.read('node_appbaseurl')||process.env.APP_BASE_URL
                 response.then((success)=>{
-                  let filelink = `${process.env.APP_BASE_URL}/api/files/${success.uuid}`
+                  let filelink = `${dl_link}/api/files/${success.uuid}`
                   const msg = {
                     from: `LDC data provider <bonefont.work@gmail.com>`,
                     to: user_profile.email,
