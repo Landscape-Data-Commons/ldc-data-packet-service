@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   node:
-    image: landscapedatacommons/dl_node:1.1.6
+    image: landscapedatacommons/dl_node:1.1.7
     build:
       context: .
       dockerfile: ./app/node.Dockerfile
@@ -106,8 +106,53 @@ services:
       - .env
 
 secrets:
-   cron_mongopath:
-     external: true
+  cron_mongopath:
+    external: true
+  node_ndow:
+    external: true
+  node_ndowp:
+    external: true
+  node_rhem:
+    external: true
+  node_rhemp:
+    external: true
+  node_nwern:
+    external: true
+  node_nwernp:
+    external: true
+  node_ndownwern:
+    external: true
+  node_ndownwernp:
+    external: true
+  node_ndowrhem:
+    external: true
+  node_ndowrhemp:
+    external: true
+  node_ndownwernrhem:
+    external: true
+  node_ndownwernrhemp:
+    external: true
+  node_restricted:
+    external: true
+  node_restrictedp:
+    external: true
+  node_dbhost:
+    external: true
+  node_db:
+    external: true
+  node_dbport:
+    external: true
+  node_auth0audience:
+    external: true
+  node_auth0domain:
+    external: true
+  node_auth0clientid:
+    external: true
+  node_sendgrid:
+    external: true
+  node_appbaseurl:
+    external: true
+
 
 
 volumes:
