@@ -11,15 +11,10 @@ import cors from 'cors'
 const PORT = 5100;
 const app = express()
 
-app.use(cors({
-  "origin": "*",
-  "methods": "GET,PUT,OPTIONS",
-  "preflightContinue": false,
-  "optionsSuccessStatus": 204
-}))
+app.use(cors())
 
 app.use(express.static('public'))
-app.use(express.json())
+app.use(express.json({limit:'10mb'}))
 app.set('views', path.join(__dirname,'/views'))
 app.set('view engine', 'ejs')
 
