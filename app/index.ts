@@ -11,7 +11,7 @@ import cors from 'cors'
 const PORT = 5100;
 const app = express()
 
-app.use(cors())
+app.use(cors({origin: "*"}))
 
 app.use(express.static('public'))
 app.use(express.json({limit:'10mb'}))
