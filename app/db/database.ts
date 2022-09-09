@@ -3,7 +3,7 @@ import secrets from './secrets'
 
 export const connect = () => {
   mongoose.connect(
-    secrets.read('cron_mongopath')||process.env.MONGOPATH,
+    process.env.MONGOPATH,
     {
       // useNewUrlParser:true,
       // useFindAndModify:false
