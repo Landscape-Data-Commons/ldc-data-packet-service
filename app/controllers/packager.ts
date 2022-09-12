@@ -69,25 +69,27 @@ export const packager = async (user_profile, request) =>{
                 let response = file.save()
                 // console.log(response)
   // ADD MONGODB ENTRY after writing file to local filesystem
+
   // SEND MAIL
                 let dl_link =process.env.APP_BASE_URL
                 response.then((success)=>{
                   let filelink = `${dl_link}/api/files/${success.uuid}`
-                  const msg = {
-                    from: `LDC data provider <bonefont.work@gmail.com>`,
-                    to: user_profile.email,
-                    subject: 'LDC datapacket download is ready',
-                    text: `Download link will expire in 24 hours!`,
-                    html: `<strong>download <a href=${filelink}>link</a></strong>`
-                  }
-                  sgMail
-                  .send(msg)
-                  .then(() => {
-                    console.log('Email sent')
-                  })
-                  .catch((error) => {
-                    console.error(error)
-                  })
+                  console.log(filelink)
+                  // const msg = {
+                  //   from: `LDC data provider <bonefont.work@gmail.com>`,
+                  //   to: user_profile.email,
+                  //   subject: 'LDC datapacket download is ready',
+                  //   text: `Download link will expire in 24 hours!`,
+                  //   html: `<strong>download <a href=${filelink}>link</a></strong>`
+                  // }
+                  // sgMail
+                  // .send(msg)
+                  // .then(() => {
+                  //   console.log('Email sent')
+                  // })
+                  // .catch((error) => {
+                  //   console.error(error)
+                  // })
   //  SEND LINK BACK to client
                   // response.json({ file: filelink })
                   console.log("este es response: ", response)

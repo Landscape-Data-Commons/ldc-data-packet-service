@@ -28,7 +28,7 @@ router.put('/download-data', testController.createData)
 ////////////////////////////////////////////////////////
 // START of routes with authentication + authorization
 
-router.put('/unrestricted', 
+router.put('/unrestricted',
         // authCheck = auth function of the express-oauth2-jwt-bearer package
         // docs = https://auth0.github.io/node-oauth2-jwt-bearer/index.html#auth
         authCheck, 
@@ -36,13 +36,13 @@ router.put('/unrestricted',
         // claimCheck: function of the express-oauth2-jwt-bearer package that 
         //             checks claims(properties inside of the JWTPayload object) on a token
         // docs = https://auth0.github.io/node-oauth2-jwt-bearer/index.html#claimcheck
-        claimCheck((claim:Claim)=>{
-          return (
-            !claim.permissions.includes('read:NWERN') && 
-            !claim.permissions.includes('read:NDOW') &&
-            !claim.permissions.includes('read:RHEM')
-          ) // returns true if all the permissions are absent
-        }),
+        // claimCheck((claim:Claim)=>{
+        //   return (
+        //     !claim.permissions.includes('read:NWERN') && 
+        //     !claim.permissions.includes('read:NDOW') &&
+        //     !claim.permissions.includes('read:RHEM')
+        //   ) // returns true if all the permissions are absent
+        // }),
         testController.createData
         );
 
