@@ -1,0 +1,8 @@
+# Christopher Fraser (cmfraser1380)
+.DS_Store
+/database/loginInfo.*
+
+# Kristopher Bonefont (krstphrrr)
+**/node_modules/
+**/*.env
+**/*.txt

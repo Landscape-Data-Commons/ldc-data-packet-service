@@ -1,10 +1,13 @@
 require('dotenv').config();
-import { connect } from './db/database'
+// import { connect } from './db/database'
 import express from 'express'
 
 import path from 'path'
 import testRoute from './routes/testRoute'
 import cors from 'cors'
+
+// import extractColumnDescriptions from  './meta-gen/metadata-generator/parse/query-processor'
+// import 
 // import { authCheck } from "./middleware/auth"
 // const { auth } = require('express-oauth2-jwt-bearer');
 
@@ -18,10 +21,11 @@ app.use(express.json({limit:'10mb'}))
 app.set('views', path.join(__dirname,'/views'))
 app.set('view engine', 'ejs')
 
-connect()
+// connect()
 app.use('/api', testRoute)
 app.get('/', (req,res)=>{
-  console.log("working")
+  console.log(process.env)
+
   res.send(__dirname)
 })
 

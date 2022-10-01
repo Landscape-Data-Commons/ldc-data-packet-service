@@ -1,0 +1,29 @@
+{
+  "name": "mini-map-api",
+  "version": "1.0.0-beta-1.2.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "tsc": "node_modules/typescript/bin/tsc --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.6.0",
+    "rxjs": "^7.3.0",
+    "csv-parser": "^3.0.0",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.6.0",
+    "@types/body-parser": "^1.19.1",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.4.3",
+    "@types/xml2js": "^0.4.11",
+    "nodemon": "^2.0.9",
+    "typescript": "^4.4.2"
+  }
+}

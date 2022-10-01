@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require('uuid')
 
 import { Client } from "@sendgrid/client";
 import sgMail from "@sendgrid/mail";
-import secrets from '../db/secrets'
+// import secrets from '../db/secrets'
 
 
 import {

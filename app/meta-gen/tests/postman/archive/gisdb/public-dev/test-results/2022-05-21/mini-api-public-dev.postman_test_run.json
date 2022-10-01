@@ -1,0 +1,3482 @@
+{
+	"id": "683954f0-0fda-4bc7-988b-15309a5d36f5",
+	"name": "mini-api-public-dev",
+	"timestamp": "2022-05-21T19:48:59.044Z",
+	"collection_id": "7773538-a2251f2a-9074-4eaa-9d33-723f8247d4b3",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 256,
+	"totalFail": 63,
+	"results": [
+		{
+			"id": "8ed46aa7-579c-4d47-a476-b0c115fd212c",
+			"name": "latitude-longitude-01",
+			"url": "http://localhost:8080/api/geoindicators/latitude-longitude?limit=1",
+			"time": 216,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Response time is less than 250ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 250ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				216
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Response time is less than 250ms": true
+				}
+			]
+		},
+		{
+			"id": "ca6f15bd-ef1e-46cd-8586-e23d3188d0c2",
+			"name": "primaryKeys-01",
+			"url": "http://localhost:8080/api/geoindicators/all-filter-columns?primaryKeys=20183527201908B1,17101012114127892017-09-01&limit=1&offset=0",
+			"time": 75,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				75
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "cd3ee115-9433-4312-9ecf-91712c0904fd",
+			"name": "landCoverName-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?landCoverName=Evergreen%20Needleleaf%20Forests&limit=1&offset=0",
+			"time": 114,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				114
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "b22c1fab-294a-40f6-8f3f-51d1efbb4a80",
+			"name": "mlraName-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?mlraName=Siskiyou-Trinity%20Area&limit=1&offset=0",
+			"time": 107,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				107
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "b7c8b016-d18b-4881-a1d0-6282b8ed9881",
+			"name": "usState-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?usState=CO&limit=1&offset=0",
+			"time": 128,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				128
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "35dd0fa8-f0f2-42b7-a74d-2ea371ffadf0",
+			"name": "date-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?date=2013-02-05,2013-03-03&limit=1&offset=0",
+			"time": 61,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				61
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "ed86ef2a-51f0-4251-9979-5400209c97a7",
+			"name": "ecoregionLevelI-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecoregionLevelI=NORTHWESTERN%20FORESTED%20MOUNTAINS&limit=1&offset=0",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				94
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "54896bdb-a173-4f66-a83d-4f2afbabd103",
+			"name": "ecoregionLevelII-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecoregionLevelII=BOREAL%20CORDILLERA&limit=1&offset=0",
+			"time": 87,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				87
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "b4ef9973-8b49-42b6-80ba-1c5718bcb54b",
+			"name": "ecoregionLevelIII-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecoregionLevelIII=Arizona%2FNew%20Mexico%20Mountains&limit=1&offset=0",
+			"time": 81,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "2a054db1-a61d-425c-b0c3-7804869f2945",
+			"name": "ecoregionLevelIV-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecoregionLevelIV=Camas%20Prairie&limit=1&offset=0",
+			"time": 85,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				85
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "8d7576c5-e938-49cb-8c13-c980b1b9580e",
+			"name": "ecologicalSiteId-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecologicalSiteId=032XY344WY,R044XC469MT,034AY104WY&limit=1&offset=0",
+			"time": 65,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				65
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "46e2024a-b6f2-4edb-9f53-56315c861278",
+			"name": "ecologicalSiteIdEcositeCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecologicalSiteIdEcositeCode=000&limit=1&offset=0",
+			"time": 218,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				218
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "679b497b-9a55-46ec-a728-9a2bf34df43b",
+			"name": "ecologicalSiteIdSubMlraCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecologicalSiteIdSubMlraCode=AB&limit=1&offset=0%0A",
+			"time": 208,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				208
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "57585807-65a8-4f45-ad42-0fa460f3632b",
+			"name": "ecologicalSiteIdMlraCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecologicalSiteIdMlraCode=004,002&limit=1&offset=0",
+			"time": 199,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Response time is less than 600ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 600ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				199
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Response time is less than 600ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "ee185fbd-162d-4059-8896-f04148db53ce",
+			"name": "ecologicalSiteIdStateCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?ecologicalSiteIdStateCode=NE&limit=1&offset=0",
+			"time": 233,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				233
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "d27c88c3-b63e-4751-b6d7-3267038730e7",
+			"name": "projectName-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?projectName=CON02000_2016&limit=1&offset=0",
+			"time": 45,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 500ms": true,
+				"Response time is less than 1200ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				45
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 500ms": true,
+					"Response time is less than 1200ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "4ae8c22b-48eb-4f58-986d-98eceb3d4610",
+			"name": "fieldMethod-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?fieldMethod=Line-Point%20Intercept&limit=1&offset=0",
+			"time": 210,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				210
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "bb38b91f-be00-45ac-a3a5-6dc494254ee3",
+			"name": "percentBareGround-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentBareGround=31.65,39.79&limit=1&offset=0",
+			"time": 76,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				76
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "beb540f0-fd6f-4a78-a03d-ca979285318c",
+			"name": "percentFoliarCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentFoliarCover=22.94,30.73&limit=1&offset=0",
+			"time": 127,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				127
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "0ed8b74f-4aa8-4606-8ac0-22f7eef19b67",
+			"name": "percentLitterCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentLitterCover=31.19,38.60&limit=1&offset=0",
+			"time": 131,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				131
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "35560e1a-85b0-427b-9573-58405f32d32e",
+			"name": "percentRockFragmentCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentRockFragmentCover=0.00,7.61&limit=1&offset=0",
+			"time": 259,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				259
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "5b7e21f3-0828-4de5-b91a-0346c0ed4bdb",
+			"name": "percentLichenCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentLichenCover=0.00,7.97&limit=1&offset=0",
+			"time": 207,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				207
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "66c87a83-3e76-4540-b94a-12dfdeba45fd",
+			"name": "percentCyanobacteriaCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentCyanobacteriaCover=0.00,11.50&limit=1&offset=0",
+			"time": 160,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				160
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "49afb4f7-6d53-478f-8759-da31b2a72121",
+			"name": "percentMossCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentMossCover=0.00,5.10&limit=1&offset=0",
+			"time": 208,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				208
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "edb9d6fc-6245-4083-b1fe-2b7fec140853",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentBareGround=31.65,39.79&percentFoliarCover=22.94,30.73&percentLitterCover=31.19,38.60&percentRockFragmentCover=0.00,7.61&percentLichenCover=0.00,7.97&percentCyanobacteriaCover=0.00,11.50&percentMossCover=0.00,5.10&limit=1&offset=0",
+			"time": 66,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				66
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "581f4148-fb39-41c0-bcae-f2a3da16af5e",
+			"name": "meanWoodyHeight-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?meanWoodyHeight=0.00,2.00&limit=1&offset=0",
+			"time": 71,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				71
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "edbe591e-af7d-419c-b348-b8de21ecfb0c",
+			"name": "meanHerbaceousHeight-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?meanHerbaceousHeight=0.00,13.91&limit=1&offset=0",
+			"time": 92,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				92
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "49fa52d3-5914-41ef-b78b-689f974e7023",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?meanWoodyHeight=0.00,2.00&meanHerbaceousHeight=0.00,13.91&limit=1&offset=0",
+			"time": 68,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				68
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "6987865c-5d16-4aa2-8d9c-1f2222e571eb",
+			"name": "percentCanopyGaps25to50-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentCanopyGaps25to50=0.00,0.10&limit=1&offset=0",
+			"time": 83,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				83
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "3afc96de-9167-4faa-aa7c-f24e6679c9a7",
+			"name": "percentCanopyGaps51to100-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentCanopyGaps51to100=0.00,0.10&limit=1&offset=0",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				84
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "854120eb-a87e-4e42-8fc5-a0490f0125e9",
+			"name": "percentCanopyGaps101to200-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentCanopyGaps101to200=3.21,16.51&limit=1&offset=0",
+			"time": 138,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				138
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "df61030a-b437-4cc2-94a0-7f228a22f34c",
+			"name": "percentCanopyGaps201plus-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentCanopyGaps201plus=0.00,0.00&limit=1&offset=0",
+			"time": 125,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				125
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "f90ae097-7e89-4c77-847b-8f488119e597",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?percentCanopyGaps25to50=0.00,0.10&percentCanopyGaps51to100=0.00,0.10&percentCanopyGaps101to200=3.21,16.51&percentCanopyGaps201plus=0.00,0.00&limit=1&offset=0",
+			"time": 72,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				72
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "6addd254-ea97-40c5-962f-cdb96d2f619a",
+			"name": "meanSoilStabilityUnprotected-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?meanSoilStabilityUnprotected=2.00,2.10&limit=1&offset=0",
+			"time": 87,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				87
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "cd045333-92fb-4c0b-ba51-e327c0331f3e",
+			"name": "meanSoilStabilityProtected-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?meanSoilStabilityProtected=1.46,1.62&limit=1&offset=0",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "bdf46dd2-281e-48be-8614-acf7e14e65eb",
+			"name": "meanSoilStabilitySurface-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?meanSoilStabilitySurface=1.00,1.71&limit=1&offset=0",
+			"time": 90,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				90
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "909179e4-f7ae-41ac-8855-9a136b77401d",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?meanSoilStabilityUnprotected=2.00,2.10&meanSoilStabilityProtected=1.46,1.62&meanSoilStabilitySurface=1.00,1.71&limit=1&offset=0",
+			"time": 79,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				79
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "024e6f19-f8f5-4c00-8863-31739c0c8303",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns?landCoverName=Evergreen%20Needleleaf%20Forests,Grasslands&ecoregionLevelI=GREAT%20PLAINS,NORTH%20AMERICAN%20DESERTS&ecoregionLevelII=UPPER%20GILA%20MOUNTAINS&ecoregionLevelIII=Northern%20Rockies,Snake%20River%20Plain,Arizona%2FNew%20Mexico%20Mountains,Interior%20Highlands&ecoregionLevelIV=Lava%20Fields,Camas%20Prairie,Lower%20Madrean%20Woodlands&mlraName=Malheur%20High%20Plateau&ecologicalSiteIdMlraCode=004,002,024&ecologicalSiteIdSubMlraCode=AA,XY&ecologicalSiteIdEcositeCode=210,301,514,508&ecologicalSiteIdStateCode=CA,OR&usState=NM,NV,CA,OR&projectName=Oregon%20Prineville%20DO%202018,Oregon%20Burns%20DO%202018&date=2005-02-03,2019-08-14&percentBareGround=0.00,77.40&percentFoliarCover=0.00,100.00&percentLitterCover=0.00,38.60&percentRockFragmentCover=0.00,60.82&percentLichenCover=0.00,7.97&percentMossCover=0.00,5.10&meanWoodyHeight=0.00,458.73&meanHerbaceousHeight=0.00,68.99&percentCanopyGaps25to50=0.00,22.80&percentCanopyGaps51to100=0.00,30.48&percentCanopyGaps101to200=0.00,36.05&percentCanopyGaps201plus=0.00,84.48&meanSoilStabilityUnprotected=1.00,6.00&meanSoilStabilityProtected=1.00,6.00&meanSoilStabilitySurface=1.00,6.00&limit=1&offset=0",
+			"time": 49,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				49
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "9aabd9cb-8548-4eea-ba9e-170608b03c21",
+			"name": "landCoverName-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?landCoverName=Evergreen%20Needleleaf%20Forests&limit=1&offset=0",
+			"time": 107,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				107
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "7102f6af-e5b6-4f20-af02-82006fc349ec",
+			"name": "mlraName-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?mlraName=Siskiyou-Trinity%20Area&limit=1&offset=0",
+			"time": 102,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				102
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "948a22ee-5cd1-460c-a0cd-4d258ea302a6",
+			"name": "usState-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?usState=CO&limit=1&offset=0",
+			"time": 79,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				79
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "0150d391-1476-449a-9602-906d2374c118",
+			"name": "date-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?date=2013-02-05,2013-03-03&limit=1&offset=0",
+			"time": 60,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				60
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "afebd660-a5e4-48e6-bf4f-f31e5f4dcfcd",
+			"name": "ecoregionLevelI-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecoregionLevelI=NORTHWESTERN%20FORESTED%20MOUNTAINS&limit=1&offset=0",
+			"time": 80,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "d01de0f5-672e-4794-92de-0ebdbcf2a831",
+			"name": "ecoregionLevelII-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecoregionLevelII=BOREAL%20CORDILLERA&limit=1&offset=0",
+			"time": 77,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				77
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "37a66454-5087-435e-abfe-f4f30b420ab2",
+			"name": "ecoregionLevelIII-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecoregionLevelIII=Arizona%2FNew%20Mexico%20Mountains&limit=1&offset=0",
+			"time": 82,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				82
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "6524653a-4beb-4929-be2e-f51eab3c9a14",
+			"name": "ecoregionLevelIV-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecoregionLevelIV=Camas%20Prairie&limit=1&offset=0",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "a536765d-5a4e-4a46-ac10-7f44b585f6ad",
+			"name": "ecologicalSiteId-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecologicalSiteId=032XY344WY,R044XC469MT,034AY104WY&limit=1&offset=0",
+			"time": 61,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				61
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "990e59d1-cbe1-442e-8da9-92340f90097b",
+			"name": "ecologicalSiteIdEcositeCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecologicalSiteIdEcositeCode=000&limit=1&offset=0",
+			"time": 217,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				217
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "043e73f4-0758-4e2b-b799-c7b0902dc7b2",
+			"name": "ecologicalSiteIdSubMlraCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecologicalSiteIdSubMlraCode=AB&limit=1&offset=0%0A",
+			"time": 202,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				202
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "96cd6617-3c4c-4d16-9a21-023762652001",
+			"name": "ecologicalSiteIdMlraCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecologicalSiteIdMlraCode=004,002&limit=1&offset=0",
+			"time": 205,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Response time is less than 600ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 600ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				205
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Response time is less than 600ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "2f4ab2b2-2864-4bae-80e4-bc211a3a91d4",
+			"name": "ecologicalSiteIdStateCode-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?ecologicalSiteIdStateCode=NE&limit=1&offset=0",
+			"time": 409,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				409
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "d296976b-a9d8-4f55-9bc6-2b883dfbd09c",
+			"name": "projectName-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?projectName=CON02000_2016&limit=1&offset=0",
+			"time": 45,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 500ms": true,
+				"Response time is less than 1200ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 1200ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				45
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 500ms": true,
+					"Response time is less than 1200ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "0139f002-81fe-4301-82ce-099750e7e150",
+			"name": "fieldMethod-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?fieldMethod=Line-Point%20Intercept&limit=1&offset=0",
+			"time": 73,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				73
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "6ec3ce7f-28c5-4eaf-a582-7892d737cbed",
+			"name": "percentBareGround-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentBareGround=31.65,39.79&limit=1",
+			"time": 70,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				70
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "59084815-43cb-4aa9-8777-bc577428c4b6",
+			"name": "percentFoliarCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentFoliarCover=22.94,30.73&limit=1&offset=0",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "546ef6f2-d89c-471b-a810-8ee3bad7ebd6",
+			"name": "percentLitterCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentLitterCover=31.19,38.60&limit=1&offset=0",
+			"time": 83,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				83
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "ef101c6f-65e1-4331-b3ab-daab880a4b15",
+			"name": "percentRockFragmentCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentRockFragmentCover=0.00,7.61&limit=1&offset=0",
+			"time": 96,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "b764f802-7f69-4fd6-9a65-e5d24356f27a",
+			"name": "percentLichenCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentLichenCover=0.00,7.97&limit=1&offset=0",
+			"time": 117,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				117
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "c93b4a49-5e5b-42b1-9f64-4b8d8ce3f0f4",
+			"name": "percentCyanobacteriaCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentCyanobacteriaCover=0.00,11.50&limit=1&offset=0",
+			"time": 74,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				74
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "525e5f66-8c75-4b84-9c3a-47ea4461d1fe",
+			"name": "percentMossCover-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentMossCover=0.00,5.10&limit=1&offset=0",
+			"time": 77,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				77
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "b57a710f-4b47-4290-86d7-168bcb6fc9b9",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentBareGround=31.65,39.79&percentFoliarCover=22.94,30.73&percentLitterCover=31.19,38.60&percentRockFragmentCover=0.00,7.61&percentLichenCover=0.00,7.97&percentCyanobacteriaCover=0.00,11.50&percentMossCover=0.00,5.10&limit=1&offset=0",
+			"time": 66,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				66
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "1d7ebd99-be65-4ff8-a3cb-8d5285c26340",
+			"name": "meanWoodyHeight-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?meanWoodyHeight=0.00,2.00&limit=1&offset=0",
+			"time": 72,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				72
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "caca1f35-01d1-4db0-b159-4da0532ac42d",
+			"name": "meanHerbaceousHeight-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?meanHerbaceousHeight=0.00,13.91&limit=1&offset=0",
+			"time": 72,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				72
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "fd057555-e8d5-44aa-b433-54807fdec0a9",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?meanWoodyHeight=0.00,2.00&meanHerbaceousHeight=0.00,13.91&limit=1&offset=0",
+			"time": 70,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				70
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "5f0e7014-26e6-4638-abc3-00b0e1399206",
+			"name": "percentCanopyGaps25to50-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentCanopyGaps25to50=0.00,0.10&limit=1&offset=0",
+			"time": 73,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				73
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "739bbd6a-ed96-462e-8641-9aeb046fa5e8",
+			"name": "percentCanopyGaps51to100-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentCanopyGaps51to100=0.00,0.10&limit=1&offset=0",
+			"time": 73,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				73
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "aab7ea5f-13ff-4dac-8769-651c9d6dffe9",
+			"name": "percentCanopyGaps101to200-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentCanopyGaps101to200=3.21,16.51&limit=1&offset=0",
+			"time": 72,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				72
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "cefb5ceb-167b-4d88-9f86-3e9d48d5b438",
+			"name": "percentCanopyGaps201plus-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentCanopyGaps201plus=0.00,0.00&limit=1&offset=0",
+			"time": 71,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				71
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "3d04ebfe-65b3-476a-83e9-9b168846f1f0",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?percentCanopyGaps25to50=0.00,0.10&percentCanopyGaps51to100=0.00,0.10&percentCanopyGaps101to200=3.21,16.51&percentCanopyGaps201plus=0.00,0.00&limit=1&offset=0",
+			"time": 198,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				198
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "0c2f10b4-b3a8-4ad1-8417-2d191d2715de",
+			"name": "meanSoilStabilityUnprotected-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?meanSoilStabilityUnprotected=2.00,2.10&limit=1&offset=0",
+			"time": 76,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				76
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "6c3a227f-0575-4f46-a2c2-ff3ad9a77638",
+			"name": "meanSoilStabilityProtected-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?meanSoilStabilityProtected=1.46,1.62&limit=1&offset=0",
+			"time": 79,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				79
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "45ce8eaa-2c3f-4f1c-8d3e-89dba0b4f35e",
+			"name": "meanSoilStabilitySurface-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?meanSoilStabilitySurface=1.00,1.71&limit=1&offset=0",
+			"time": 78,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				78
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "3e7d4f62-d528-4e30-bac9-e4d21d4bc043",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?meanSoilStabilityUnprotected=2.00,2.10&meanSoilStabilityProtected=1.46,1.62&meanSoilStabilitySurface=1.00,1.71&limit=1&offset=0",
+			"time": 83,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": true,
+				"Body is correct": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				83
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": true,
+					"Body is correct": true
+				}
+			]
+		},
+		{
+			"id": "010dd63a-ee15-4ad6-9999-0f12de577b4b",
+			"name": "mixedParameters-01",
+			"url": "http://localhost:8080/api/geoIndicators/adjusted-filter-columns/primary-keys-only?landCoverName=Evergreen%20Needleleaf%20Forests,Grasslands&ecoregionLevelI=GREAT%20PLAINS,NORTH%20AMERICAN%20DESERTS&ecoregionLevelII=UPPER%20GILA%20MOUNTAINS&ecoregionLevelIII=Northern%20Rockies,Snake%20River%20Plain,Arizona%2FNew%20Mexico%20Mountains,Interior%20Highlands&ecoregionLevelIV=Lava%20Fields,Camas%20Prairie,Lower%20Madrean%20Woodlands&mlraName=Malheur%20High%20Plateau&ecologicalSiteIdMlraCode=004,002,024&ecologicalSiteIdSubMlraCode=AA,XY&ecologicalSiteIdEcositeCode=210,301,514,508&ecologicalSiteIdStateCode=CA,OR&usState=NM,NV,CA,OR&projectName=Oregon%20Prineville%20DO%202018,Oregon%20Burns%20DO%202018&date=2005-02-03,2019-08-14&percentBareGround=0.00,77.40&percentFoliarCover=0.00,100.00&percentLitterCover=0.00,38.60&percentRockFragmentCover=0.00,60.82&percentLichenCover=0.00,7.97&percentMossCover=0.00,5.10&meanWoodyHeight=0.00,458.73&meanHerbaceousHeight=0.00,68.99&percentCanopyGaps25to50=0.00,22.80&percentCanopyGaps51to100=0.00,30.48&percentCanopyGaps101to200=0.00,36.05&percentCanopyGaps201plus=0.00,84.48&meanSoilStabilityUnprotected=1.00,6.00&meanSoilStabilityProtected=1.00,6.00&meanSoilStabilitySurface=1.00,6.00&limit=1&offset=0",
+			"time": 53,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 200": false,
+				"Response time is less than 500ms": true,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				53
+			],
+			"allTests": [
+				{
+					"Status code is 200": false,
+					"Response time is less than 500ms": true,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "e65537b4-d240-465f-aa64-bfac294f587d",
+			"name": "primaryKeys-01",
+			"url": "http://localhost:8080/api/geospecies?primaryKeys=20183527201908B1,17101012114127892017-09-01&limit=1&offset=0",
+			"time": 1083,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": false,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				1083
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": false,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "e80fde24-0e25-49dd-b6c9-76083ca72548",
+			"name": "primaryKeys-01",
+			"url": "http://localhost:8080/api/data-species-inventory?primaryKeys=20183527201908B1,17101012114127892017-09-01&limit=1&offset=0",
+			"time": 1505,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": false,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				1505
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": false,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "a60e239b-ca49-41b6-a064-269732adc76f",
+			"name": "primaryKeys-01",
+			"url": "http://localhost:8080/api/data-lpi?primaryKeys=20183527201908B1,17101012114127892017-09-01&limit=1&offset=0",
+			"time": 19946,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": false,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				19946
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": false,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "52193bf3-1384-453c-aabf-7eff02e990dd",
+			"name": "primaryKeys-01",
+			"url": "http://localhost:8080/api/data-gap?primaryKeys=20183527201908B1,17101012114127892017-09-01&limit=1&offset=0",
+			"time": 4376,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": false,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				4376
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": false,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "3a161943-4ddb-4f86-9aa1-ca2293fc9a67",
+			"name": "primaryKeys-01",
+			"url": "http://localhost:8080/api/data-height?primaryKeys=20183527201908B1,17101012114127892017-09-01&limit=1&offset=0",
+			"time": 11701,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": false,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				11701
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": false,
+					"Body is correct": false
+				}
+			]
+		},
+		{
+			"id": "2ca607d1-d923-466c-a9d4-4ee27e837a7e",
+			"name": "primaryKeys-01",
+			"url": "http://localhost:8080/api/data-soil-stability?primaryKeys=20183527201908B1,17101012114127892017-09-01&limit=1&offset=0",
+			"time": 757,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 500ms": false,
+				"Body is correct": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body is correct": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				757
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Response time is less than 500ms": false,
+					"Body is correct": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 47552,
+	"collection": {
+		"requests": [
+			{
+				"id": "8ed46aa7-579c-4d47-a476-b0c115fd212c",
+				"method": "GET"
+			},
+			{
+				"id": "ca6f15bd-ef1e-46cd-8586-e23d3188d0c2",
+				"method": "GET"
+			},
+			{
+				"id": "cd3ee115-9433-4312-9ecf-91712c0904fd",
+				"method": "GET"
+			},
+			{
+				"id": "b22c1fab-294a-40f6-8f3f-51d1efbb4a80",
+				"method": "GET"
+			},
+			{
+				"id": "b7c8b016-d18b-4881-a1d0-6282b8ed9881",
+				"method": "GET"
+			},
+			{
+				"id": "35dd0fa8-f0f2-42b7-a74d-2ea371ffadf0",
+				"method": "GET"
+			},
+			{
+				"id": "ed86ef2a-51f0-4251-9979-5400209c97a7",
+				"method": "GET"
+			},
+			{
+				"id": "54896bdb-a173-4f66-a83d-4f2afbabd103",
+				"method": "GET"
+			},
+			{
+				"id": "b4ef9973-8b49-42b6-80ba-1c5718bcb54b",
+				"method": "GET"
+			},
+			{
+				"id": "2a054db1-a61d-425c-b0c3-7804869f2945",
+				"method": "GET"
+			},
+			{
+				"id": "8d7576c5-e938-49cb-8c13-c980b1b9580e",
+				"method": "GET"
+			},
+			{
+				"id": "46e2024a-b6f2-4edb-9f53-56315c861278",
+				"method": "GET"
+			},
+			{
+				"id": "679b497b-9a55-46ec-a728-9a2bf34df43b",
+				"method": "GET"
+			},
+			{
+				"id": "57585807-65a8-4f45-ad42-0fa460f3632b",
+				"method": "GET"
+			},
+			{
+				"id": "ee185fbd-162d-4059-8896-f04148db53ce",
+				"method": "GET"
+			},
+			{
+				"id": "d27c88c3-b63e-4751-b6d7-3267038730e7",
+				"method": "GET"
+			},
+			{
+				"id": "4ae8c22b-48eb-4f58-986d-98eceb3d4610",
+				"method": "GET"
+			},
+			{
+				"id": "bb38b91f-be00-45ac-a3a5-6dc494254ee3",
+				"method": "GET"
+			},
+			{
+				"id": "beb540f0-fd6f-4a78-a03d-ca979285318c",
+				"method": "GET"
+			},
+			{
+				"id": "0ed8b74f-4aa8-4606-8ac0-22f7eef19b67",
+				"method": "GET"
+			},
+			{
+				"id": "35560e1a-85b0-427b-9573-58405f32d32e",
+				"method": "GET"
+			},
+			{
+				"id": "5b7e21f3-0828-4de5-b91a-0346c0ed4bdb",
+				"method": "GET"
+			},
+			{
+				"id": "66c87a83-3e76-4540-b94a-12dfdeba45fd",
+				"method": "GET"
+			},
+			{
+				"id": "49afb4f7-6d53-478f-8759-da31b2a72121",
+				"method": "GET"
+			},
+			{
+				"id": "edb9d6fc-6245-4083-b1fe-2b7fec140853",
+				"method": "GET"
+			},
+			{
+				"id": "581f4148-fb39-41c0-bcae-f2a3da16af5e",
+				"method": "GET"
+			},
+			{
+				"id": "edbe591e-af7d-419c-b348-b8de21ecfb0c",
+				"method": "GET"
+			},
+			{
+				"id": "49fa52d3-5914-41ef-b78b-689f974e7023",
+				"method": "GET"
+			},
+			{
+				"id": "6987865c-5d16-4aa2-8d9c-1f2222e571eb",
+				"method": "GET"
+			},
+			{
+				"id": "3afc96de-9167-4faa-aa7c-f24e6679c9a7",
+				"method": "GET"
+			},
+			{
+				"id": "854120eb-a87e-4e42-8fc5-a0490f0125e9",
+				"method": "GET"
+			},
+			{
+				"id": "df61030a-b437-4cc2-94a0-7f228a22f34c",
+				"method": "GET"
+			},
+			{
+				"id": "f90ae097-7e89-4c77-847b-8f488119e597",
+				"method": "GET"
+			},
+			{
+				"id": "6addd254-ea97-40c5-962f-cdb96d2f619a",
+				"method": "GET"
+			},
+			{
+				"id": "cd045333-92fb-4c0b-ba51-e327c0331f3e",
+				"method": "GET"
+			},
+			{
+				"id": "bdf46dd2-281e-48be-8614-acf7e14e65eb",
+				"method": "GET"
+			},
+			{
+				"id": "909179e4-f7ae-41ac-8855-9a136b77401d",
+				"method": "GET"
+			},
+			{
+				"id": "024e6f19-f8f5-4c00-8863-31739c0c8303",
+				"method": "GET"
+			},
+			{
+				"id": "9aabd9cb-8548-4eea-ba9e-170608b03c21",
+				"method": "GET"
+			},
+			{
+				"id": "7102f6af-e5b6-4f20-af02-82006fc349ec",
+				"method": "GET"
+			},
+			{
+				"id": "948a22ee-5cd1-460c-a0cd-4d258ea302a6",
+				"method": "GET"
+			},
+			{
+				"id": "0150d391-1476-449a-9602-906d2374c118",
+				"method": "GET"
+			},
+			{
+				"id": "afebd660-a5e4-48e6-bf4f-f31e5f4dcfcd",
+				"method": "GET"
+			},
+			{
+				"id": "d01de0f5-672e-4794-92de-0ebdbcf2a831",
+				"method": "GET"
+			},
+			{
+				"id": "37a66454-5087-435e-abfe-f4f30b420ab2",
+				"method": "GET"
+			},
+			{
+				"id": "6524653a-4beb-4929-be2e-f51eab3c9a14",
+				"method": "GET"
+			},
+			{
+				"id": "a536765d-5a4e-4a46-ac10-7f44b585f6ad",
+				"method": "GET"
+			},
+			{
+				"id": "990e59d1-cbe1-442e-8da9-92340f90097b",
+				"method": "GET"
+			},
+			{
+				"id": "043e73f4-0758-4e2b-b799-c7b0902dc7b2",
+				"method": "GET"
+			},
+			{
+				"id": "96cd6617-3c4c-4d16-9a21-023762652001",
+				"method": "GET"
+			},
+			{
+				"id": "2f4ab2b2-2864-4bae-80e4-bc211a3a91d4",
+				"method": "GET"
+			},
+			{
+				"id": "d296976b-a9d8-4f55-9bc6-2b883dfbd09c",
+				"method": "GET"
+			},
+			{
+				"id": "0139f002-81fe-4301-82ce-099750e7e150",
+				"method": "GET"
+			},
+			{
+				"id": "6ec3ce7f-28c5-4eaf-a582-7892d737cbed",
+				"method": "GET"
+			},
+			{
+				"id": "59084815-43cb-4aa9-8777-bc577428c4b6",
+				"method": "GET"
+			},
+			{
+				"id": "546ef6f2-d89c-471b-a810-8ee3bad7ebd6",
+				"method": "GET"
+			},
+			{
+				"id": "ef101c6f-65e1-4331-b3ab-daab880a4b15",
+				"method": "GET"
+			},
+			{
+				"id": "b764f802-7f69-4fd6-9a65-e5d24356f27a",
+				"method": "GET"
+			},
+			{
+				"id": "c93b4a49-5e5b-42b1-9f64-4b8d8ce3f0f4",
+				"method": "GET"
+			},
+			{
+				"id": "525e5f66-8c75-4b84-9c3a-47ea4461d1fe",
+				"method": "GET"
+			},
+			{
+				"id": "b57a710f-4b47-4290-86d7-168bcb6fc9b9",
+				"method": "GET"
+			},
+			{
+				"id": "1d7ebd99-be65-4ff8-a3cb-8d5285c26340",
+				"method": "GET"
+			},
+			{
+				"id": "caca1f35-01d1-4db0-b159-4da0532ac42d",
+				"method": "GET"
+			},
+			{
+				"id": "fd057555-e8d5-44aa-b433-54807fdec0a9",
+				"method": "GET"
+			},
+			{
+				"id": "5f0e7014-26e6-4638-abc3-00b0e1399206",
+				"method": "GET"
+			},
+			{
+				"id": "739bbd6a-ed96-462e-8641-9aeb046fa5e8",
+				"method": "GET"
+			},
+			{
+				"id": "aab7ea5f-13ff-4dac-8769-651c9d6dffe9",
+				"method": "GET"
+			},
+			{
+				"id": "cefb5ceb-167b-4d88-9f86-3e9d48d5b438",
+				"method": "GET"
+			},
+			{
+				"id": "3d04ebfe-65b3-476a-83e9-9b168846f1f0",
+				"method": "GET"
+			},
+			{
+				"id": "0c2f10b4-b3a8-4ad1-8417-2d191d2715de",
+				"method": "GET"
+			},
+			{
+				"id": "6c3a227f-0575-4f46-a2c2-ff3ad9a77638",
+				"method": "GET"
+			},
+			{
+				"id": "45ce8eaa-2c3f-4f1c-8d3e-89dba0b4f35e",
+				"method": "GET"
+			},
+			{
+				"id": "3e7d4f62-d528-4e30-bac9-e4d21d4bc043",
+				"method": "GET"
+			},
+			{
+				"id": "010dd63a-ee15-4ad6-9999-0f12de577b4b",
+				"method": "GET"
+			},
+			{
+				"id": "e65537b4-d240-465f-aa64-bfac294f587d",
+				"method": "GET"
+			},
+			{
+				"id": "e80fde24-0e25-49dd-b6c9-76083ca72548",
+				"method": "GET"
+			},
+			{
+				"id": "a60e239b-ca49-41b6-a064-269732adc76f",
+				"method": "GET"
+			},
+			{
+				"id": "52193bf3-1384-453c-aabf-7eff02e990dd",
+				"method": "GET"
+			},
+			{
+				"id": "3a161943-4ddb-4f86-9aa1-ca2293fc9a67",
+				"method": "GET"
+			},
+			{
+				"id": "2ca607d1-d923-466c-a9d4-4ee27e837a7e",
+				"method": "GET"
+			}
+		]
+	}
+}

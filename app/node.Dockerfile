@@ -26,5 +26,5 @@ EXPOSE 5100
 # uncomment below to run development
 # mode with nodemon inside container
 
-# CMD ["npm", "run", "dev"]
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
+# CMD ["npm", "start"]
