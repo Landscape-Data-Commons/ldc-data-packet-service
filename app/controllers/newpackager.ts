@@ -75,11 +75,20 @@ export const newpackager = async (request) =>{
     // parsing request with mini-api handler
   
     let fullTables = await retrieveAndPrintAllTableData(extractPostParameters(request), request)
-    console.log(fullTables, "FULL TABLES")
+    console.log(fullTables)
     // adding all the promises inside the object into Promise.all
-    let allPromises = Promise.all(Object.values(fullTables))
-    const csvDataFileHeaders = {}
-    console.log(allPromises, " ALL PROMISES")
+    let initialPull= Promise.all(Object.values(fullTables))
+
+    let descriptionObj= {}
+    let allDescs = Promise.all(Object.values(descriptionObj))
+
+    let xmlObject = {}
+    let allXmls = Promise.all(Object.values(xmlObject))
+    
+    let csvObject = {}
+    let allCsvs = Promise.all(Object.values(csvObject))
+
+    let allPromises = Promise.all([initialPull, allDescs, allXmls, allCsvs])
     // iterating over each promise, turning resulting jsons into csv's
     for(let table of Object.keys(fullTables)){
       console.log(`printing ${table}!!`)
@@ -92,12 +101,15 @@ export const newpackager = async (request) =>{
         */
         let csv = await creatingCSV(data,table)
         if(csv!==null){
+
           zip.file(`${table}.csv`,csv)
+          csvObject[table] = csv
         }
         
-        let tableDescriptions = await extractColumnDescriptions(csv, table)
-
-        console.log(await generateMetadataXmlFile(tableDescriptions,table))
+        
+        
+        
+        
         
         
         // if (xmlFile!==null && xmlFile!==undefined){
@@ -140,18 +152,36 @@ export const newpackager = async (request) =>{
         
     // adding created CSV into zip file (takes a while)
         // zip.file(`${table}.csv`,csv)
+
       })
     }
+    // for(let table of Object.keys(xmlObject)){
+    //   console.log(xmlObject[table])
+    //   zip.file(`${table}_metadata.xml`, xmlObject[table])
+    // }
     // after per table iteration
     // console.log(csvDataFileHeaders)
     // after all requested table promises are resolved, write zip file
-    allPromises.then(finished=>{
 
-      // console.log(csvDataFileHeaders)
-      // console.log(extractColumnDescriptions(csvDataFileHeaders))
-      
-      // console.log(csvDataFileHeaders)
-      // console.log("ok")
+    allCsvs.then(async(csv)=>{
+      for(let table of Object.keys(csvObject)){
+        let tableDescriptions = await extractColumnDescriptions(csv, table)
+        descriptionObj[table] = tableDescriptions
+      }
+    })
+
+    allDescs.then(async (desc)=>{
+      for(let table of Object.keys(descriptionObj)){
+          let xmlFile = await generateMetadataXmlFile(desc,table)
+          xmlObject[table] = xmlFile
+        }
+    })
+
+    allXmls.then(async (xml:any)=>{
+      for(let table of Object.keys(xmlObject)){
+        zip.file(`${table}_metadata.xml`, xml)
+      }
+
       zip.generateAsync({type:'nodebuffer'}, )
       .then(buff=>{
         
@@ -163,6 +193,27 @@ export const newpackager = async (request) =>{
             } 
           })
       })
+    })
+  })
+
+    allPromises.then(finished=>{
+
+      // for(let table of Object.keys(xmlObject)){
+      //   console.log(xmlObject[table])
+      //   zip.file(`${table}_metadata.xml`, xmlObject[table])
+      // }
+      console.log("ok")
+      // zip.generateAsync({type:'nodebuffer'}, )
+      // .then(buff=>{
+        
+      //   fs.writeFile(dest,buff,(err)=>{
+      //     if(err) throw err;
+      //     fs.stat(dest, (err, stats) => {
+      //       if (err) {
+      //           console.log(`File doesn't exist.`);
+      //       } 
+      //     })
+      // })
     // // incorporate request data into Mongo model
     //             // filesize = stats.size
     //             // if(filesize){
@@ -213,10 +264,12 @@ export const newpackager = async (request) =>{
     
     // // catch for the zip.generateasync promise
     //   .catch(err=>console.log(err))
-    })
+    // })
     // catch for the Promise.all 
-    .catch(err=>console.log(err))
+    // .catch(err=>console.log(err))
   })
+
+
 }
   
   // function that creates csv from a JSON/response object from Postgres

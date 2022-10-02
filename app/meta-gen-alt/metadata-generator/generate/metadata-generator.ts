@@ -37,35 +37,50 @@ function addXmlAttributeElements(xmlDetailedElement: any, xmlAttrElementCount: a
   //console.log(columnDescription)
 }
 
- async function generateMetadataXmlFile(columnDescriptions:any, tableName: any) {
+ async function generateMetadataXmlFile(columnDescriptions:any, tableName: any): Promise<any> {
 
   let descriptions = columnDescriptions
+  let xml:string 
   
   const xml2jsParser = new xml2js.Parser()
   const xmlTemplateName = (tableName === 'filterTable') ? 'geoIndicators.xml' : tableName + '.xml'
-
-  if(descriptions!==null && descriptions!==undefined){
-
+  
+  return new Promise((resolve, reject) => {
     fs.readFile(path.join(XML_TEMPLATE_DIR, xmlTemplateName), function(err, data) {
       xml2jsParser.parseString(data, (err: Error | null, result: any) => {
   
         
-        if (err) console.log(err)
-  
-        const xmlDetailedElement = result.metadata.eainfo[0].detailed[0]
-        addXmlEnttypeElement(xmlDetailedElement, tableName)
-        let xmlAttrElementCount = 0
-   
-        for (let columnNameDescriptionString of descriptions) {
-          addXmlAttributeElements(xmlDetailedElement, xmlAttrElementCount, columnNameDescriptionString)
-          xmlAttrElementCount += 1
-        }
-        const xml2jsBuilder = new xml2js.Builder();
-        return xml2jsBuilder.buildObject(result)
-      });
+        if (err) {
+          console.log(err)
+          reject(err)
+        } else{
+        
+          const xmlDetailedElement = result.metadata.eainfo[0].detailed[0]
+          addXmlEnttypeElement(xmlDetailedElement, tableName)
+          let xmlAttrElementCount = 0
       
+          for (let columnNameDescriptionString of descriptions) {
+            addXmlAttributeElements(xmlDetailedElement, xmlAttrElementCount, columnNameDescriptionString)
+            xmlAttrElementCount += 1
+          }
+          const xml2jsBuilder = new xml2js.Builder();
+          
+          xml = xml2jsBuilder.buildObject(result)
+          resolve(xml)
+        }
+      });
     });
-  } 
+  })
+    
+  
 }
+
+// async function generateMetadataXmlFiles(tableList) {
+//   let columnDescriptions = await extractColumnDescriptions()
+
+//   for (let tableName in columnDescriptions) {
+//     await generateMetadataXmlFile(tableName, columnDescriptions[tableName])
+//   }
+// }
 
 export default generateMetadataXmlFile

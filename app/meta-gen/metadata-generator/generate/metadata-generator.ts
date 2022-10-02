@@ -68,7 +68,7 @@ function addXmlAttributeElements(xmlDetailedElement: any, xmlAttrElementCount: a
       
       const outputFile = path.join(XML_OUTPUT_DIR, tableName + '.xml')
       console.log(outputFile)
-      // fs.writeFileSync(outputFile, xml) 
+      fs.writeFileSync(outputFile, xml) 
     });
   });
 
