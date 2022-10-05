@@ -1,34 +1,27 @@
 import env from '../env'
 import getColumnDescriptions from '../../database/queries-metadata'
-import getCsvDataFileHeaders from './csv-parser'
+import getCsvDataTableHeaders from './csv-parser'
 
-async function extractColumnDescriptions(headers, tablename) {
-  // let csvDataFileHeaders: any = await getCsvDataFileHeaders()
-  const tableNames = Object.getOwnPropertyNames(headers)
-  let csvHeaderNames
-  for (let tableName of tableNames) {
-    csvHeaderNames = headers
-    const dbTableName = (tableName === 'filterTable') ? 'geoIndicators' : tableName
-    const queryResults = await getColumnDescriptions(dbTableName)
+export async function extractColumnDescriptions(csvBlob, tablename) {
+  if(csvBlob!==null){
+    let csvHeaderNames = await getCsvDataTableHeaders(csvBlob)
+    let queryResults = await getColumnDescriptions(tablename)
 
-    for (let queryResult of queryResults) {
-      const indexOfColumnName = csvHeaderNames.indexOf(queryResult.column_name)
-      
-      if (indexOfColumnName >= 0) {
-        const columnDescription = (queryResult.column_description === null) ? '' : queryResult.column_description
-        // 2022-09-24-CMF: Initial/final double quotes removed (https://stackoverflow.com/questions/19156148/i-want-to-remove-double-quotes-from-a-string) 
-        csvHeaderNames[indexOfColumnName] = 
-          csvHeaderNames[indexOfColumnName] + env.DELIMITER + columnDescription.replace(/^"(.*)"$/, '$1')
-      }
+    for(let queryResult of queryResults){
+      if(csvHeaderNames!==null && csvHeaderNames!==undefined){
+        const indexOfColumnName = csvHeaderNames.indexOf(queryResult.column_name)
+          if (indexOfColumnName >= 0) {  // to skip rid
+            const columnDescription = (queryResult.column_description === null) ? '' : queryResult.column_description
+
+            csvHeaderNames[indexOfColumnName] = 
+              csvHeaderNames[indexOfColumnName] + env.DELIMITER + columnDescription.replace(/^"(.*)"$/, '$1')
+          }
+        }
+        return csvHeaderNames
     }
+  } else {
+    return null
   }
-  return csvHeaderNames
 }
 
-// 2022-09-26-CMF: Comment out when running diagnostics
-/*
-extractColumnDescriptions()
-  .then((columnDescriptions: any) => { console.log(columnDescriptions) })
-  .catch((err) => console.log(err))
-*/
 export default extractColumnDescriptions

@@ -1,57 +1,42 @@
 import fs from 'fs'
 import JSZip from "jszip"
 import path from 'path'
-import csv from 'csv-parser'
-import papa from 'papaparse'
 
-import env from '../meta-gen-alt/metadata-generator/env'
+const { v4: uuidv4 } = require('uuid')
+import { Client } from "@sendgrid/client";
+import sgMail from "@sendgrid/mail";
 
 import {
   extractPostParameters,
   retrieveAndPrintAllTableData} from '../request-handler/get-routes'
-import getColumnDescriptions from '../meta-gen-alt/database/queries-metadata'
 
+import extractColumnDescriptions  from '../meta-gen-alt/metadata-generator/parse/query-processor'
 import generateMetadataXmlFile from '../meta-gen-alt/metadata-generator/generate/metadata-generator'
+/*
+1. for each table, make a request to the db using miniapi functions get a json
+  a. retrieveAndPrintAllTableData(extractPostParameters(request),request)
+  b. returns promise (with json data when it resolves.)
 
+2. turn the json into csv for packaging
+  a. creatingCSV(jsondata/object, tablename)
+  b. returns 
+3. remove headers from csv ( modified CMF code - getCsvDataTableHeaders)
+4. using headers, pull in descriptions from tblSchema (modified CMF code)
+5. create xml nodes with header/description combo (modified CMF code - extract column descriptions)
+6. deposit complete blobs of xml and csv data into zip file
 
+*/
 
-async function getCsvDataTableHeaders(csvFile: string | undefined) {
-  if(csvFile===undefined){
-    console.log("no csv file / undefined")
-  }else {
-    let parseStream = papa.parse(csvFile, {header: true})
-    return parseStream.meta.fields
-  }
-}
-
-async function extractColumnDescriptions(csvBlob, tablename) {
-  if(csvBlob!==null){
-    let csvHeaderNames = await getCsvDataTableHeaders(csvBlob)
-    let queryResults = await getColumnDescriptions(tablename)
-
-    for(let queryResult of queryResults){
-
-      const indexOfColumnName = csvHeaderNames.indexOf(queryResult.column_name)
-      if (indexOfColumnName >= 0) {  // to skip rid
-        const columnDescription = (queryResult.column_description === null) ? '' : queryResult.column_description
-
-        csvHeaderNames[indexOfColumnName] = 
-          csvHeaderNames[indexOfColumnName] + env.DELIMITER + columnDescription.replace(/^"(.*)"$/, '$1')
-      }
-    }
-    return csvHeaderNames
-  } else {
-    return null
-  }
-}
-
-
-
+sgMail.setClient(new Client());
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 export const newpackager = async (request) =>{
     // new zip per request
     let zip: JSZip = new JSZip()
-    
+    // utility objects in promise-chain
+    let descriptionObj= {}
+    let xmlObject = {}
+
     const directoryPath = `./temp`
     const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}.zip`
     const dest = `${directoryPath}/${uniqueName}`
@@ -63,9 +48,7 @@ export const newpackager = async (request) =>{
     let fullTables = await retrieveAndPrintAllTableData(extractPostParameters(request), request)
     let initialPull= Promise.all(Object.values(fullTables))
 
-    // utility objects in promise-chain
-    let descriptionObj= {}
-    let xmlObject = {}
+    
     
     let allPromises = Promise.all([initialPull, fullTables])
 
@@ -107,7 +90,7 @@ export const newpackager = async (request) =>{
     */
     
     allPromises.then(finished=>{
-  
+      
           setTimeout(()=>{
             console.log("ultimo timer")
             zip.generateAsync({type:'nodebuffer'}, )
