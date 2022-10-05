@@ -4,6 +4,7 @@ import Files from "../models/files"
 import {packager} from './packager'
 import {setHeaderFields} from '../request-handler/get-routes'
 import secrets from '../db/secrets'
+import { newpackager } from './newpackager';
 
 const AuthClient = require('auth0').AuthenticationClient
 
@@ -46,7 +47,7 @@ export const createData = async (req:Request, res:Response, next: NextFunction) 
   try{
     setHeaderFields(res);
     // res.status(200).json('Request received: processing');
-    packager(user_profile, req);
+    newpackager(req,user_profile);
     // finish the request
     res.status(200).send({"request":"successful."})
   }
@@ -68,3 +69,26 @@ export const getData = async (req:Request, res:Response)=>{
 }
 
 
+export const newcreateData = async (req:Request, res:Response, next: NextFunction) =>{
+  
+  // console.log(res)1
+  // console.log("REQ DATA: ", req.data)
+  // accessing auth0 token and using it to pull authenticated email
+  // from the token 
+
+  console.log(req.auth.token)
+
+
+  // test array to create multiple csv files and pack them
+  try{
+    setHeaderFields(res);
+    // res.status(200).json('Request received: processing');
+    newpackager(req);
+    // finish the request
+    res.status(200).send({"request":"successful."})
+  }
+  catch(err: any){
+    console.log(err)
+    next()
+  }
+}
