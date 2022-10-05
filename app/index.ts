@@ -1,5 +1,5 @@
 require('dotenv').config();
-// import { connect } from './db/database'
+import { connect } from './db/database'
 import express from 'express'
 
 import path from 'path'
@@ -21,7 +21,7 @@ app.use(express.json({limit:'10mb'}))
 app.set('views', path.join(__dirname,'/views'))
 app.set('view engine', 'ejs')
 
-// connect()
+connect()
 app.use('/api', testRoute)
 app.get('/', (req,res)=>{
   console.log(process.env)

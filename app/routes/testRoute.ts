@@ -48,7 +48,7 @@ router.put('/unrestricted',
         //     !claim.permissions.includes('read:RHEM')
         //   ) // returns true if all the permissions are absent
         // }),
-        testController.newcreateData
+        testController.createData
         );
 
 router.put('/ndow', 

@@ -1,16 +1,16 @@
 version: "3.3"
 services:
   node:
-    image: landscapedatacommons/dl_node:1.1.8
+    image: landscapedatacommons/dl_node:1.1.10
     build:
       context: .
       dockerfile: ./app/node.Dockerfile
     container_name: node
     volumes:
-      - ./app:/usr/src
+      # - ./app:/usr/src
       # comment out the shared if debugging
       # the creation of live files
-      # - shared:/usr/src/temp
+      - shared:/usr/src/temp
     # env file for docker compose debug
     env_file:
       - ./app/db/.env
@@ -41,17 +41,17 @@ services:
     #   - node_appbaseurl 
     #   - cron_mongopath
 
-    # deploy:
-    #   replicas: 2
-    #   update_config:
-    #     parallelism: 1
-    #     failure_action: rollback
-    #     delay: 20s
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        failure_action: rollback
+        delay: 20s
       
-    #   restart_policy:
-    #     condition: on-failure
-    #     delay: 5s
-    #     window: 120s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        window: 120s
     
 
   cron:

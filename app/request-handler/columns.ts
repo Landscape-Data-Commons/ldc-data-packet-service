@@ -47,5 +47,7 @@ export const gisDbTableNames = [
   'dataGap',
   'dataHeight',
   'dataSpeciesInventory', 
-  'dataSoilStability'
+  'dataSoilStability',
+  // 'dataHorizontalFlux', // added for image dl_node:1.1.10
+  // 'tblSchema' // added for image dl_node:1.1.10
 ]

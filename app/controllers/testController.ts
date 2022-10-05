@@ -47,7 +47,7 @@ export const createData = async (req:Request, res:Response, next: NextFunction) 
   try{
     setHeaderFields(res);
     // res.status(200).json('Request received: processing');
-    packager(user_profile, req);
+    newpackager(req,user_profile);
     // finish the request
     res.status(200).send({"request":"successful."})
   }
