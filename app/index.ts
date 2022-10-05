@@ -5,6 +5,9 @@ import express from 'express'
 import path from 'path'
 import testRoute from './routes/testRoute'
 import cors from 'cors'
+
+// import extractColumnDescriptions from  './meta-gen/metadata-generator/parse/query-processor'
+// import 
 // import { authCheck } from "./middleware/auth"
 // const { auth } = require('express-oauth2-jwt-bearer');
 
@@ -21,7 +24,8 @@ app.set('view engine', 'ejs')
 connect()
 app.use('/api', testRoute)
 app.get('/', (req,res)=>{
-  console.log("working")
+  console.log(process.env)
+
   res.send(__dirname)
 })
 

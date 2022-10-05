@@ -35,7 +35,7 @@ function extractPostParameters(request: any): PostParameters {
 // 2022-03-17-CMF: Send SQL query to database and return result 
 async function getResult(selectStatement: string, pool: Pool): Promise<any> {
   let result;
-  console.log(pool)
+  // console.log(pool)
   const client = await pool.connect(); 
   try { result = (await client.query(selectStatement)).rows; } 
   finally { client.release() };

@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   node:
-    image: landscapedatacommons/dl_node:1.1.8
+    image: landscapedatacommons/dl_node:1.1.10
     build:
       context: .
       dockerfile: ./app/node.Dockerfile
@@ -65,10 +65,10 @@ services:
       - shared:/usr/src/temp
       # uncomment to have packet production happen locally
       # - ./app/temp:/usr/src/app/temp
-    secrets:
-      - cron_mongopath
-    # env_file:
-    #   - .env
+    # secrets:
+    #   - cron_mongopath
+    env_file:
+      - .env
     
   nginx:
     image: landscapedatacommons/dl_nginx:1.0
