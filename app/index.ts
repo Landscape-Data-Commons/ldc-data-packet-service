@@ -24,8 +24,6 @@ app.set('view engine', 'ejs')
 connect()
 app.use('/api', testRoute)
 app.get('/', (req,res)=>{
-  console.log(process.env)
-
   res.send(__dirname)
 })
 

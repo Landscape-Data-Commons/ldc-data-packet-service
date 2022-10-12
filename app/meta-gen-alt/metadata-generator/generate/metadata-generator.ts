@@ -33,8 +33,6 @@ function addXmlAttributeElements(xmlDetailedElement: any, xmlAttrElementCount: a
       }
     }
   xmlDetailedElement.enttyp[0].attr[xmlAttrElementCount] = attr
-  //console.log(columnName)
-  //console.log(columnDescription)
 }
 
  async function generateMetadataXmlFile(columnDescriptions:any, tableName: any): Promise<any> {

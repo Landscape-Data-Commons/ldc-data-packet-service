@@ -134,6 +134,7 @@ export const newpackager = async (request, user_profile:any= {}) =>{
                           size: filesize
                         })
                         response = file.save()
+                        // response = new Promise(x=>{console.log("ok")})
                       } else {
                         const file = new Files({
                           user_email: no_email,
@@ -143,6 +144,7 @@ export const newpackager = async (request, user_profile:any= {}) =>{
                           size: filesize
                         })
                         response = file.save()
+                        // response = new Promise(x=>{console.log("ok")})
                       }
                       
                       
@@ -169,9 +171,9 @@ export const newpackager = async (request, user_profile:any= {}) =>{
                             console.error(error)
                           })
           //  SEND LINK BACK to client
-                          // response.json({ file: filelink })
-                          console.log("este es response: ", response)
-                          console.log("este es success: ", success)
+                          response.json({ file: filelink })
+                          // console.log("este es response: ", response)
+                          // console.log("este es success: ", success)
                           }
                         })
                 } else {

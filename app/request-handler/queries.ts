@@ -18,7 +18,7 @@ export class QueryGenerator {
     this.gi = 'gi';
     this.gidb = this.gi + '.';
     this.primaryKey = this.gidb + `"${columns.filterQueryParametersToColumns['primaryKey']}"`
-    this.fromGeoIndicators = 'FROM public_test."geoIndicators" ' + this.gi;
+    this.fromGeoIndicators = 'FROM public_test."geoIndicators_view" ' + this.gi;
     this.delimiter = ',';
     this.and = " AND ";
   }
@@ -32,7 +32,7 @@ export class QueryGenerator {
   
   // 2022-02-16-CMF: Returns a comma-delimited query condition
   private getQueryList(values: string[]) {
-    console.log(values)
+    // console.log(values)
     return '(\'' + values.join('\', \'') + '\')'
   }
 
@@ -99,8 +99,14 @@ export class QueryGenerator {
  
   // 2022-02-16-CMF: Return all records from specified database table having PrimaryKey values specified as query-parameter values
   selectAllTableColumns(queryParameters: PostParameters, dbTableName: string) {
+    let dbTableNameAlt = "";
+    if(dbTableName=="geoIndicators"){
+     dbTableNameAlt = "geoIndicators_view"
+    } else {
+      dbTableNameAlt = dbTableName
+    }
     const query =  `SELECT *
-                    FROM public_test."${dbTableName}" AS ${dbTableName}
+                    FROM public_test."${dbTableNameAlt}" AS ${dbTableName}
                     WHERE ${dbTableName}."PrimaryKey" IN ${this.getQueryList(queryParameters.primaryKeys)}
                     ORDER BY ${dbTableName}."PrimaryKey";`
     return query;

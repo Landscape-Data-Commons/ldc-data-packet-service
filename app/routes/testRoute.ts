@@ -7,7 +7,6 @@ import {
   JWTPayload,
   requiredScopes
 } from 'express-oauth2-jwt-bearer';
-import { newpackager } from '../controllers/newpackager';
 
 interface Claim extends JWTPayload {
   permissions: string[]
@@ -18,7 +17,7 @@ interface Claim extends JWTPayload {
 const router = express.Router()
 
 // no auth test
-router.put('/test', testController.newcreateData)
+// router.put('/test', testController.newcreateData)
 
 //  direct download link 
 router.get('/files/download/:uuid', testController.getData)
@@ -41,13 +40,13 @@ router.put('/unrestricted',
         // claimCheck: function of the express-oauth2-jwt-bearer package that 
         //             checks claims(properties inside of the JWTPayload object) on a token
         // docs = https://auth0.github.io/node-oauth2-jwt-bearer/index.html#claimcheck
-        // claimCheck((claim:Claim)=>{
-        //   return (
-        //     !claim.permissions.includes('read:NWERN') && 
-        //     !claim.permissions.includes('read:NDOW') &&
-        //     !claim.permissions.includes('read:RHEM')
-        //   ) // returns true if all the permissions are absent
-        // }),
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            !claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          ) // returns true if all the permissions are absent
+        }),
         testController.createData
         );
 
@@ -115,8 +114,8 @@ router.put('/ndow-rhem',
         }),
         async function (req, res, next) {
   
-          console.log(req.auth)
-          console.log(req.body)
+          // console.log(req.auth)
+          // console.log(req.body)
   res.status(200).send();
 });
 
@@ -132,8 +131,8 @@ router.put('/nwern-rhem',
         }),
         async function (req, res, next) {
   
-          console.log(req.auth)
-          console.log(req.body)
+          // console.log(req.auth)
+          // console.log(req.body)
   res.status(200).send();
 });
 
