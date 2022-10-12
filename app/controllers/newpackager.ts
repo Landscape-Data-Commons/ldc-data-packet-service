@@ -171,9 +171,9 @@ export const newpackager = async (request, user_profile:any= {}) =>{
                             console.error(error)
                           })
           //  SEND LINK BACK to client
-                          response.json({ file: filelink })
-                          // console.log("este es response: ", response)
-                          // console.log("este es success: ", success)
+                          // response.json({ file: filelink })
+                          console.log("este es response: ", response)
+                          console.log("este es success: ", success)
                           }
                         })
                 } else {
