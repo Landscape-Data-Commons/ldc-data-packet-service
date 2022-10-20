@@ -5,6 +5,7 @@ import {packager} from './packager'
 import {setHeaderFields} from '../request-handler/get-routes'
 import secrets from '../db/secrets'
 import { newpackager } from './newpackager';
+import fs from 'fs'
 
 const AuthClient = require('auth0').AuthenticationClient
 
@@ -34,27 +35,35 @@ export const showData = async (req, res) => {
 
 // datapacket creation
 export const createData = async (req:Request, res:Response, next: NextFunction) =>{
-  
-  // console.log(res)1
-  // console.log("REQ DATA: ", req.data)
-  // accessing auth0 token and using it to pull authenticated email
-  // from the token 
-  const access_token = req.auth.token
-  
+
+  const responseMetadata = await res.locals.test
+  const access_token = req.auth.token  
   const user_profile = await auth0.getProfile(access_token)
 
   // test array to create multiple csv files and pack them
   try{
-    setHeaderFields(res);
-    // res.status(200).json('Request received: processing');
-    newpackager(req,user_profile);
-    // finish the request
-    res.status(200).send({"request":"successful."})
+    console.log(responseMetadata, "controller")
+    newpackager(req,user_profile, responseMetadata)
+    console.log("todavia no")
   }
   catch(err: any){
     console.log(err)
     next()
   }
+}
+
+export const responseData = async (req, res, next) => {
+  console.log("llegue pre pre")
+  res.status(200).send({"response":"okkk"})
+  // setTimeout(x=>{
+  //   console.log("lleuge pre")
+  //   if(res.locals.respObj){
+  //     console.log(res.locals.respObj)
+  //     res.status(418).send({"response":"okkk"})
+  //   }
+  // }
+  //   , 1000)
+  
 }
 
 //  actual download provider
@@ -68,4 +77,31 @@ export const getData = async (req:Request, res:Response)=>{
   res.download(filePath)
 }
 
+interface File {
+  user_email: string 
+  filename: string 
+  path: string 
+  size: string
+  uuid: string
+  creator?: string | undefined
+}
+
+export const fileExists = async (req:Request, res: Response)=>{
+  console.log(req.params.uuid)
+  const file = await Files.findOne({uuid: req.params.uuid})
+
+  let filePath
+  if(file!==null){
+    filePath = `${file.path}`;
+  } else {
+    return res.status(200).send({"err":"file has never been created"})
+  }
+  
+
+  if(!fs.existsSync(filePath)){
+    return res.status(200).send({"exists":false})
+  } else {
+    return res.status(200).send({"exists":true})
+  }
+}
 

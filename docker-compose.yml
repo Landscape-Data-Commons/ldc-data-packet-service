@@ -5,9 +5,9 @@ services:
     build:
       context: .
       dockerfile: ./app/node.Dockerfile
-    container_name: node
+
     volumes:
-      # - ./app:/usr/src
+      - ./app:/usr/src
       # comment out the shared if debugging
       # the creation of live files
       - shared:/usr/src/temp

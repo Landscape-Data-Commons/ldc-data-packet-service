@@ -13,6 +13,7 @@ import {
 
 import extractColumnDescriptions  from '../meta-gen-alt/metadata-generator/parse/query-processor'
 import generateMetadataXmlFile from '../meta-gen-alt/metadata-generator/generate/metadata-generator'
+import { response } from 'express';
 /*
 1. for each table, make a request to the db using miniapi functions get a json
   a. retrieveAndPrintAllTableData(extractPostParameters(request),request)
@@ -44,10 +45,24 @@ let timeout_len = (arraylength)=>{
   return Math.round(return_val);
 }
 
-sgMail.setClient(new Client());
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+// sgMail.setClient(new Client());
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
-export const newpackager = async (request, user_profile:any= {}) =>{
+export const linkCreator =  async ()=>{
+  const responseObject = {}
+  const directoryPath = `./temp`
+  responseObject["uniqueName"] = `${Date.now()}-${Math.round(Math.random()*1E9)}.zip`
+  responseObject["physicalDestination"] = `${directoryPath}/${responseObject["uniqueName"] }`
+
+  responseObject["uniquePageID"]= uuidv4()
+  responseObject["downloadLink"] =process.env.APP_BASE_URL
+  responseObject["responseLink"] = `${responseObject["downloadLink"]}/api/files/${responseObject["uniquePageID"]}`
+
+  return responseObject
+}
+
+
+export const newpackager = async (request, user_profile:any= {}, linkObject) =>{
     // new zip per request
     let zip: JSZip = new JSZip()
     const no_email = "notloggedin@error.com"
@@ -56,11 +71,14 @@ export const newpackager = async (request, user_profile:any= {}) =>{
     let xmlObject = {}
     console.log(timeout_len(request.body.data.primaryKeys.length))
 
-
-    const directoryPath = `./temp`
-    const uniqueName = `${Date.now()}-${Math.round(Math.random()*1E9)}.zip`
-    const dest = `${directoryPath}/${uniqueName}`
     let filesize
+    const uniqueName = linkObject["uniqueName"]
+    
+    const dest = linkObject["physicalDestination"]
+    
+    const uniquePageID = linkObject["uniquePageID"]
+    
+    const resLink = linkObject["responseLink"]
         
     ////////////////////////////////////////
     // parsing request with mini-api handler
@@ -129,53 +147,48 @@ export const newpackager = async (request, user_profile:any= {}) =>{
                         const file = new Files({
                           user_email: user_profile.email,
                           filename: uniqueName,
-                          uuid: uuidv4(),
+                          uuid: uniquePageID,
                           path: dest,
                           size: filesize
                         })
                         response = file.save()
-                        // response = new Promise(x=>{console.log("ok")})
                       } else {
                         const file = new Files({
                           user_email: no_email,
                           filename: uniqueName,
-                          uuid: uuidv4(),
+                          uuid: uniquePageID,
                           path: dest,
                           size: filesize
                         })
                         response = file.save()
-                        // response = new Promise(x=>{console.log("ok")})
                       }
                       
                       
 
   // ADD MONGODB ENTRY after writing file to local filesystem
   // SEND MAIL
-                      let dl_link =process.env.APP_BASE_URL
                       response.then((success)=>{
-                        if(user_profile!==null){
-                          let filelink = `${dl_link}/api/files/${success.uuid}`
-                          const msg = {
-                            from: `LDC data provider <bonefont.work@gmail.com>`,
-                            to: user_profile.email,
-                            subject: 'LDC datapacket download is ready',
-                            text: `Download link will expire in 24 hours!`,
-                            html: `<strong>download <a href=${filelink}>link</a></strong>`
-                          }
-                          sgMail
-                          .send(msg)
-                          .then(() => {
-                            console.log('Email sent')
-                          })
-                          .catch((error) => {
-                            console.error(error)
-                          })
-          //  SEND LINK BACK to client
-                          // response.json({ file: filelink })
-                          console.log("este es response: ", response)
-                          console.log("este es success: ", success)
-                          }
+                        
+                        // if(user_profile!==null){
+                        //   let filelink = resLink
+                        //   const msg = {
+                        //     from: `LDC data provider <bonefont.work@gmail.com>`,
+                        //     to: user_profile.email,
+                        //     subject: 'LDC datapacket download is ready',
+                        //     text: `Download link will expire in 24 hours!`,
+                        //     html: `<strong>download <a href=${filelink}>link</a></strong>`
+                        //     }
+                            // sgMail
+                            // .send(msg)
+                            // .then(() => {
+                            //   console.log('Email sent')
+                            // })
+                            // .catch((error) => {
+                            //   console.error(error)
+                            // })
+                          // }
                         })
+
                 } else {
                   console.log("filesize has not arrived")
                 }
@@ -183,9 +196,10 @@ export const newpackager = async (request, user_profile:any= {}) =>{
                       })
                     })
                   })
-
           },timeout_len(request.body.data.primaryKeys.length))
+      
       console.log("done")
+      
     })
 
 }

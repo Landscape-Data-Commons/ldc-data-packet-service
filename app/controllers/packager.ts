@@ -16,8 +16,8 @@ import {
         retrieveAndPrintAllTableData} from '../request-handler/get-routes'
 
 
-sgMail.setClient(new Client());
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+// sgMail.setClient(new Client());
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 // storing results in zip, storing zip in local fs
 export const packager = async (user_profile, request) =>{
@@ -89,7 +89,7 @@ export const packager = async (user_profile, request) =>{
                     console.error(error)
                   })
   //  SEND LINK BACK to client
-                  // response.json({ file: filelink })
+
                   console.log("este es response: ", response)
                   console.log("este es success: ", success)
                   

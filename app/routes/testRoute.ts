@@ -7,6 +7,7 @@ import {
   JWTPayload,
   requiredScopes
 } from 'express-oauth2-jwt-bearer';
+import { linkCreator, newpackager } from '../controllers/newpackager';
 
 interface Claim extends JWTPayload {
   permissions: string[]
@@ -21,6 +22,8 @@ const router = express.Router()
 
 //  direct download link 
 router.get('/files/download/:uuid', testController.getData)
+
+router.get('/files/exists/:uuid', testController.fileExists)
 
 // download page route (returned from created db entry)
 router.get('/files/:uuid', testController.showData)
@@ -47,9 +50,32 @@ router.put('/unrestricted',
             !claim.permissions.includes('read:RHEM')
           ) // returns true if all the permissions are absent
         }),
-        testController.createData
+        // testController.createData
+        (req,res,next)=>{
+          res.locals.test = linkCreator()
+          next()
+        }
         );
 
+router.put('/unrestricted',
+        authCheck, 
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            !claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          ) // returns true if all the permissions are absent
+        }),
+        // testController.createData,
+        async (req, res, next)=>{
+          const informationObject = await res.locals.test
+          testController.createData(req,res, next)
+          res.status(200).json({"informationObj":informationObject})
+        }
+)
+
+
+// NDOW BLOCK
 router.put('/ndow', 
         authCheck, 
         requiredScopes('read:NDOW'),
@@ -60,8 +86,45 @@ router.put('/ndow',
             !claim.permissions.includes('read:RHEM')
           )
         }),
-          testController.createData
-          );
+        (req,res,next)=>{
+          res.locals.test = linkCreator()
+          next()
+        }
+);
+
+router.put('/ndow', 
+          authCheck, 
+          requiredScopes('read:NDOW'),
+          claimCheck((claim:Claim)=>{
+            return (
+              !claim.permissions.includes('read:NWERN') && 
+              claim.permissions.includes('read:NDOW') &&
+              !claim.permissions.includes('read:RHEM')
+            )
+          }),
+          async (req, res, next)=>{
+            const informationObject = await res.locals.test
+            testController.createData(req,res, next)
+            res.status(200).json({"informationObj":informationObject})
+          }
+);
+
+// NWERN BLOCK
+router.put('/nwern', 
+        authCheck, 
+        requiredScopes('read:NWERN'),
+        claimCheck((claim:Claim)=>{
+          return (
+            claim.permissions.includes('read:NWERN') && 
+            !claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          )
+        }),
+        (req,res,next)=>{
+          res.locals.test = linkCreator()
+          next()
+        }
+);
 
 router.put('/nwern', 
         authCheck, 
@@ -73,8 +136,30 @@ router.put('/nwern',
             !claim.permissions.includes('read:RHEM')
           )
         }),
-        testController.createData
+        async (req, res, next)=>{
+          const informationObject = await res.locals.test
+          testController.createData(req,res, next)
+          res.status(200).json({"informationObj":informationObject})
+        }
 );
+
+// RHEM BLOCK
+router.put('/rhem', 
+        authCheck, 
+        requiredScopes('read:RHEM'),
+        claimCheck((claim:Claim)=>{
+          return (
+            !claim.permissions.includes('read:NWERN') && 
+            !claim.permissions.includes('read:NDOW') &&
+            claim.permissions.includes('read:RHEM')
+          )
+        }),
+        (req,res,next)=>{
+          res.locals.test = linkCreator()
+          next()
+        }
+);
+
 
 router.put('/rhem', 
         authCheck, 
@@ -86,7 +171,29 @@ router.put('/rhem',
             claim.permissions.includes('read:RHEM')
           )
         }),
-        testController.createData
+        async (req, res, next)=>{
+          const informationObject = await res.locals.test
+          testController.createData(req,res, next)
+          res.status(200).json({"informationObj":informationObject})
+        }
+);
+
+
+// NDOW NWERN BLOCK
+router.put('/ndow-nwern', 
+        authCheck, 
+        requiredScopes('read:NDOW read:NWERN'),
+        claimCheck((claim:Claim)=>{
+          return (
+            claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            !claim.permissions.includes('read:RHEM')
+          )
+        }),
+        (req,res,next)=>{
+          res.locals.test = linkCreator()
+          next()
+        }
 );
 
 router.put('/ndow-nwern', 
@@ -99,9 +206,14 @@ router.put('/ndow-nwern',
             !claim.permissions.includes('read:RHEM')
           )
         }),
-        testController.createData
+        async (req, res, next)=>{
+          const informationObject = await res.locals.test
+          testController.createData(req,res, next)
+          res.status(200).json({"informationObj":informationObject})
+        }
 );
- 
+
+// NDOW RHEM BLOCK
 router.put('/ndow-rhem', 
         authCheck, 
         requiredScopes('read:NDOW read:RHEM'),
@@ -112,12 +224,11 @@ router.put('/ndow-rhem',
             claim.permissions.includes('read:RHEM')
           )
         }),
-        async function (req, res, next) {
-  
-          // console.log(req.auth)
-          // console.log(req.body)
-  res.status(200).send();
-});
+        (req,res,next)=>{
+          res.locals.test = linkCreator()
+          next()
+        }
+);
 
 router.put('/nwern-rhem', 
         authCheck, 
@@ -129,12 +240,30 @@ router.put('/nwern-rhem',
             claim.permissions.includes('read:RHEM')
           )
         }),
-        async function (req, res, next) {
-  
-          // console.log(req.auth)
-          // console.log(req.body)
-  res.status(200).send();
-});
+        async (req, res, next)=>{
+          const informationObject = await res.locals.test
+          testController.createData(req,res, next)
+          res.status(200).json({"informationObj":informationObject})
+        }
+);
+
+
+// NDOW NWERN RHEM BLOCK
+router.put('/ndow-nwern-rhem', 
+        authCheck, 
+        requiredScopes('read:NDOW read:NWERN read:RHEM'),
+        claimCheck((claim:Claim)=>{
+          return (
+            claim.permissions.includes('read:NWERN') && 
+            claim.permissions.includes('read:NDOW') &&
+            claim.permissions.includes('read:RHEM')
+          )
+        }),
+        (req,res,next)=>{
+          res.locals.test = linkCreator()
+          next()
+        }
+);
 
 router.put('/ndow-nwern-rhem', 
         authCheck, 
@@ -146,16 +275,12 @@ router.put('/ndow-nwern-rhem',
             claim.permissions.includes('read:RHEM')
           )
         }),
-        async function (req, res, next) {
-  
-          console.log(req.auth)
-  res.status(200).send();
-});
-
-// mini api routes
-// http://localhost:5432/api/download-data?primaryKeys=17101012114127892017-09-01
-
-// 
+        async (req, res, next)=>{
+          const informationObject = await res.locals.test
+          testController.createData(req,res, next)
+          res.status(200).json({"informationObj":informationObject})
+        }
+);
 
 
 export default router
