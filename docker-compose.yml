@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   node:
-    image: landscapedatacommons/dl_node:1.1.12
+    image: landscapedatacommons/dl_node_dev:1.1.13
     build:
       context: .
       dockerfile: ./app/node.Dockerfile
@@ -14,32 +14,6 @@ services:
     # env file for docker compose debug
     env_file:
       - ./app/db/.env
-    # secrets:
-    #   - node_ndow
-    #   - node_ndowp
-    #   - node_rhem
-    #   - node_rhemp
-    #   - node_nwern
-    #   - node_nwernp 
-    #   - node_ndownwern
-    #   - node_ndownwernp
-    #   - node_ndowrhem
-    #   - node_ndowrhemp
-    #   - node_nwernrhem
-    #   - node_nwernrhemp
-    #   - node_ndownwernrhem
-    #   - node_ndownwernrhemp 
-    #   - node_restricted 
-    #   - node_restrictedp 
-    #   - node_dbhost 
-    #   - node_db 
-    #   - node_dbport 
-    #   - node_auth0audience
-    #   - node_auth0domain
-    #   - node_auth0clientid
-    #   - node_sendgrid 
-    #   - node_appbaseurl 
-    #   - cron_mongopath
 
     deploy:
       replicas: 2

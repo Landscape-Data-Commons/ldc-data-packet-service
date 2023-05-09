@@ -7,6 +7,15 @@ import secrets from '../db/secrets'
 import { newpackager } from './newpackager';
 import fs from 'fs'
 
+import { CognitoJwtVerifier } from 'aws-jwt-verify';
+
+
+const jwtVerifier = CognitoJwtVerifier.create({
+  userPoolId: 'us-west-1_FgaW15JOh',
+  tokenUse: 'id',
+  clientId: '3ocfhcl3smtnnu6m0qkne8v8tg',
+});
+
 const AuthClient = require('auth0').AuthenticationClient
 
 const auth0 = new AuthClient({

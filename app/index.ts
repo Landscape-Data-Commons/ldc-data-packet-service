@@ -5,6 +5,7 @@ import express from 'express'
 import path from 'path'
 import testRoute from './routes/testRoute'
 import cors from 'cors'
+import { jwtVerifier } from './middleware/auth';
 
 // import extractColumnDescriptions from  './meta-gen/metadata-generator/parse/query-processor'
 // import 
@@ -27,7 +28,14 @@ app.get('/', (req,res)=>{
   res.send(__dirname)
 })
 
-
-app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`)
+jwtVerifier
+.hydrate()
+.catch((err) => {
+  console.error(`Failed to hydrate JWT verifier: ${err}`);
+  process.exit(1);
 })
+.then(() =>
+  app.listen(PORT, () => {
+    console.log(`Example app listening at http://localhost:${PORT}`)
+  })
+)

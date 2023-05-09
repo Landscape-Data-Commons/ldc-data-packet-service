@@ -9,11 +9,10 @@ import {
 } from 'express-oauth2-jwt-bearer';
 import { linkCreator, newpackager } from '../controllers/newpackager';
 
+
 interface Claim extends JWTPayload {
   permissions: string[]
 }
-
-
 
 const router = express.Router()
 
@@ -78,15 +77,16 @@ router.put('/unrestricted',
 // NDOW BLOCK
 router.put('/ndow', 
         authCheck, 
-        requiredScopes('read:NDOW'),
-        claimCheck((claim:Claim)=>{
-          return (
-            !claim.permissions.includes('read:NWERN') && 
-            claim.permissions.includes('read:NDOW') &&
-            !claim.permissions.includes('read:RHEM')
-          )
-        }),
+        // requiredScopes('read:NDOW'),
+        // claimCheck((claim:Claim)=>{
+        //   return (
+        //     !claim.permissions.includes('read:NWERN') && 
+        //     claim.permissions.includes('read:NDOW') &&
+        //     !claim.permissions.includes('read:RHEM')
+        //   )
+        // }),
         (req,res,next)=>{
+          console.log("first router")
           res.locals.test = linkCreator()
           next()
         }
@@ -94,15 +94,16 @@ router.put('/ndow',
 
 router.put('/ndow', 
           authCheck, 
-          requiredScopes('read:NDOW'),
-          claimCheck((claim:Claim)=>{
-            return (
-              !claim.permissions.includes('read:NWERN') && 
-              claim.permissions.includes('read:NDOW') &&
-              !claim.permissions.includes('read:RHEM')
-            )
-          }),
+          // requiredScopes('read:NDOW'),
+          // claimCheck((claim:Claim)=>{
+          //   return (
+          //     !claim.permissions.includes('read:NWERN') && 
+          //     claim.permissions.includes('read:NDOW') &&
+          //     !claim.permissions.includes('read:RHEM')
+          //   )
+          // }),
           async (req, res, next)=>{
+            console.log("second router")
             const informationObject = await res.locals.test
             testController.createData(req,res, next)
             res.status(200).json({"informationObj":informationObject})
